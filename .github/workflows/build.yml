@@ -121,8 +121,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release upload ${{ github.ref_name }} --clobber \
-            artifacts/WhichClaw-win/* \
-            artifacts/WhichClaw-mac/* \
-            artifacts/WhichClaw-linux/*
+          mkdir -p upload
+          cp artifacts/WhichClaw-win/* upload/ 2>/dev/null || true
+          cp artifacts/WhichClaw-mac/* upload/ 2>/dev/null || true
+          cp artifacts/WhichClaw-linux/* upload/ 2>/dev/null || true
+          echo "Files to upload:"
+          ls -la upload/
+          gh release upload ${{ github.ref_name }} --clobber upload/*
 
