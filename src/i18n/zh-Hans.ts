@@ -172,6 +172,9 @@ const zhHans: Partial<Translations> = {
     // 本地服务器
     'server.gpuFull': '⚡ GPU 全速',
     'server.cpuOnly': '🖥 仅 CPU',
+    'server.setupEngine': '安装引擎',
+    'server.downloading': '下载中',
+    'server.installing': '安装中…',
     // ModelStore 按钮
     'store.add': '[+添加]',
     'store.del': '[-删除]',

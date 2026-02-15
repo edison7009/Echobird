@@ -6,6 +6,7 @@ import https from 'https';
 import path from 'path';
 import fs from 'fs';
 import { addAppLog } from '../appLogger.js';
+import { isLlamaServerInstalled, findLlamaServerInUserData, downloadLlamaServer, getLlamaInstallDir, cancelLlamaDownload } from '../llamaDownloader.js';
 
 // Store current active server instance
 let serverProcess: ChildProcess | null = null;
@@ -58,20 +59,20 @@ function addLog(msg: string) {
 
 /**
  * 获取 llama-server 可执行文件路径（跨平台）
- * Windows: llama-server.exe / macOS & Linux: llama-server
+ * 搜索顺序: 1. 内置(resources) 2. 运行时下载(userData) 3. 开发模式
  */
 function findLlamaServerExe(): string | null {
     const exeName = process.platform === 'win32' ? 'llama-server.exe' : 'llama-server';
 
-    // 打包后: resources/local/bin/
-    // 开发模式: electron/local/bin/ 或 dist-electron/../local/bin/
     const searchDirs: string[] = [];
 
-    // 打包后路径
+    // 1. 打包后内置路径: resources/local/bin/
     if (process.resourcesPath) {
         searchDirs.push(path.join(process.resourcesPath, 'local', 'bin'));
     }
-    // 开发模式路径
+    // 2. 运行时下载路径: userData/llama-server/bin/
+    searchDirs.push(path.join(getLlamaInstallDir(), 'bin'));
+    // 3. 开发模式路径
     searchDirs.push(path.join(__dirname, '../local/bin'));
     searchDirs.push(path.join(process.cwd(), 'electron/local/bin'));
 
@@ -83,13 +84,15 @@ function findLlamaServerExe(): string | null {
         if (fs.existsSync(directPath)) return directPath;
 
         // 在子目录中查找（如 llama-b7981-bin-xxx/ 目录）
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        for (const entry of entries) {
-            if (entry.isDirectory()) {
-                const exePath = path.join(dir, entry.name, exeName);
-                if (fs.existsSync(exePath)) return exePath;
+        try {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            for (const entry of entries) {
+                if (entry.isDirectory()) {
+                    const exePath = path.join(dir, entry.name, exeName);
+                    if (fs.existsSync(exePath)) return exePath;
+                }
             }
-        }
+        } catch { /* 忽略 */ }
     }
     return null;
 }
@@ -881,7 +884,67 @@ export function registerLocalModelHandlers() {
         }
     }
 
-    // 下载模型文件（支持断点续传 + 多源回退）
+    /**
+     * 测试单个模型下载源的速度（5 秒内下载的字节数）
+     */
+    function testModelSourceSpeed(url: string, name: string): Promise<{ name: string; speed: number }> {
+        return new Promise((resolve) => {
+            const TEST_DURATION = 5000;
+            let bytes = 0;
+            let settled = false;
+            let activeReq: any = null;
+            const startTime = Date.now();
+
+            const done = () => {
+                if (settled) return;
+                settled = true;
+                const elapsed = (Date.now() - startTime) / 1000;
+                const speed = elapsed > 0 ? bytes / elapsed : 0;
+                try { activeReq?.destroy(); } catch { /* 忽略 */ }
+                console.log(`[ModelStore] Speed test ${name}: ${(speed / 1024).toFixed(0)} KB/s (${(bytes / 1024).toFixed(0)} KB in ${elapsed.toFixed(1)}s)`);
+                resolve({ name, speed });
+            };
+
+            const handleRedirect = (currentUrl: string, redirectCount: number) => {
+                if (redirectCount > 5 || settled) { done(); return; }
+                try {
+                    const client = currentUrl.startsWith('https') ? https : http;
+                    const r = client.get(currentUrl, { headers: { 'User-Agent': 'WhichClaw/1.0' } }, (res) => {
+                        if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                            const nextUrl = new URL(res.headers.location, currentUrl).href;
+                            handleRedirect(nextUrl, redirectCount + 1);
+                            return;
+                        }
+                        if (res.statusCode !== 200) { done(); return; }
+                        res.on('data', (chunk: Buffer) => { bytes += chunk.length; });
+                        setTimeout(done, TEST_DURATION);
+                    });
+                    activeReq = r;
+                    r.on('error', () => done());
+                    r.setTimeout(8000, () => { r.destroy(); done(); });
+                } catch { done(); }
+            };
+
+            try {
+                const client = url.startsWith('https') ? https : http;
+                const r = client.get(url, { headers: { 'User-Agent': 'WhichClaw/1.0' } }, (res) => {
+                    if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+                        const nextUrl = new URL(res.headers.location, url).href;
+                        handleRedirect(nextUrl, 1);
+                        return;
+                    }
+                    if (res.statusCode !== 200) { done(); return; }
+                    res.on('data', (chunk: Buffer) => { bytes += chunk.length; });
+                    setTimeout(done, TEST_DURATION);
+                });
+                activeReq = r;
+                r.on('error', () => done());
+                r.setTimeout(8000, () => { r.destroy(); done(); });
+            } catch { done(); }
+        });
+    }
+
+    // 下载模型文件（支持断点续传 + 测速选源）
     ipcMain.handle('model:download-model', async (_event, repo: string, fileName: string) => {
         const dir = getDownloadDir();
         const savePath = path.join(dir, fileName);
@@ -1011,8 +1074,32 @@ export function registerLocalModelHandlers() {
             });
         }
 
-        // 按顺序尝试每个下载源
-        for (const source of downloadSources) {
+        // 测速选择最快下载源（并行测速 5 秒）
+        console.log(`[ModelStore] Speed testing ${downloadSources.length} sources...`);
+        addAppLog('DOWNLOAD', `Speed testing ${downloadSources.length} sources for: ${fileName}`);
+
+        const speedResults = await Promise.all(
+            downloadSources.map(source => testModelSourceSpeed(source.url, source.name))
+        );
+
+        // 按速度排序（最快的在前），排除完全不可用的
+        const sortedSources = speedResults
+            .filter(r => r.speed > 0)
+            .sort((a, b) => b.speed - a.speed);
+
+        if (sortedSources.length === 0) {
+            sendProgress({ fileName, progress: 0, downloaded: 0, total: 0, status: 'error' });
+            addAppLog('ERROR', `Download failed: ${fileName} (all sources unreachable)`);
+            return { success: false, error: 'All download sources unreachable' };
+        }
+
+        console.log('[ModelStore] Source speed results:');
+        sortedSources.forEach(r => console.log(`  ${r.name}: ${(r.speed / 1024).toFixed(0)} KB/s`));
+        addAppLog('DOWNLOAD', `Fastest source: ${sortedSources[0].name} (${(sortedSources[0].speed / 1024).toFixed(0)} KB/s)`);
+
+        // 用最快的源下载，失败回退
+        for (const fastest of sortedSources) {
+            const source = downloadSources.find(s => s.name === fastest.name)!;
             const result = await tryDownloadFromSource(source);
             if (result.success) return result;
             console.log(`[ModelStore] ${source.name} failed: ${result.error}`);
@@ -1020,8 +1107,8 @@ export function registerLocalModelHandlers() {
 
         // 所有源都失败
         sendProgress({ fileName, progress: 0, downloaded: 0, total: 0, status: 'error' });
-        addAppLog('ERROR', `Download failed: ${fileName} (all sources unavailable)`);
-        return { success: false, error: 'All download sources unavailable' };
+        addAppLog('ERROR', `Download failed: ${fileName} (all sources failed)`);
+        return { success: false, error: 'All download sources failed' };
     });
 
     // 暂停下载 — 中断请求但保留 .downloading 临时文件（支持续传）
@@ -1037,13 +1124,24 @@ export function registerLocalModelHandlers() {
             addAppLog('DOWNLOAD', `Download paused: ${fileName}`);
             return { success: true };
         }
-        return { success: false, error: 'No active download task' };
+        // llama-server 不支持断点续传，暂停 = 取消
+        cancelLlamaDownload();
+        addAppLog('DOWNLOAD', `Engine download cancelled (pause)`);
+        return { success: true };
     });
 
     // 取消下载 — 中断请求并删除 .downloading 临时文件（支持暂停后取消）
     ipcMain.handle('model:cancel-download', (_event, targetFileName?: string) => {
         // 优先用传入的 fileName（暂停后取消），其次用活跃下载的
         const fileName = targetFileName || activeDownload?.fileName;
+
+        // llama-server 引擎下载的取消
+        if (fileName && fileName.startsWith('llama-server')) {
+            cancelLlamaDownload();
+            addAppLog('DOWNLOAD', `Engine download cancelled: ${fileName}`);
+            return { success: true };
+        }
+
         if (!fileName) {
             return { success: false, error: 'No download to cancel' };
         }
@@ -1070,5 +1168,31 @@ export function registerLocalModelHandlers() {
         sendProgress({ fileName, progress: 0, downloaded: 0, total: 0, status: 'cancelled' });
         addAppLog('DOWNLOAD', `Download cancelled: ${fileName}`);
         return { success: true };
+    });
+
+    // ============================================================
+    // llama-server 引擎检测 & 运行时下载
+    // ============================================================
+
+    // 检测 llama-server 是否可用（内置 + 运行时下载 + 开发模式）
+    ipcMain.handle('model:check-llama-server', () => {
+        const exePath = findLlamaServerExe();
+        return {
+            installed: !!exePath,
+            path: exePath || null,
+        };
+    });
+
+    // 下载 llama-server 引擎
+    ipcMain.handle('model:download-llama-server', async () => {
+        console.log('[LlamaDownloader] Download requested by user');
+        addAppLog('DOWNLOAD', 'llama-server engine download started');
+        const result = await downloadLlamaServer();
+        if (result.success) {
+            addAppLog('DOWNLOAD', 'llama-server engine installed successfully');
+        } else {
+            addAppLog('DOWNLOAD', `llama-server download failed: ${result.error}`);
+        }
+        return result;
     });
 }

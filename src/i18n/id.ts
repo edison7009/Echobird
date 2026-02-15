@@ -162,6 +162,9 @@ const id: Partial<Translations> = {
     'debug.errors': 'kesalahan',
     'server.gpuFull': '⚡ GPU Penuh',
     'server.cpuOnly': '🖥 CPU Saja',
+    'server.setupEngine': 'SETUP MESIN',
+    'server.downloading': 'MENGUNDUH',
+    'server.installing': 'MENGINSTAL…',
     // Tombol ModelStore — pertahankan bahasa Inggris untuk konsistensi UI
     'store.add': '[+ADD]',
     'store.del': '[-DEL]',

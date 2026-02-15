@@ -185,6 +185,9 @@ const en: Translations = {
     // 本地服务器
     'server.gpuFull': '⚡ GPU Full',
     'server.cpuOnly': '🖥 CPU Only',
+    'server.setupEngine': 'SETUP ENGINE',
+    'server.downloading': 'DOWNLOADING',
+    'server.installing': 'INSTALLING...',
     // ModelStore 按钮
     'store.add': '[+ADD]',
     'store.del': '[-DEL]',

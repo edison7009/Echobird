@@ -77,6 +77,10 @@ interface Window {
         stopLocalModelServer: () => Promise<{ success: boolean; error?: string }>;
         getLocalModelServerLogs: () => Promise<string[]>;
         getLocalModelServerStatus: () => Promise<{ running: boolean; pid?: number }>;
+        // llama-server 引擎检测 & 下载 APIs
+        checkLlamaServer: () => Promise<{ installed: boolean; path: string | null }>;
+        downloadLlamaServer: () => Promise<{ success: boolean; error?: string }>;
+        onLlamaDownloadProgress: (callback: (data: { fileName: string; progress: number; downloaded: number; total: number; status: string }) => void) => void;
         // Model Store APIs（模型商城）
         getStoreModels: () => Promise<any[]>;
         getDownloadedModels: () => Promise<{ fileName: string; filePath: string; fileSize: number }[]>;

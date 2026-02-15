@@ -64,6 +64,12 @@ try {
         stopLocalModelServer: () => ipcRenderer.invoke('model:stop-server'),
         getLocalModelServerLogs: () => ipcRenderer.invoke('model:get-server-logs'),
         getLocalModelServerStatus: () => ipcRenderer.invoke('model:get-server-status'),
+        checkLlamaServer: () => ipcRenderer.invoke('model:check-llama-server'),
+        downloadLlamaServer: () => ipcRenderer.invoke('model:download-llama-server'),
+        onLlamaDownloadProgress: (callback: (data: { fileName: string; progress: number; downloaded: number; total: number; status: string }) => void) => {
+            ipcRenderer.removeAllListeners('llama-download-progress');
+            ipcRenderer.on('llama-download-progress', (_event, data) => callback(data));
+        },
 
         // Model Store APIs
         getStoreModels: () => ipcRenderer.invoke('model:get-store-models'),

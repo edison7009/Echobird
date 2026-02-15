@@ -185,6 +185,9 @@ const zhHant: Partial<Translations> = {
     // 本機伺服器
     'server.gpuFull': '⚡ GPU 全速',
     'server.cpuOnly': '🖥 僅 CPU',
+    'server.setupEngine': '安裝引擎',
+    'server.downloading': '下載中',
+    'server.installing': '安裝中…',
     // ModelStore 按鈕
     'store.add': '[+新增]',
     'store.del': '[-刪除]',

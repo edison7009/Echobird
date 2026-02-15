@@ -185,7 +185,10 @@ const ja: Partial<Translations> = {
     // ローカルサーバー
     'server.gpuFull': '⚡ GPU フル',
     'server.cpuOnly': '🖥 CPU のみ',
-    // ModelStore ボタン — UI 一貫性のため英語を維持
+    'server.setupEngine': 'エンジンをセットアップ',
+    'server.downloading': 'ダウンロード中',
+    'server.installing': 'インストール中…',
+    // ModelStore ボタン
     'store.add': '[+ADD]',
     'store.del': '[-DEL]',
     'store.cancel': '[CANCEL]',

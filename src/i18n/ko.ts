@@ -185,6 +185,9 @@ const ko: Partial<Translations> = {
     // 로컬 서버
     'server.gpuFull': '⚡ GPU 풀',
     'server.cpuOnly': '🖥 CPU 전용',
+    'server.setupEngine': '엔진 설정',
+    'server.downloading': '다운로드 중',
+    'server.installing': '설치 중…',
     // ModelStore 버튼 — UI 일관성을 위해 영어 유지
     'store.add': '[+ADD]',
     'store.del': '[-DEL]',

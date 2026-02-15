@@ -162,6 +162,9 @@ const ms: Partial<Translations> = {
     'debug.errors': 'ralat',
     'server.gpuFull': '⚡ GPU Penuh',
     'server.cpuOnly': '🖥 CPU Sahaja',
+    'server.setupEngine': 'SETUP ENJIN',
+    'server.downloading': 'MEMUAT TURUN',
+    'server.installing': 'MEMASANG…',
     // Butang ModelStore — kekalkan bahasa Inggeris untuk konsistensi UI
     'store.add': '[+ADD]',
     'store.del': '[-DEL]',

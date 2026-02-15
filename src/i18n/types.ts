@@ -76,6 +76,7 @@ export type TKey =
     | 'debug.ready' | 'debug.analyzing' | 'debug.idle' | 'debug.errors'
     // 本地服务器
     | 'server.gpuFull' | 'server.cpuOnly'
+    | 'server.setupEngine' | 'server.downloading' | 'server.installing'
     // ModelStore 按钮
     | 'store.add' | 'store.del' | 'store.cancel' | 'store.remove'
     | 'store.ver' | 'store.ready'

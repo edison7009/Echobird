@@ -294,6 +294,11 @@ if (!app.isPackaged) {
     app.setPath('sessionData', path.join(userDataPath, 'session'));
 }
 
+// Linux AppImage 需要禁用 sandbox（SUID sandbox 权限问题）
+if (process.platform === 'linux') {
+    app.commandLine.appendSwitch('no-sandbox');
+}
+
 // Disable GPU cache to avoid cache errors
 app.commandLine.appendSwitch('disable-gpu-shader-disk-cache');
 app.commandLine.appendSwitch('disable-gpu-program-cache');

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Square, Terminal, ChevronDown } from 'lucide-react';
+import { Play, Square, Terminal, ChevronDown, Download, Loader2 } from 'lucide-react';
 import { MiniSelect } from './MiniSelect';
 import { useI18n } from '../hooks/useI18n';
 
@@ -9,6 +9,9 @@ interface LocalModelPlayerProps {
     onBack?: () => void;
     modelFilePath?: string; // Selected model path from ModelStore
 }
+
+// 引擎状态类型
+type EngineStatus = 'checking' | 'ready' | 'not-installed' | 'downloading' | 'installing' | 'error';
 
 export const LocalModelPlayer: React.FC<LocalModelPlayerProps> = ({ className, modelFilePath }) => {
     const { t } = useI18n();
@@ -29,6 +32,10 @@ export const LocalModelPlayer: React.FC<LocalModelPlayerProps> = ({ className, m
     // Copy feedback
     const [copied, setCopied] = useState<string>('');
 
+    // 引擎检测状态
+    const [engineStatus, setEngineStatus] = useState<EngineStatus>('checking');
+    const [downloadProgress, setDownloadProgress] = useState<number>(0);
+
     // Extract model name and quantization from file path
     const parseModelInfo = (filePath: string) => {
         if (!filePath) return { name: 'NO MODEL SELECTED', quant: '', shortPath: '' };
@@ -42,6 +49,41 @@ export const LocalModelPlayer: React.FC<LocalModelPlayerProps> = ({ className, m
     };
 
     const modelInfo = parseModelInfo(modelFilePath || '');
+
+    // 检测 llama-server 引擎是否安装
+    useEffect(() => {
+        const checkEngine = async () => {
+            setEngineStatus('checking');
+            if (window.electron?.checkLlamaServer) {
+                const result = await window.electron.checkLlamaServer();
+                setEngineStatus(result.installed ? 'ready' : 'not-installed');
+            } else {
+                // 没有 IPC（可能是开发模式老版本），默认 ready
+                setEngineStatus('ready');
+            }
+        };
+        checkEngine();
+    }, []);
+
+    // 监听引擎下载进度
+    useEffect(() => {
+        if (!window.electron?.onLlamaDownloadProgress) return;
+        window.electron.onLlamaDownloadProgress((data) => {
+            if (data.status === 'downloading') {
+                setEngineStatus('downloading');
+                setDownloadProgress(data.progress);
+            } else if (data.status === 'completed') {
+                setEngineStatus('ready');
+                setDownloadProgress(100);
+            } else if (data.status === 'cancelled') {
+                // 取消后回退到 SETUP ENGINE
+                setEngineStatus('not-installed');
+                setDownloadProgress(0);
+            } else if (data.status === 'error') {
+                setEngineStatus('error');
+            }
+        });
+    }, []);
 
     // Init + Polling
     useEffect(() => {
@@ -74,7 +116,10 @@ export const LocalModelPlayer: React.FC<LocalModelPlayerProps> = ({ className, m
         const interval = setInterval(async () => {
             if (window.electron?.getLocalModelServerLogs) {
                 const serverLogs = await window.electron.getLocalModelServerLogs();
-                setLogs(serverLogs);
+                // 只在后端有日志时更新，避免覆盖前端追加的错误信息
+                if (serverLogs.length > 0) {
+                    setLogs(serverLogs);
+                }
             }
             if (window.electron?.getLocalModelServerStatus) {
                 const status = await window.electron.getLocalModelServerStatus();
@@ -112,6 +157,21 @@ export const LocalModelPlayer: React.FC<LocalModelPlayerProps> = ({ className, m
         logsEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
+    // 下载引擎
+    const handleDownloadEngine = async () => {
+        setEngineStatus('downloading');
+        setDownloadProgress(0);
+        if (window.electron?.downloadLlamaServer) {
+            const result = await window.electron.downloadLlamaServer();
+            if (result.success) {
+                setEngineStatus('ready');
+            } else {
+                setEngineStatus('error');
+                setLogs(prev => [...prev, `[Error] Engine download failed: ${result.error}`]);
+            }
+        }
+    };
+
     // Start/Stop server
     const handleToggleServer = async () => {
         if (isRunning) {
@@ -146,6 +206,83 @@ export const LocalModelPlayer: React.FC<LocalModelPlayerProps> = ({ className, m
         navigator.clipboard.writeText(`http://127.0.0.1:${serverPort}${path}`);
         setCopied(path);
         setTimeout(() => setCopied(''), 2000);
+    };
+
+    // 渲染 START 按钮内容（状态机）
+    const renderStartButton = () => {
+        // 引擎未安装：显示 SETUP ENGINE
+        if (engineStatus === 'not-installed' || engineStatus === 'error') {
+            return (
+                <button
+                    onClick={handleDownloadEngine}
+                    className="w-full py-3 font-bold text-base tracking-[0.3em] font-mono transition-all flex items-center justify-center gap-2
+                        bg-cyber-accent/10 text-cyber-accent border border-cyber-accent/50 hover:bg-cyber-accent/20 shadow-[0_0_15px_rgba(0,255,157,0.15)]"
+                >
+                    <Download className="w-4 h-4" />
+                    {engineStatus === 'error' ? '⚠ RETRY SETUP' : t('server.setupEngine')}
+                </button>
+            );
+        }
+
+        // 下载中：显示进度条
+        if (engineStatus === 'downloading') {
+            return (
+                <div className="w-full relative overflow-hidden border border-cyber-accent/50 bg-cyber-accent/5">
+                    {/* 进度条背景 */}
+                    <div
+                        className="absolute inset-0 bg-cyber-accent/15 transition-all duration-300 ease-out"
+                        style={{ width: `${downloadProgress}%` }}
+                    />
+                    {/* 文字 */}
+                    <div className="relative py-3 flex items-center justify-center gap-2 font-bold text-base tracking-[0.3em] font-mono text-cyber-accent">
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        {t('server.downloading')} {downloadProgress}%
+                    </div>
+                </div>
+            );
+        }
+
+        // 安装中
+        if (engineStatus === 'installing') {
+            return (
+                <div className="w-full py-3 font-bold text-base tracking-[0.3em] font-mono flex items-center justify-center gap-2
+                    bg-cyber-accent/10 text-cyber-accent border border-cyber-accent/50">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    {t('server.installing')}
+                </div>
+            );
+        }
+
+        // 检测中
+        if (engineStatus === 'checking') {
+            return (
+                <div className="w-full py-3 font-bold text-base tracking-[0.3em] font-mono flex items-center justify-center gap-2
+                    bg-cyber-accent/10 text-cyber-accent/50 border border-cyber-accent/30">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    CHECKING...
+                </div>
+            );
+        }
+
+        // 正常状态：START / STOP
+        return (
+            <button
+                onClick={handleToggleServer}
+                disabled={!modelFilePath}
+                className={`w-full py-3 font-bold text-base tracking-[0.3em] font-mono transition-all flex items-center justify-center gap-2 ${!modelFilePath
+                    ? 'bg-cyber-border/30 text-cyber-text-muted/50 cursor-not-allowed border border-cyber-border/30'
+                    : isRunning
+                        ? 'bg-red-500/10 text-red-400 border border-red-500/50 hover:bg-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.15)]'
+                        : 'bg-cyber-accent/10 text-cyber-accent border border-cyber-accent/50 hover:bg-cyber-accent/20 shadow-[0_0_15px_rgba(0,255,157,0.15)]'
+                    }`}
+            >
+                {isRunning ? (
+                    <><Square className="w-3.5 h-3.5 fill-current" /> {t('btn.stop')}</>
+                ) : (
+                    <><Play className="w-3.5 h-3.5 fill-current" /> {t('btn.start')}</>
+                )}
+            </button>
+        );
     };
 
     return (
@@ -223,23 +360,8 @@ export const LocalModelPlayer: React.FC<LocalModelPlayerProps> = ({ className, m
                     </div>
                 </div>
 
-                {/* Start button */}
-                <button
-                    onClick={handleToggleServer}
-                    disabled={!modelFilePath}
-                    className={`w-full py-3 font-bold text-base tracking-[0.3em] font-mono transition-all flex items-center justify-center gap-2 ${!modelFilePath
-                        ? 'bg-cyber-border/30 text-cyber-text-muted/50 cursor-not-allowed border border-cyber-border/30'
-                        : isRunning
-                            ? 'bg-red-500/10 text-red-400 border border-red-500/50 hover:bg-red-500/20 shadow-[0_0_15px_rgba(239,68,68,0.15)]'
-                            : 'bg-cyber-accent/10 text-cyber-accent border border-cyber-accent/50 hover:bg-cyber-accent/20 shadow-[0_0_15px_rgba(0,255,157,0.15)]'
-                        }`}
-                >
-                    {isRunning ? (
-                        <><Square className="w-3.5 h-3.5 fill-current" /> {t('btn.stop')}</>
-                    ) : (
-                        <><Play className="w-3.5 h-3.5 fill-current" /> {t('btn.start')}</>
-                    )}
-                </button>
+                {/* Start button — 状态机渲染 */}
+                {renderStartButton()}
             </div>
 
             {/* ===== Terminal Output ===== */}

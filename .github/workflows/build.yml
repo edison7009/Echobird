@@ -20,30 +20,20 @@ jobs:
     strategy:
       matrix:
         include:
-          # Windows Full（含 CUDA）
+          # Windows（NSIS 安装包）
           - os: windows-latest
             platform: win
             target: nsis
-            llama_files: |
-              llama-{ver}-bin-win-cuda-{cuda}-x64.zip
-              cudart-llama-bin-win-cuda-{cuda}-x64.zip
-            llama_extract: zip
 
-          # macOS ARM（Metal GPU 加速）
+          # macOS ARM（DMG）
           - os: macos-latest
             platform: mac
             target: dmg
-            llama_files: |
-              llama-{ver}-bin-macos-arm64.tar.gz
-            llama_extract: tar
 
-          # Linux x64（CPU，Vulkan 可选）
+          # Linux x64（AppImage）
           - os: ubuntu-latest
             platform: linux
             target: AppImage
-            llama_files: |
-              llama-{ver}-bin-ubuntu-x64.tar.gz
-            llama_extract: tar
 
     runs-on: ${{ matrix.os }}
     name: Build (${{ matrix.platform }})
@@ -61,42 +51,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # ===== 下载 llama-server 二进制 =====
-      - name: Download llama-server binaries
-        shell: bash
-        run: |
-          BIN_DIR="electron/local/bin"
-          mkdir -p "$BIN_DIR"
-          BASE_URL="https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_VERSION}"
-
-          # 替换版本占位符
-          FILES=$(echo "${{ matrix.llama_files }}" | sed "s/{ver}/${LLAMA_VERSION}/g" | sed "s/{cuda}/${LLAMA_CUDA_VER}/g" | tr -d ' ')
-
-          for FILE in $FILES; do
-            [ -z "$FILE" ] && continue
-            URL="${BASE_URL}/${FILE}"
-            echo "⬇️ Downloading: $URL"
-            curl -L -o "$FILE" "$URL"
-
-            # 解压到对应目录
-            DIR_NAME="${FILE%.*}"
-            # 处理 .tar.gz 双扩展名
-            if [[ "$FILE" == *.tar.gz ]]; then
-              DIR_NAME="${FILE%.tar.gz}"
-            fi
-
-            mkdir -p "$BIN_DIR/$DIR_NAME"
-            if [[ "$FILE" == *.zip ]]; then
-              unzip -o "$FILE" -d "$BIN_DIR/$DIR_NAME"
-            else
-              tar -xzf "$FILE" -C "$BIN_DIR/$DIR_NAME"
-            fi
-            rm "$FILE"
-            echo "✅ Extracted: $DIR_NAME"
-          done
-
-          echo "📁 Contents of $BIN_DIR:"
-          ls -la "$BIN_DIR"/
+      # llama-server 不再捆绑打包，改为运行时按需下载（见 llamaDownloader.ts）
 
       # 生成图标
       - name: Generate icons
@@ -114,7 +69,7 @@ jobs:
       - name: Package with electron-builder
         run: npx electron-builder --${{ matrix.platform }} ${{ matrix.target }}
 
-      # 上传构建产物
+      # 上传构建产物（供后续 release job 使用）
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -127,3 +82,28 @@ jobs:
             release/*.blockmap
           if-no-files-found: warn
           retention-days: 30
+
+  # 创建 GitHub Release（仅 tag 触发时）
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    name: Create Release
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: false
+          generate_release_notes: true
+          files: |
+            artifacts/WhichClaw-win/*
+            artifacts/WhichClaw-mac/*
+            artifacts/WhichClaw-linux/*

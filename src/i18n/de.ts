@@ -185,6 +185,9 @@ const de: Partial<Translations> = {
     // Lokaler Server
     'server.gpuFull': '⚡ GPU Voll',
     'server.cpuOnly': '🖥 Nur CPU',
+    'server.setupEngine': 'ENGINE EINRICHTEN',
+    'server.downloading': 'WIRD HERUNTERGELADEN',
+    'server.installing': 'INSTALLIERE…',
     // ModelStore Buttons
     'store.add': '[+HINZU]',
     'store.del': '[-ENTF]',
