@@ -1,0 +1,129 @@
+name: Build & Release
+
+on:
+  # 手动触发
+  workflow_dispatch:
+  # 推送 tag 自动触发
+  push:
+    tags:
+      - 'v*'
+
+env:
+  NODE_VERSION: '20'
+  CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+  # llama.cpp 版本号（统一管理，升级时只改这里）
+  LLAMA_VERSION: 'b7981'
+  LLAMA_CUDA_VER: '13.1'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          # Windows Full（含 CUDA）
+          - os: windows-latest
+            platform: win
+            target: nsis
+            llama_files: |
+              llama-{ver}-bin-win-cuda-{cuda}-x64.zip
+              cudart-llama-bin-win-cuda-{cuda}-x64.zip
+            llama_extract: zip
+
+          # macOS ARM（Metal GPU 加速）
+          - os: macos-latest
+            platform: mac
+            target: dmg
+            llama_files: |
+              llama-{ver}-bin-macos-arm64.tar.gz
+            llama_extract: tar
+
+          # Linux x64（CPU，Vulkan 可选）
+          - os: ubuntu-latest
+            platform: linux
+            target: AppImage
+            llama_files: |
+              llama-{ver}-bin-ubuntu-x64.tar.gz
+            llama_extract: tar
+
+    runs-on: ${{ matrix.os }}
+    name: Build (${{ matrix.platform }})
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # ===== 下载 llama-server 二进制 =====
+      - name: Download llama-server binaries
+        shell: bash
+        run: |
+          BIN_DIR="electron/local/bin"
+          mkdir -p "$BIN_DIR"
+          BASE_URL="https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_VERSION}"
+
+          # 替换版本占位符
+          FILES=$(echo "${{ matrix.llama_files }}" | sed "s/{ver}/${LLAMA_VERSION}/g" | sed "s/{cuda}/${LLAMA_CUDA_VER}/g" | tr -d ' ')
+
+          for FILE in $FILES; do
+            [ -z "$FILE" ] && continue
+            URL="${BASE_URL}/${FILE}"
+            echo "⬇️ Downloading: $URL"
+            curl -L -o "$FILE" "$URL"
+
+            # 解压到对应目录
+            DIR_NAME="${FILE%.*}"
+            # 处理 .tar.gz 双扩展名
+            if [[ "$FILE" == *.tar.gz ]]; then
+              DIR_NAME="${FILE%.tar.gz}"
+            fi
+
+            mkdir -p "$BIN_DIR/$DIR_NAME"
+            if [[ "$FILE" == *.zip ]]; then
+              unzip -o "$FILE" -d "$BIN_DIR/$DIR_NAME"
+            else
+              tar -xzf "$FILE" -C "$BIN_DIR/$DIR_NAME"
+            fi
+            rm "$FILE"
+            echo "✅ Extracted: $DIR_NAME"
+          done
+
+          echo "📁 Contents of $BIN_DIR:"
+          ls -la "$BIN_DIR"/
+
+      # 生成图标
+      - name: Generate icons
+        run: node scripts/generate-icons.mjs
+
+      # 构建前端 + 主进程
+      - name: Build frontend & main process
+        run: |
+          npm run copy:config
+          npm run build:tools
+          npm run build:main
+          npx vite build
+
+      # electron-builder 打包
+      - name: Package with electron-builder
+        run: npx electron-builder --${{ matrix.platform }} ${{ matrix.target }}
+
+      # 上传构建产物
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: WhichClaw-${{ matrix.platform }}
+          path: |
+            release/*Setup*.exe
+            release/*.dmg
+            release/*.AppImage
+            release/*.yml
+            release/*.blockmap
+          if-no-files-found: warn
+          retention-days: 30

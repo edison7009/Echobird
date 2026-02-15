@@ -1,0 +1,53 @@
+// Ελληνική μετάφραση
+import { Translations } from './types';
+
+const el: Partial<Translations> = {
+    'nav.modelNexus': 'Κέντρο Μοντέλων', 'nav.skillBrowser': 'Περιηγητής Δεξιοτήτων', 'nav.appManager': 'Διαχείριση Εφαρμογών', 'nav.localServer': 'Τοπικός Διακομιστής', 'nav.logsDebug': 'Αρχεία & Αποσφαλμάτωση',
+    'page.modelNexus': 'ΚΕΝΤΡΟ ΜΟΝΤΕΛΩΝ', 'page.skillBrowser': 'ΠΕΡΙΗΓΗΤΗΣ ΔΕΞΙΟΤΗΤΩΝ', 'page.appManager': 'ΔΙΑΧΕΙΡΙΣΗ ΕΦΑΡΜΟΓΩΝ', 'page.localServer': 'ΤΟΠΙΚΟΣ ΔΙΑΚΟΜΙΣΤΗΣ', 'page.logsDebug': 'ΑΡΧΕΙΑ & ΑΠΟΣΦΑΛΜΑΤΩΣΗ',
+    'settings.title': 'ΡΥΘΜΙΣΕΙΣ', 'settings.version': 'ΕΚΔΟΣΗ', 'settings.language': 'ΓΛΩΣΣΑ', 'settings.logsDebug': 'ΑΡΧΕΙΑ & ΑΠΟΣΦΑΛΜΑΤΩΣΗ', 'settings.updates': 'ΕΝΗΜΕΡΩΣΕΙΣ',
+    'settings.checkForUpdates': 'ΕΛΕΓΧΟΣ ΕΝΗΜΕΡΩΣΕΩΝ', 'settings.checking': 'Έλεγχος…', 'settings.latestVersion': 'Έχετε την τελευταία έκδοση', 'settings.checkFailed': 'Αποτυχία ελέγχου — δοκιμάστε ξανά',
+    'btn.addModel': 'ΠΡΟΣΘΗΚΗ ΜΟΝΤΕΛΟΥ', 'btn.apply': 'ΕΦΑΡΜΟΓΗ', 'btn.scanAgain': 'ΣΑΡΩΣΗ ΞΑΝΑ', 'btn.refresh': 'ΑΝΑΝΕΩΣΗ', 'btn.save': 'ΑΠΟΘΗΚΕΥΣΗ', 'btn.cancel': 'ΑΚΥΡΩΣΗ', 'btn.delete': 'ΔΙΑΓΡΑΦΗ', 'btn.edit': 'ΕΠΕΞΕΡΓΑΣΙΑ',
+    'btn.install': 'ΕΓΚΑΤΑΣΤΑΣΗ', 'btn.uninstall': 'ΑΠΕΓΚΑΤΑΣΤΑΣΗ', 'btn.launchApp': 'ΕΚΚΙΝΗΣΗ ΕΦΑΡΜΟΓΗΣ', 'btn.loading': 'ΦΟΡΤΩΣΗ…', 'btn.open': 'ΑΝΟΙΓΜΑ', 'btn.modifyOnly': 'ΜΟΝΟ ΤΡΟΠΟΠΟΙΗΣΗ',
+    'btn.start': 'ΕΝΑΡΞΗ', 'btn.stop': 'ΔΙΑΚΟΠΗ', 'btn.add': 'ΠΡΟΣΘΗΚΗ', 'btn.remove': 'ΑΦΑΙΡΕΣΗ', 'btn.saveModel': 'ΑΠΟΘΗΚΕΥΣΗ ΜΟΝΤΕΛΟΥ', 'btn.compute': 'ΥΠΟΛΟΓΙΣΜΟΣ', 'btn.sendLogs': 'ΑΠΟΣΤΟΛΗ ΑΡΧΕΙΩΝ ΣΤΟ AI',
+    'status.running': 'Εκτελείται', 'status.offline': 'Εκτός σύνδεσης', 'status.installed': 'Εγκατεστημένο', 'status.notInstalled': 'Μη εγκατεστημένο', 'status.scanning': 'Σάρωση…', 'status.paused': 'Σε παύση',
+    'search.skills': 'Αναζήτηση δεξιοτήτων…',
+    'model.name': 'Όνομα', 'model.apiKey': 'Κλειδί API', 'model.modelId': 'ID Μοντέλου', 'model.openaiUrl': 'OpenAI URL', 'model.anthropicUrl': 'Anthropic URL', 'model.proxyNode': 'Κόμβος Proxy',
+    'model.editConfig': 'ΕΠΕΞΕΡΓΑΣΙΑ ΡΥΘΜΙΣΕΩΝ ΜΟΝΤΕΛΟΥ', 'model.proxyTunnel': 'ΣΗΡΑΓΓΑ PROXY', 'model.specificProxy': 'Proxy συγκεκριμένου μοντέλου',
+    'model.deleteTitle': 'ΔΙΑΓΡΑΦΗ ΜΟΝΤΕΛΟΥ', 'model.deleteConfirm': 'Αυτές οι ρυθμίσεις μοντέλου θα αφαιρεθούν μόνιμα. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.',
+    'model.selectToTest': 'Επιλέξτε μοντέλο για δοκιμή', 'model.escCancel': '[ESC] ΑΚΥΡΩΣΗ', 'model.enterSave': '[ENTER] ΑΠΟΘΗΚΕΥΣΗ',
+    'skills.details': 'ΛΕΠΤΟΜΕΡΕΙΕΣ', 'skills.selectToView': 'Επιλέξτε δεξιότητα', 'skills.author': 'Συγγραφέας', 'skills.category': 'Κατηγορία',
+    'skills.description': 'ΠΕΡΙΓΡΑΦΗ', 'skills.noDescription': 'Χωρίς περιγραφή', 'skills.noSkillsInCategory': 'Δεν υπάρχουν δεξιότητες σε αυτή την κατηγορία',
+    'skills.catAll': 'Όλα', 'skills.catDevelopment': 'Ανάπτυξη', 'skills.catMarketing': 'Μάρκετινγκ', 'skills.catDesign': 'Σχεδίαση', 'skills.catResearch': 'Έρευνα', 'skills.catAIML': 'AI/ML', 'skills.catFinance': 'Χρηματοοικονομικά',
+    'agent.myLocalModel': 'Τοπικό μοντέλο μου', 'agent.selectTool': 'Επιλέξτε εργαλείο', 'agent.selectModelFor': 'Επιλέξτε μοντέλο:', 'agent.installedSkillsFor': 'Εγκατεστημένες δεξιότητες',
+    'agent.noSkills': 'Χωρίς δεξιότητες', 'agent.applyAndLaunch': 'Εφαρμογή ρυθμίσεων & εκκίνηση', 'agent.appliedVia': 'Εφαρμόστηκε μέσω επίσημων αρχείων ρυθμίσεων',
+    'server.selectModel': 'Επιλέξτε μοντέλο:', 'server.context': 'ΠΛΑΙΣΙΟ', 'server.port': 'ΘΥΡΑ', 'server.removeDirectories': 'ΑΦΑΙΡΕΣΗ ΦΑΚΕΛΩΝ',
+    'server.removeDirectoryConfirm': 'Αφαίρεση 1 φακέλου. Τα τοπικά αρχεία ΔΕΝ θα διαγραφούν.', 'server.compute': 'ΥΠΟΛΟΓΙΣΜΟΣ', 'server.stdout': 'STDOUT',
+    'server.selectFromPanel': 'επιλέξτε μοντέλο από δεξιά', 'server.awaitingInit': 'αναμονή αρχικοποίησης…', 'server.selectConfigStart': 'επιλογή → ρύθμιση → ΕΝΑΡΞΗ',
+    'server.local': 'ΤΟΠΙΚΟ', 'server.store': 'ΚΑΤΑΣΤΗΜΑ', 'server.selectModelDir': 'Επιλέξτε φάκελο μοντέλων', 'server.downloadFromStore': 'Λήψη μοντέλων από το ΚΑΤΑΣΤΗΜΑ',
+    'debug.console': 'ΚΟΝΣΟΛΑ ΑΠΟΣΦΑΛΜΑΤΩΣΗΣ', 'debug.selectModelForAI': 'Επιλέξτε μοντέλο AI', 'debug.selectModelHint': 'Επιλέξτε μοντέλο για AI ανάλυση',
+    'debug.sendLogsToAI': 'ΑΠΟΣΤΟΛΗ ΑΡΧΕΙΩΝ ΣΤΟ AI', 'debug.selectModelFirst': 'Επιλέξτε πρώτα μοντέλο',
+    'download.location': 'Τοποθεσία λήψης:', 'download.changePath': 'Αλλαγή διαδρομής', 'download.selectNewDir': 'Επιλογή νέου φακέλου;',
+    'quant.light': 'Ελαφρύ', 'quant.standard': 'Τυπικό', 'quant.extended': 'Εκτεταμένο', 'quant.large': 'Μεγάλο', 'quant.maximum': 'Μέγιστο',
+    'model.label': 'ΜΟΝΤΕΛΟ', 'model.source': 'ΠΗΓΗ', 'model.latency': 'ΚΑΘΥΣΤΕΡΗΣΗ', 'model.debugTesting': 'ΔΟΚΙΜΗ', 'model.cloud': 'ΝΕΦΟΣ', 'model.local': 'ΤΟΠΙΚΟ', 'model.tunnel': 'ΣΗΡΑΓΓΑ',
+    'btn.copy': '[ΑΝΤΙΓΡΑΦΗ]', 'btn.copied': '[✓]',
+    'common.noData': 'Χωρίς δεδομένα', 'common.confirm': 'Επιβεβαίωση', 'common.website': 'Ιστοσελίδα', 'common.areYouSure': 'Είστε σίγουροι;', 'btn.select': 'ΕΠΙΛΟΓΗ',
+    'toolCat.all': 'ΟΛΑ', 'toolCat.agentOS': 'AgentOS', 'toolCat.ide': 'IDE', 'toolCat.cli': 'CLI', 'toolCat.autoTrading': 'Αυτ. Συναλλαγές', 'toolCat.game': 'Παιχνίδι',
+    'toolCat.utility': 'Εργαλεία',
+    'agent.modelsTab': 'ΜΟΝΤΕΛΑ', 'agent.skillsTab': 'ΔΕΞΙΟΤΗΤΕΣ', 'tool.models': 'Μοντέλα', 'tool.skills': 'Δεξιότητες', 'tool.skillsInstalled': 'εγκατεστημένα', 'tool.app': 'Εφαρμογή', 'tool.config': 'Ρυθμίσεις',
+    'skills.viewGithub': 'ΕΜΦΑΝΙΣΗ GITHUB', 'skills.loading': 'Φόρτωση δεξιοτήτων…',
+    'vram.easy': 'Εύκολο', 'vram.good': 'Καλό', 'vram.tight': 'Στενό', 'vram.heavy': 'Βαρύ',
+    'status.complete': 'Ολοκληρώθηκε', 'status.failed': 'Απέτυχε', 'download.inQueue': 'σε ουρά', 'download.pause': 'Παύση', 'download.resume': 'Συνέχεια', 'download.cancel': 'Ακύρωση', 'download.retry': 'Επανάληψη',
+    'log.systemLog': 'ΑΡΧΕΙΑ ΣΥΣΤΗΜΑΤΟΣ', 'log.entries': 'εγγραφές', 'log.clear': 'ΚΑΘΑΡΙΣΜΟΣ',
+    'debug.ready': '[SYS] Κονσόλα έτοιμη', 'debug.analyzing': '[EXEC] ανάλυση…', 'debug.idle': '_ έτοιμο', 'debug.errors': 'σφάλματα',
+    'server.gpuFull': '⚡ GPU Πλήρες', 'server.cpuOnly': '🖥 Μόνο CPU',
+    'store.add': '[+ΠΡΟΣΘ]', 'store.del': '[-ΔΙΑΓΡ]', 'store.cancel': '[ΑΚΥΡΟ]', 'store.remove': 'ΑΦΑΙΡΕΣΗ', 'store.ver': 'ver', 'store.ready': '✓ Έτοιμο',
+    'close.title': 'Κλείσιμο παραθύρου', 'close.message': 'Ελαχιστοποίηση στη γραμμή ή πλήρης έξοδος;', 'close.minimize': 'Ελαχιστοποίηση', 'close.quit': 'Έξοδος', 'close.remember': 'Απομνημόνευση επιλογής',
+    'settings.closeBehavior': 'Συμπεριφορά κλεισίματος', 'settings.closeAsk': 'Ρώτα κάθε φορά', 'settings.closeMinimize': 'Ελαχιστοποίηση', 'settings.closeQuit': 'Πλήρης έξοδος',
+    // 开发者邀请提示
+    // API Key encryption status hints
+    'key.encrypted': 'Κρυπτογραφημένο — το API Key θα αυτοκαταστραφεί αν αλλάξει το περιβάλλον)',
+    'key.destroyed': 'Ανιχνεύθηκε αλλαγή περιβάλλοντος — το API Key αυτοκαταστράφηκε, εισάγετε ξανά',
+    'hint.devInvite': 'Αναπτύξτε AI εφαρμογές ή AI παιχνίδια — δείτε \"Reversi\" και \"AI Translate\".',
+};
+
+export default el;

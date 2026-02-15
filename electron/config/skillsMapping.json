@@ -1,0 +1,90 @@
+{
+    "sources": [
+        {
+            "id": "anthropics",
+            "name": "Anthropics Official",
+            "repo": "anthropics/skills",
+            "path": "skills"
+        },
+        {
+            "id": "vercel",
+            "name": "Vercel Labs",
+            "repo": "vercel-labs/skills",
+            "path": "skills"
+        },
+        {
+            "id": "coreyhaines",
+            "name": "Marketing Skills",
+            "repo": "coreyhaines31/marketingskills",
+            "path": "skills"
+        },
+        {
+            "id": "composio",
+            "name": "Composio Skills",
+            "repo": "ComposioHQ/awesome-claude-skills",
+            "path": ""
+        },
+        {
+            "id": "superpowers",
+            "name": "Obra Superpowers",
+            "repo": "obra/superpowers",
+            "path": "skills"
+        }
+    ],
+    "categoryMapping": {
+        "frontend-design": "Design",
+        "canvas-design": "Design",
+        "theme-factory": "Design",
+        "algorithmic-art": "Design",
+        "brand-guidelines": "Design",
+        "web-design-guidelines": "Design",
+        "ui-ux-pro-max": "Design",
+        "tailwind-design-system": "Design",
+        "mcp-builder": "Development",
+        "webapp-testing": "Development",
+        "web-artifacts-builder": "Development",
+        "skill-creator": "Development",
+        "test-driven-development": "Development",
+        "systematic-debugging": "Development",
+        "vercel-react-best-practices": "Development",
+        "next-best-practices": "Development",
+        "vue-best-practices": "Development",
+        "supabase-postgres-best-practices": "Development",
+        "pdf": "Productivity",
+        "docx": "Productivity",
+        "xlsx": "Productivity",
+        "pptx": "Productivity",
+        "doc-coauthoring": "Productivity",
+        "internal-comms": "Communication",
+        "slack-gif-creator": "Communication",
+        "seo-audit": "Marketing",
+        "programmatic-seo": "Marketing",
+        "copywriting": "Marketing",
+        "content-strategy": "Marketing",
+        "launch-strategy": "Marketing",
+        "pricing-strategy": "Marketing",
+        "copy-editing": "Marketing",
+        "ai-image-generation": "AI/ML",
+        "ai-video-generation": "AI/ML",
+        "prompt-engineering": "AI/ML",
+        "ai-rag-pipeline": "AI/ML",
+        "brainstorming": "Research",
+        "web-search": "Research",
+        "find-skills": "Research",
+        "audit-website": "Research"
+    },
+    "defaultCategory": "Other",
+    "briefOverrides": {
+        "frontend-design": "Create stunning, production-grade web interfaces",
+        "mcp-builder": "Build Model Context Protocol servers",
+        "canvas-design": "Design with HTML Canvas API",
+        "pdf": "Generate and manipulate PDF documents",
+        "docx": "Create and edit Word documents",
+        "xlsx": "Work with Excel spreadsheets",
+        "pptx": "Create PowerPoint presentations",
+        "seo-audit": "Analyze and improve search rankings",
+        "copywriting": "Write compelling marketing copy",
+        "ai-image-generation": "Create images with AI models",
+        "prompt-engineering": "Craft effective AI prompts"
+    }
+}

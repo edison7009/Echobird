@@ -1,0 +1,34 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+dist-electron/
+out/
+release/
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+
+# 编辑器
+.vscode/
+.idea/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+
+# 项目特有
+.whichclaw.pid
+.electron-cache
+
+# llama-server 二进制（CI 构建时下载）
+electron/tools/llama-server/bin/
+
+# Antigravity 本地缓存
+.gemini/

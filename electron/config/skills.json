@@ -1,0 +1,219 @@
+[
+    {
+        "id": "frontend-design",
+        "name": "Frontend Design",
+        "author": "anthropics/skills",
+        "category": "Development",
+        "brief": "Create stunning, production-grade web interfaces"
+    },
+    {
+        "id": "vercel-react-best-practices",
+        "name": "React Best Practices",
+        "author": "vercel-labs/agent-skills",
+        "category": "Development",
+        "brief": "Modern React patterns and optimization tips"
+    },
+    {
+        "id": "next-best-practices",
+        "name": "Next.js Best Practices",
+        "author": "vercel-labs/skills",
+        "category": "Development",
+        "brief": "Build performant Next.js applications"
+    },
+    {
+        "id": "typescript-advanced-types",
+        "name": "TypeScript Advanced",
+        "author": "anthropics/skills",
+        "category": "Development",
+        "brief": "Master advanced TypeScript type patterns"
+    },
+    {
+        "id": "test-driven-development",
+        "name": "Test-Driven Dev",
+        "author": "anthropics/skills",
+        "category": "Development",
+        "brief": "Write tests first, then implement code"
+    },
+    {
+        "id": "systematic-debugging",
+        "name": "Systematic Debugging",
+        "author": "anthropics/skills",
+        "category": "Development",
+        "brief": "Debug efficiently with structured approach"
+    },
+    {
+        "id": "mcp-builder",
+        "name": "MCP Builder",
+        "author": "anthropics/skills",
+        "category": "Development",
+        "brief": "Build Model Context Protocol servers"
+    },
+    {
+        "id": "supabase-postgres-best-practices",
+        "name": "Supabase Postgres",
+        "author": "supabase/skills",
+        "category": "Development",
+        "brief": "Optimize Supabase PostgreSQL databases"
+    },
+    {
+        "id": "vue-best-practices",
+        "name": "Vue Best Practices",
+        "author": "anthropics/skills",
+        "category": "Development",
+        "brief": "Build elegant Vue.js applications"
+    },
+    {
+        "id": "seo-audit",
+        "name": "SEO Audit",
+        "author": "coreyhaines31/marketingskills",
+        "category": "Marketing",
+        "brief": "Analyze and improve search rankings"
+    },
+    {
+        "id": "programmatic-seo",
+        "name": "Programmatic SEO",
+        "author": "coreyhaines31/marketingskills",
+        "category": "Marketing",
+        "brief": "Scale SEO with automated content"
+    },
+    {
+        "id": "copywriting",
+        "name": "Copywriting",
+        "author": "coreyhaines31/marketingskills",
+        "category": "Marketing",
+        "brief": "Write compelling marketing copy"
+    },
+    {
+        "id": "content-strategy",
+        "name": "Content Strategy",
+        "author": "coreyhaines31/marketingskills",
+        "category": "Marketing",
+        "brief": "Plan and execute content marketing"
+    },
+    {
+        "id": "launch-strategy",
+        "name": "Launch Strategy",
+        "author": "coreyhaines31/marketingskills",
+        "category": "Marketing",
+        "brief": "Plan successful product launches"
+    },
+    {
+        "id": "pricing-strategy",
+        "name": "Pricing Strategy",
+        "author": "coreyhaines31/marketingskills",
+        "category": "Marketing",
+        "brief": "Optimize pricing for conversions"
+    },
+    {
+        "id": "copy-editing",
+        "name": "Copy Editing",
+        "author": "coreyhaines31/marketingskills",
+        "category": "Marketing",
+        "brief": "Polish and refine written content"
+    },
+    {
+        "id": "web-design-guidelines",
+        "name": "Web Design Guidelines",
+        "author": "anthropics/skills",
+        "category": "Design",
+        "brief": "Modern web design principles"
+    },
+    {
+        "id": "ui-ux-pro-max",
+        "name": "UI/UX Pro Max",
+        "author": "anthropics/skills",
+        "category": "Design",
+        "brief": "Create exceptional user experiences"
+    },
+    {
+        "id": "canvas-design",
+        "name": "Canvas Design",
+        "author": "anthropics/skills",
+        "category": "Design",
+        "brief": "Design with HTML Canvas API"
+    },
+    {
+        "id": "tailwind-design-system",
+        "name": "Tailwind Design System",
+        "author": "anthropics/skills",
+        "category": "Design",
+        "brief": "Build scalable Tailwind components"
+    },
+    {
+        "id": "web-search",
+        "name": "Web Search",
+        "author": "anthropics/skills",
+        "category": "Research",
+        "brief": "Find information across the web"
+    },
+    {
+        "id": "find-skills",
+        "name": "Find Skills",
+        "author": "vercel-labs/skills",
+        "category": "Research",
+        "brief": "Discover and suggest new skills"
+    },
+    {
+        "id": "audit-website",
+        "name": "Audit Website",
+        "author": "squirrelscan/skills",
+        "category": "Research",
+        "brief": "Comprehensive website analysis"
+    },
+    {
+        "id": "brainstorming",
+        "name": "Brainstorming",
+        "author": "anthropics/skills",
+        "category": "Research",
+        "brief": "Generate creative ideas and solutions"
+    },
+    {
+        "id": "ai-image-generation",
+        "name": "AI Image Generation",
+        "author": "anthropics/skills",
+        "category": "AI/ML",
+        "brief": "Create images with AI models"
+    },
+    {
+        "id": "ai-video-generation",
+        "name": "AI Video Generation",
+        "author": "anthropics/skills",
+        "category": "AI/ML",
+        "brief": "Generate videos with AI"
+    },
+    {
+        "id": "prompt-engineering",
+        "name": "Prompt Engineering",
+        "author": "anthropics/skills",
+        "category": "AI/ML",
+        "brief": "Craft effective AI prompts"
+    },
+    {
+        "id": "ai-rag-pipeline",
+        "name": "RAG Pipeline",
+        "author": "anthropics/skills",
+        "category": "AI/ML",
+        "brief": "Build retrieval-augmented generation"
+    },
+    {
+        "id": "financial-analysis",
+        "name": "Financial Analysis",
+        "author": "anthropics/skills",
+        "category": "Finance",
+        "brief": "Analyze financial data and reports"
+    },
+    {
+        "id": "stock-research",
+        "name": "Stock Research",
+        "author": "anthropics/skills",
+        "category": "Finance",
+        "brief": "Research and analyze stocks"
+    },
+    {
+        "id": "crypto-tracking",
+        "name": "Crypto Tracking",
+        "author": "anthropics/skills",
+        "category": "Finance",
+        "brief": "Track cryptocurrency markets"
+    }
+]

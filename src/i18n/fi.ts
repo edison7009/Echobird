@@ -1,0 +1,53 @@
+// Suomenkielinen käännös
+import { Translations } from './types';
+
+const fi: Partial<Translations> = {
+    'nav.modelNexus': 'Mallikeskus', 'nav.skillBrowser': 'Taitoselain', 'nav.appManager': 'Sovellushallinta', 'nav.localServer': 'Paikallinen palvelin', 'nav.logsDebug': 'Lokit ja virheenkorjaus',
+    'page.modelNexus': 'MALLIKESKUS', 'page.skillBrowser': 'TAITOSELAIN', 'page.appManager': 'SOVELLUSHALLINTA', 'page.localServer': 'PAIKALLINEN PALVELIN', 'page.logsDebug': 'LOKIT JA VIRHEENKORJAUS',
+    'settings.title': 'ASETUKSET', 'settings.version': 'VERSIO', 'settings.language': 'KIELI', 'settings.logsDebug': 'LOKIT JA VIRHEENKORJAUS', 'settings.updates': 'PÄIVITYKSET',
+    'settings.checkForUpdates': 'TARKISTA PÄIVITYKSET', 'settings.checking': 'Tarkistetaan…', 'settings.latestVersion': 'Sinulla on uusin versio', 'settings.checkFailed': 'Tarkistus epäonnistui — yritä uudelleen',
+    'btn.addModel': 'LISÄÄ MALLI', 'btn.apply': 'KÄYTÄ', 'btn.scanAgain': 'SKANNAA UUDELLEEN', 'btn.refresh': 'PÄIVITÄ', 'btn.save': 'TALLENNA', 'btn.cancel': 'PERUUTA', 'btn.delete': 'POISTA', 'btn.edit': 'MUOKKAA',
+    'btn.install': 'ASENNA', 'btn.uninstall': 'POISTA ASENNUS', 'btn.launchApp': 'KÄYNNISTÄ SOVELLUS', 'btn.loading': 'LADATAAN…', 'btn.open': 'AVAA', 'btn.modifyOnly': 'VAIN MUOKKAA',
+    'btn.start': 'KÄYNNISTÄ', 'btn.stop': 'PYSÄYTÄ', 'btn.add': 'LISÄÄ', 'btn.remove': 'POISTA', 'btn.saveModel': 'TALLENNA MALLI', 'btn.compute': 'LASKE', 'btn.sendLogs': 'LÄHETÄ LOKIT TEKOÄLYLLE',
+    'status.running': 'Käynnissä', 'status.offline': 'Offline', 'status.installed': 'Asennettu', 'status.notInstalled': 'Ei asennettu', 'status.scanning': 'Skannataan…', 'status.paused': 'Keskeytetty',
+    'search.skills': 'Hae taitoja…',
+    'model.name': 'Nimi', 'model.apiKey': 'API-avain', 'model.modelId': 'Mallin ID', 'model.openaiUrl': 'OpenAI URL', 'model.anthropicUrl': 'Anthropic URL', 'model.proxyNode': 'Välityssolmu',
+    'model.editConfig': 'MUOKKAA MALLIN ASETUKSIA', 'model.proxyTunnel': 'VÄLITYSTUNNELI', 'model.specificProxy': 'Mallikohtainen välityspalvelin',
+    'model.deleteTitle': 'POISTA MALLI', 'model.deleteConfirm': 'Tämä malliasetukset poistetaan pysyvästi. Toimintoa ei voi kumota.',
+    'model.selectToTest': 'Valitse malli testausta varten', 'model.escCancel': '[ESC] PERUUTA', 'model.enterSave': '[ENTER] TALLENNA',
+    'skills.details': 'TAIDON TIEDOT', 'skills.selectToView': 'Valitse taito nähdäksesi tiedot', 'skills.author': 'Tekijä', 'skills.category': 'Kategoria',
+    'skills.description': 'KUVAUS', 'skills.noDescription': 'Ei kuvausta saatavilla', 'skills.noSkillsInCategory': 'Ei taitoja tässä kategoriassa',
+    'skills.catAll': 'Kaikki', 'skills.catDevelopment': 'Kehitys', 'skills.catMarketing': 'Markkinointi', 'skills.catDesign': 'Suunnittelu', 'skills.catResearch': 'Tutkimus', 'skills.catAIML': 'AI/ML', 'skills.catFinance': 'Rahoitus',
+    'agent.myLocalModel': 'Paikallinen mallini', 'agent.selectTool': 'Valitse työkalu asetuksia varten', 'agent.selectModelFor': 'Valitse malli:', 'agent.installedSkillsFor': 'Asennetut taidot',
+    'agent.noSkills': 'Ei asennettuja taitoja', 'agent.applyAndLaunch': 'Käytä asetukset ja käynnistä', 'agent.appliedVia': 'Käytetty virallisten asetustiedostojen kautta',
+    'server.selectModel': 'Valitse malli:', 'server.context': 'KONTEKSTI', 'server.port': 'PORTTI', 'server.removeDirectories': 'POISTA HAKEMISTOT',
+    'server.removeDirectoryConfirm': 'Poista 1 hakemisto listalta. Paikallisia tiedostoja EI poisteta.', 'server.compute': 'LASKE', 'server.stdout': 'STDOUT',
+    'server.selectFromPanel': 'valitse malli oikeasta paneelista', 'server.awaitingInit': 'odotetaan palvelimen alustusta…', 'server.selectConfigStart': 'valitse malli → määritä → KÄYNNISTÄ',
+    'server.local': 'PAIKALLINEN', 'server.store': 'KAUPPA', 'server.selectModelDir': 'Valitse mallihakemisto', 'server.downloadFromStore': 'Lataa malleja KAUPASTA',
+    'debug.console': 'VIRHEENKORJAUSKONSOLI', 'debug.selectModelForAI': 'Valitse malli AI-analyysiä varten', 'debug.selectModelHint': 'Valitse malli AI-lokianalyysin aktivoimiseksi',
+    'debug.sendLogsToAI': 'LÄHETÄ LOKIT TEKOÄLYLLE', 'debug.selectModelFirst': 'Valitse ensin malli',
+    'download.location': 'Latauspaikka:', 'download.changePath': 'Muuta latauspolku', 'download.selectNewDir': 'Valitse uusi oletuslataussijainti?',
+    'quant.light': 'Kevyt', 'quant.standard': 'Vakio', 'quant.extended': 'Laajennettu', 'quant.large': 'Suuri', 'quant.maximum': 'Maksimi',
+    'model.label': 'MALLI', 'model.source': 'LÄHDE', 'model.latency': 'VIIVE', 'model.debugTesting': 'VIRHEENKORJAUSTESTI', 'model.cloud': 'PILVI', 'model.local': 'PAIKALLINEN', 'model.tunnel': 'TUNNELI',
+    'btn.copy': '[KOPIOI]', 'btn.copied': '[✓]',
+    'common.noData': 'Ei dataa', 'common.confirm': 'Vahvista', 'common.website': 'Verkkosivu', 'common.areYouSure': 'Oletko varma?', 'btn.select': 'VALITSE',
+    'toolCat.all': 'KAIKKI', 'toolCat.agentOS': 'AgentOS', 'toolCat.ide': 'IDE', 'toolCat.cli': 'CLI', 'toolCat.autoTrading': 'Automaattikauppa', 'toolCat.game': 'Peli',
+    'toolCat.utility': 'Apuohjelmat',
+    'agent.modelsTab': 'MALLIT', 'agent.skillsTab': 'TAIDOT', 'tool.models': 'Mallit', 'tool.skills': 'Taidot', 'tool.skillsInstalled': 'asennettu', 'tool.app': 'Sovellus', 'tool.config': 'Asetukset',
+    'skills.viewGithub': 'NÄYTÄ GITHUB', 'skills.loading': 'Ladataan taitoja…',
+    'vram.easy': 'Helppo', 'vram.good': 'Hyvä', 'vram.tight': 'Tiukka', 'vram.heavy': 'Raskas',
+    'status.complete': 'Valmis', 'status.failed': 'Epäonnistui', 'download.inQueue': 'jonossa', 'download.pause': 'Tauko', 'download.resume': 'Jatka', 'download.cancel': 'Peruuta', 'download.retry': 'Yritä uudelleen',
+    'log.systemLog': 'JÄRJESTELMÄLOKI', 'log.entries': 'merkintää', 'log.clear': 'TYHJENNÄ',
+    'debug.ready': '[SYS] Virheenkorjauskonsoli valmis', 'debug.analyzing': '[EXEC] analysoidaan…', 'debug.idle': '_ valmis', 'debug.errors': 'virheitä',
+    'server.gpuFull': '⚡ GPU Täysi', 'server.cpuOnly': '🖥 Vain CPU',
+    'store.add': '[+LISÄÄ]', 'store.del': '[-POISTA]', 'store.cancel': '[PERUUTA]', 'store.remove': 'POISTA', 'store.ver': 'ver', 'store.ready': '✓ Valmis',
+    'close.title': 'Sulje ikkuna', 'close.message': 'Haluatko pienentää ilmaisinalueelle vai sulkea kokonaan?', 'close.minimize': 'Pienennä ilmaisinalueelle', 'close.quit': 'Sulje', 'close.remember': 'Muista valintani',
+    'settings.closeBehavior': 'Sulkemiskäyttäytyminen', 'settings.closeAsk': 'Kysy joka kerta', 'settings.closeMinimize': 'Pienennä ilmaisinalueelle', 'settings.closeQuit': 'Sulje kokonaan',
+    // 开发者邀请提示
+    // API Key encryption status hints
+    'key.encrypted': 'Salattu — API Key tuhoutuu ympäristön muuttuessa)',
+    'key.destroyed': 'Ympäristömuutos havaittu — API Key on tuhoutunut, syötä uudelleen',
+    'hint.devInvite': 'Kehitä tekoälysovelluksia tai -pelejä — katso \"Reversi\" ja \"AI Translate\".',
+};
+
+export default fi;

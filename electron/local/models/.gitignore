@@ -1,0 +1,3 @@
+# 忽略下载的 GGUF 模型文件（体积太大不适合提交到 Git）
+*.gguf
+*.downloading

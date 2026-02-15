@@ -1,0 +1,66 @@
+=== Tables ===
+Table "ItemTable": columns = key, value
+Table "cursorDiskKV": columns = key, value
+
+=== Cline/claude-dev keys ===
+[Table: ItemTable]
+  KEY: workbench.view.extension.claude-dev-ActivityBar.state.hidden
+  LEN: 54
+  VAL: [{"id":"claude-dev.SidebarProvider","isHidden":false}]
+
+[Table: ItemTable]
+  KEY: saoudrizwan.claude-dev
+  LEN: 5533
+  VAL: {"welcomeViewCompleted":true,"clineVersion":"3.60.0","lastShownAnnouncementId":"3.60","planModeApiProvider":"openai","planModeThinkingBudgetTokens":1024,"planModeOpenRouterModelId":"google/gemini-3-pro-preview","planModeFireworksModelId":"accounts/fireworks/models/kimi-k2-instruct-0905","actModeApiProvider":"cline","actModeThinkingBudgetTokens":1024,"actModeOpenRouterModelId":"google/gemini-3-pro-preview","actModeFireworksModelId":"accounts/fireworks/models/kimi-k2-instruct-0905","openAiHeaders":{},"sapAiCoreUseOrchestrationMode":true,"ocaMode":"internal","azureApiVersion":"","openAiBaseUrl":"333333","planModeOpenAiModelId":"333333","actModeOpenAiModelId":"123111","autoApprovalSettings":{"version":64,"enabled":true,"favorites":[],"maxRequests":20,"actions":{"readFiles":true,"readFilesExternally":true,"editFiles":true,"editFilesExternally":true,"executeSafeCommands":true,"executeAllCommands":true,"useBrowser":true,"useMcp":true},"enableNotifications":true},"workspaceRoots":[{"path":"d:\
+
+[Table: ItemTable]
+  KEY: workbench.view.extension.cline-chinese-ActivityBar.state.hidden
+  LEN: 56
+  VAL: [{"id":"clineChinese.SidebarProvider","isHidden":false}]
+
+[Table: ItemTable]
+  KEY: HybridTalentComputing.cline-chinese
+  LEN: 1729298
+  VAL: {"welcomeViewCompleted":true,"clineVersion":"3.25.3","lastShownAnnouncementId":"3.25","focusChainFeatureFlagEnabled":false,"mcpMarketplaceCatalog":{"items":[{"mcpId":"github.com/contextstream/mcp-server","githubUrl":"https://github.com/contextstream/mcp-server","name":"ContextStream","author":"contextstream","description":"A universal memory and semantic search system for AI coding assistants that provides persistent context, decision tracking, and codebase understanding across different AI tools and sessions.","codiconIcon":"brain","category":"knowledge-memory","tags":["ai-memory","semantic-search","code-intelligence","context-tracking","team-collaboration"],"requiresApiKey":false,"readmeContent":"# ContextStream MCP Server\n\nPersistent memory, semantic search, and code intelligence for any MCP-compatible AI tool.\n\nContextStream is a shared \"brain\" for your AI workflows. It stores decisions, preferences, and lessons, and lets your AI tools search and analyze your codebase with co
+
+[Table: ItemTable]
+  KEY: secret://{"extensionId":"hybridtalentcomputing.cline-chinese","key":"apiKey"}
+  LEN: 327
+  VAL: {"type":"Buffer","data":[118,49,48,191,246,58,235,43,90,169,28,62,127,159,12,219,184,213,252,212,167,27,130,131,206,136,156,83,147,246,204,176,165,126,110,185,195,219,166,9,210,79,140,181,207,7,3,7,74,165,219,172,125,204,243,145,44,33,222,179,134,204,109,170,243,211,182,237,158,51,106,162,207,42,196,149,69,220,227,188,60,59]}
+
+[Table: ItemTable]
+  KEY: secret://{"extensionId":"saoudrizwan.claude-dev","key":"apiKey"}
+  LEN: 274
+  VAL: {"type":"Buffer","data":[118,49,48,15,122,157,156,30,24,251,106,239,37,150,3,188,92,14,84,169,224,22,19,20,28,6,202,94,59,248,141,189,219,148,4,85,239,133,203,4,162,191,12,230,133,141,146,244,71,177,123,178,229,234,93,66,51,24,91,167,144,188,185,203,192,72,146,134,232,204]}
+
+[Table: ItemTable]
+  KEY: secret://{"extensionId":"saoudrizwan.claude-dev","key":"geminiApiKey"}
+  LEN: 275
+  VAL: {"type":"Buffer","data":[118,49,48,125,182,18,25,143,111,32,250,174,17,38,144,143,28,133,232,90,250,21,70,88,185,5,76,105,59,253,220,226,71,176,142,249,76,140,5,128,184,162,20,83,112,7,253,247,153,15,214,77,180,202,237,206,251,26,242,106,198,168,26,12,106,79,146,119,233,20]}
+
+[Table: ItemTable]
+  KEY: secret://{"extensionId":"saoudrizwan.claude-dev","key":"openAiApiKey"}
+  LEN: 148
+  VAL: {"type":"Buffer","data":[118,49,48,7,147,154,64,102,229,9,79,80,69,64,102,87,238,94,91,194,55,190,13,16,13,48,55,74,235,17,83,118,200,145,73,29,25]}
+
+[Table: ItemTable]
+  KEY: secret://{"extensionId":"saoudrizwan.claude-dev","key":"cline:clineAccountId"}
+  LEN: 4800
+  VAL: {"type":"Buffer","data":[118,49,48,142,60,179,76,113,250,44,192,245,46,133,139,217,34,204,153,118,90,161,169,214,240,47,198,206,131,22,252,200,30,208,28,123,61,196,222,225,94,135,227,212,116,1,4,162,167,195,58,154,145,238,57,49,2,11,98,227,131,2,219,133,152,112,6,3,31,228,252,69,196,24,216,36,250,78,25,109,115,117,60,57,242,117,34,39,145,101,19,138,124,106,136,97,148,103,45,51,231,45,38,31,32,230,150,31,212,67,28,39,26,176,100,53,79,109,46,131,48,181,89,195,153,137,77,123,139,101,252,195,114,164,250,96,15,179,95,244,243,64,95,94,30,78,110,3,80,86,248,163,158,212,136,105,237,251,77,53,33,128,196,119,83,188,213,234,170,43,144,211,32,128,139,137,97,32,169,30,123,100,192,84,2,172,238,93,152,42,13,137,218,52,236,11,193,23,55,59,199,179,46,223,129,92,84,237,167,142,32,53,1,10,0,250,93,150,136,128,237,212,159,198,72,196,51,159,71,111,78,28,22,218,149,210,225,62,159,27,238,161,157,98,203,9,42,142,55,200,115,189,29,238,180,142,255,151,211,6,20,194,99,54,19,151,238,16,247,87,49,23,132,244,188,72
+
+
+=== Search "333333" ===
+[Table: ItemTable]
+  KEY: saoudrizwan.claude-dev
+  VAL: {"welcomeViewCompleted":true,"clineVersion":"3.60.0","lastShownAnnouncementId":"3.60","planModeApiProvider":"openai","planModeThinkingBudgetTokens":1024,"planModeOpenRouterModelId":"google/gemini-3-pro-preview","planModeFireworksModelId":"accounts/fireworks/models/kimi-k2-instruct-0905","actModeApiProvider":"cline","actModeThinkingBudgetTokens":1024,"actModeOpenRouterModelId":"google/gemini-3-pro-preview","actModeFireworksModelId":"accounts/fireworks/models/kimi-k2-instruct-0905","openAiHeaders":{},"sapAiCoreUseOrchestrationMode":true,"ocaMode":"internal","azureApiVersion":"","openAiBaseUrl":"333333","planModeOpenAiModelId":"333333","actModeOpenAiModelId":"123111","autoApprovalSettings":{"version":64,"enabled":true,"favorites":[],"maxRequests":20,"actions":{"readFiles":true,"readFilesExternally":true,"editFiles":true,"editFilesExternally":true,"executeSafeCommands":true,"executeAllCommands":true,"useBrowser":true,"useMcp":true},"enableNotifications":true},"workspaceRoots":[{"path":"d:\
+
+
+=== Search "apiProvider" ===
+[Table: ItemTable]
+  KEY: saoudrizwan.claude-dev
+  VAL: {"welcomeViewCompleted":true,"clineVersion":"3.60.0","lastShownAnnouncementId":"3.60","planModeApiProvider":"openai","planModeThinkingBudgetTokens":1024,"planModeOpenRouterModelId":"google/gemini-3-pro-preview","planModeFireworksModelId":"accounts/fireworks/models/kimi-k2-instruct-0905","actModeApiProvider":"cline","actModeThinkingBudgetTokens":1024,"actModeOpenRouterModelId":"google/gemini-3-pro-preview","actModeFireworksModelId":"accounts/fireworks/models/kimi-k2-instruct-0905","openAiHeaders":{},"sapAiCoreUseOrchestrationMode":true,"ocaMode":"internal","azureApiVersion":"","openAiBaseUrl":"333333","planModeOpenAiModelId":"333333","actModeOpenAiModelId":"123111","autoApprovalSettings":{"version":64,"enabled":true,"favorites":[],"maxRequests":20,"actions":{"readFiles":true,"readFilesExternally":true,"editFiles":true,"editFilesExternally":true,"executeSafeCommands":true,"executeAllCommands":true,"useBrowser":true,"useMcp":true},"enableNotifications":true},"workspaceRoots":[{"path":"d:\\HomeOS","name":"HomeOS","vcs":"none"}],"primaryRootIndex":0,"globalWorkflowToggles":{},"globalClineRulesToggles":{},"mode":"act","lastDismissedInfoBannerVersion":1,"lastDismissedModelBannerVersion":3,"lastDismissedCliBannerVersion":1,"planActSeparateModelsSetting":true,"preferredLanguage":"Simplified Chinese - 简体中文","browserSettings":{"viewport":{"width":900,"height":600},"remoteBrowserEnabled":false,"remoteBrowserHost":"http://localhost:9222","chromeExecutablePath":"","disableToolUse":false,"customArgs":""},"telemetrySetting":"enabled","vscodeTerminalExecutionMode":"backgroundExec","planModeOpenAiModelInfo":{"maxTokens":-1,"contextWindow":262144,"supportsImages":true,"supportsPromptCache":false,"inputPrice":0,"outputPrice":0,"temperature":0.3,"isR1FormatRequired":false},"actModeOpenAiModelInfo":{"maxTokens":-1,"contextWindow":262144,"supportsImages":true,"supportsPromptCache":false,"inputPrice":0,"outputPrice":0,"temperature":0.3,"isR1FormatRequired":false},"claudeCodePath":"","gemin
+
+[Table: ItemTable]
+  KEY: HybridTalentComputing.cline-chinese
+  VAL: {"welcomeViewCompleted":true,"clineVersion":"3.25.3","lastShownAnnouncementId":"3.25","focusChainFeatureFlagEnabled":false,"mcpMarketplaceCatalog":{"items":[{"mcpId":"github.com/contextstream/mcp-server","githubUrl":"https://github.com/contextstream/mcp-server","name":"ContextStream","author":"contextstream","description":"A universal memory and semantic search system for AI coding assistants that provides persistent context, decision tracking, and codebase understanding across different AI tools and sessions.","codiconIcon":"brain","category":"knowledge-memory","tags":["ai-memory","semantic-search","code-intelligence","context-tracking","team-collaboration"],"requiresApiKey":false,"readmeContent":"# ContextStream MCP Server\n\nPersistent memory, semantic search, and code intelligence for any MCP-compatible AI tool.\n\nContextStream is a shared \"brain\" for your AI workflows. It stores decisions, preferences, and lessons, and lets your AI tools search and analyze your codebase with consistent context across sessions.\n\n## Just Ask\n\n**You don't need to memorize tool names.** Just describe what you want and your AI uses the right ContextStream tools automatically:\n\n| You say... | ContextStream does... |\n|------------|----------------------|\n| \"session summary\" | Gets a summary of your workspace context |\n| \"what did we decide about auth?\" | Recalls past decisions about authentication |\n| \"remember we're using PostgreSQL\" | Saves this to memory for future sessions |\n| \"search for payment code\" | Searches your codebase semantically |\n| \"what depends on UserService?\" | Analyzes code dependencies |\n\nNo special syntax. No commands to learn. Just ask.\n\n> **Tip:** For best results, add the [recommended editor rules](https://contextstream.io/docs/quickstart) so your AI consistently calls `session_init` / `context_smart` automatically.\n\n![ContextStream in action](compare1.gif)\n\n## Features\n\n- Session-aware context loading (`session_init`, `conte
+

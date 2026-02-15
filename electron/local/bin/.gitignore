@@ -1,0 +1,5 @@
+# 忽略 llama-server 预编译二进制文件（太大不适合提交到 Git）
+*.exe
+*.dll
+llama-*/
+cudart-*/

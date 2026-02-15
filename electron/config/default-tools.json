@@ -1,0 +1,90 @@
+[
+    {
+        "id": "openclaw",
+        "name": "OpenClaw",
+        "category": "AgentOS",
+        "website": "https://docs.openclaw.ai",
+        "startCommand": "openclaw gateway start",
+        "apiProtocol": [
+            "openai",
+            "anthropic"
+        ]
+    },
+    {
+        "id": "opencode",
+        "name": "OpenCode",
+        "category": "CLI",
+        "website": "https://opencode.ai/docs",
+        "startCommand": "opencode",
+        "apiProtocol": [
+            "openai",
+            "anthropic"
+        ]
+    },
+    {
+        "id": "codex",
+        "name": "Codex",
+        "category": "CLI",
+        "website": "https://developers.openai.com/codex",
+        "startCommand": "codex",
+        "apiProtocol": [
+            "openai"
+        ]
+    },
+    {
+        "id": "claudecode",
+        "name": "ClaudeCode",
+        "category": "CLI",
+        "website": "https://docs.claude.com",
+        "startCommand": "claude",
+        "apiProtocol": [
+            "anthropic"
+        ]
+    },
+    {
+        "id": "codebuddy",
+        "name": "CodeBuddy",
+        "category": "IDE",
+        "website": "https://www.codebuddy.ai/docs/ide/Introduction",
+        "apiProtocol": [
+            "openai"
+        ]
+    },
+    {
+        "id": "codebuddycn",
+        "name": "CodeBuddy CN",
+        "category": "IDE",
+        "website": "https://www.codebuddy.cn/docs/ide/Introduction",
+        "apiProtocol": [
+            "openai"
+        ]
+    },
+    {
+        "id": "tradingagents",
+        "name": "TradingAgents",
+        "category": "AutoTrading",
+        "website": "https://github.com/TauricResearch/TradingAgents",
+        "apiProtocol": [
+            "openai",
+            "anthropic"
+        ]
+    },
+    {
+        "id": "fingpt",
+        "name": "FinGPT",
+        "category": "AutoTrading",
+        "website": "https://github.com/AI4Finance-Foundation/FinGPT",
+        "apiProtocol": [
+            "openai"
+        ]
+    },
+    {
+        "id": "ai-trader",
+        "name": "AI-Trader",
+        "category": "AutoTrading",
+        "website": "https://github.com/HKUDS/AI-Trader",
+        "apiProtocol": [
+            "openai"
+        ]
+    }
+]

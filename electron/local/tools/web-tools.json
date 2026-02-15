@@ -1,0 +1,40 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "search_web",
+            "description": "Search the internet for up-to-date information.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "The search query."
+                    }
+                },
+                "required": [
+                    "query"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_url",
+            "description": "Visit a specific URL and read its content (Browsing). Use this when you need detailed information from a search result.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "url": {
+                        "type": "string",
+                        "description": "The absolute URL to visit."
+                    }
+                },
+                "required": [
+                    "url"
+                ]
+            }
+        }
+    }
+]

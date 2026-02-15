@@ -1,0 +1,53 @@
+// ترجمه فارسی
+import { Translations } from './types';
+
+const fa: Partial<Translations> = {
+    'nav.modelNexus': 'مرکز مدل‌ها', 'nav.skillBrowser': 'مرورگر مهارت‌ها', 'nav.appManager': 'مدیریت برنامه‌ها', 'nav.localServer': 'سرور محلی', 'nav.logsDebug': 'گزارش‌ها و اشکال‌زدایی',
+    'page.modelNexus': 'مرکز مدل‌ها', 'page.skillBrowser': 'مرورگر مهارت‌ها', 'page.appManager': 'مدیریت برنامه‌ها', 'page.localServer': 'سرور محلی', 'page.logsDebug': 'گزارش‌ها و اشکال‌زدایی',
+    'settings.title': 'تنظیمات', 'settings.version': 'نسخه', 'settings.language': 'زبان', 'settings.logsDebug': 'گزارش‌ها و اشکال‌زدایی', 'settings.updates': 'به‌روزرسانی‌ها',
+    'settings.checkForUpdates': 'بررسی به‌روزرسانی', 'settings.checking': 'در حال بررسی…', 'settings.latestVersion': 'شما آخرین نسخه را دارید', 'settings.checkFailed': 'بررسی ناموفق — تلاش مجدد',
+    'btn.addModel': 'افزودن مدل', 'btn.apply': 'اعمال', 'btn.scanAgain': 'اسکن مجدد', 'btn.refresh': 'بازنشانی', 'btn.save': 'ذخیره', 'btn.cancel': 'لغو', 'btn.delete': 'حذف', 'btn.edit': 'ویرایش',
+    'btn.install': 'نصب', 'btn.uninstall': 'حذف نصب', 'btn.launchApp': 'اجرای برنامه', 'btn.loading': 'در حال بارگذاری…', 'btn.open': 'باز کردن', 'btn.modifyOnly': 'فقط تغییر',
+    'btn.start': 'شروع', 'btn.stop': 'توقف', 'btn.add': 'افزودن', 'btn.remove': 'حذف', 'btn.saveModel': 'ذخیره مدل', 'btn.compute': 'محاسبه', 'btn.sendLogs': 'ارسال گزارش به AI',
+    'status.running': 'در حال اجرا', 'status.offline': 'آفلاین', 'status.installed': 'نصب شده', 'status.notInstalled': 'نصب نشده', 'status.scanning': 'در حال اسکن…', 'status.paused': 'متوقف',
+    'search.skills': 'جستجوی مهارت…',
+    'model.name': 'نام', 'model.apiKey': 'کلید API', 'model.modelId': 'شناسه مدل', 'model.openaiUrl': 'آدرس OpenAI', 'model.anthropicUrl': 'آدرس Anthropic', 'model.proxyNode': 'گره پروکسی',
+    'model.editConfig': 'ویرایش تنظیمات مدل', 'model.proxyTunnel': 'تونل پروکسی', 'model.specificProxy': 'پروکسی اختصاصی مدل',
+    'model.deleteTitle': 'حذف مدل', 'model.deleteConfirm': 'تنظیمات این مدل برای همیشه حذف می‌شود. این عمل قابل بازگشت نیست.',
+    'model.selectToTest': 'یک مدل برای شروع آزمایش انتخاب کنید', 'model.escCancel': '[ESC] لغو', 'model.enterSave': '[ENTER] ذخیره',
+    'skills.details': 'جزئیات مهارت', 'skills.selectToView': 'یک مهارت برای مشاهده انتخاب کنید', 'skills.author': 'نویسنده', 'skills.category': 'دسته',
+    'skills.description': 'توضیحات', 'skills.noDescription': 'بدون توضیحات', 'skills.noSkillsInCategory': 'مهارتی در این دسته نیست',
+    'skills.catAll': 'همه', 'skills.catDevelopment': 'توسعه', 'skills.catMarketing': 'بازاریابی', 'skills.catDesign': 'طراحی', 'skills.catResearch': 'تحقیق', 'skills.catAIML': 'AI/ML', 'skills.catFinance': 'مالی',
+    'agent.myLocalModel': 'مدل محلی من', 'agent.selectTool': 'ابزاری برای پیکربندی انتخاب کنید', 'agent.selectModelFor': 'مدل انتخاب کنید:', 'agent.installedSkillsFor': 'مهارت‌های نصب شده',
+    'agent.noSkills': 'مهارتی نصب نشده', 'agent.applyAndLaunch': 'اعمال تنظیمات و اجرا', 'agent.appliedVia': 'از طریق فایل‌های تنظیمات رسمی اعمال شده',
+    'server.selectModel': 'انتخاب مدل:', 'server.context': 'زمینه', 'server.port': 'پورت', 'server.removeDirectories': 'حذف پوشه‌ها',
+    'server.removeDirectoryConfirm': 'یک پوشه از لیست حذف شود. فایل‌های محلی حذف نمی‌شوند.', 'server.compute': 'محاسبه', 'server.stdout': 'STDOUT',
+    'server.selectFromPanel': 'مدل را از پنل راست انتخاب کنید', 'server.awaitingInit': 'در انتظار آغاز سرور…', 'server.selectConfigStart': 'مدل انتخاب → پیکربندی → شروع',
+    'server.local': 'محلی', 'server.store': 'فروشگاه', 'server.selectModelDir': 'انتخاب پوشه مدل', 'server.downloadFromStore': 'دانلود مدل از فروشگاه',
+    'debug.console': 'کنسول اشکال‌زدایی', 'debug.selectModelForAI': 'مدل برای تحلیل AI انتخاب کنید', 'debug.selectModelHint': 'مدل انتخاب کنید تا تحلیل AI فعال شود',
+    'debug.sendLogsToAI': 'ارسال گزارش به AI', 'debug.selectModelFirst': 'ابتدا مدل انتخاب کنید',
+    'download.location': 'محل دانلود:', 'download.changePath': 'تغییر مسیر دانلود', 'download.selectNewDir': 'پوشه دانلود جدید انتخاب کنید؟',
+    'quant.light': 'سبک', 'quant.standard': 'استاندارد', 'quant.extended': 'گسترده', 'quant.large': 'بزرگ', 'quant.maximum': 'حداکثر',
+    'model.label': 'مدل', 'model.source': 'منبع', 'model.latency': 'تأخیر', 'model.debugTesting': 'آزمایش اشکال‌زدایی', 'model.cloud': 'ابری', 'model.local': 'محلی', 'model.tunnel': 'تونل',
+    'btn.copy': '[کپی]', 'btn.copied': '[✓]',
+    'common.noData': 'داده‌ای نیست', 'common.confirm': 'تأیید', 'common.website': 'وب‌سایت', 'common.areYouSure': 'آیا مطمئن هستید؟', 'btn.select': 'انتخاب',
+    'toolCat.all': 'همه', 'toolCat.agentOS': 'AgentOS', 'toolCat.ide': 'IDE', 'toolCat.cli': 'CLI', 'toolCat.autoTrading': 'معاملات خودکار', 'toolCat.game': 'بازی',
+    'toolCat.utility': 'ابزارها',
+    'agent.modelsTab': 'مدل‌ها', 'agent.skillsTab': 'مهارت‌ها', 'tool.models': 'مدل‌ها', 'tool.skills': 'مهارت‌ها', 'tool.skillsInstalled': 'نصب شده', 'tool.app': 'برنامه', 'tool.config': 'تنظیمات',
+    'skills.viewGithub': 'مشاهده GITHUB', 'skills.loading': 'در حال بارگذاری مهارت‌ها…',
+    'vram.easy': 'آسان', 'vram.good': 'خوب', 'vram.tight': 'تنگ', 'vram.heavy': 'سنگین',
+    'status.complete': 'تکمیل شد', 'status.failed': 'ناموفق', 'download.inQueue': 'در صف', 'download.pause': 'توقف', 'download.resume': 'ادامه', 'download.cancel': 'لغو', 'download.retry': 'تلاش مجدد',
+    'log.systemLog': 'گزارش سیستم', 'log.entries': 'مورد', 'log.clear': 'پاک‌سازی',
+    'debug.ready': '[SYS] کنسول اشکال‌زدایی آماده', 'debug.analyzing': '[EXEC] در حال تحلیل…', 'debug.idle': '_ آماده', 'debug.errors': 'خطاها',
+    'server.gpuFull': '⚡ GPU کامل', 'server.cpuOnly': '🖥 فقط CPU',
+    'store.add': '[+افزودن]', 'store.del': '[-حذف]', 'store.cancel': '[لغو]', 'store.remove': 'حذف', 'store.ver': 'نسخه', 'store.ready': '✓ آماده',
+    'close.title': 'بستن پنجره', 'close.message': 'می‌خواهید به نوار وظیفه کوچک کنید یا کاملاً خارج شوید؟', 'close.minimize': 'کوچک کردن به نوار', 'close.quit': 'خروج', 'close.remember': 'انتخاب مرا به خاطر بسپار',
+    'settings.closeBehavior': 'رفتار بستن', 'settings.closeAsk': 'هر بار بپرس', 'settings.closeMinimize': 'کوچک کردن به نوار', 'settings.closeQuit': 'خروج کامل',
+    // 开发者邀请提示
+    // API Key encryption status hints
+    'key.encrypted': 'رمزگذاری شده — API Key در صورت تغییر محیط خود تخریب می‌شود)',
+    'key.destroyed': 'تغییر محیط شناسایی شد — API Key خود تخریب شده، لطفاً دوباره وارد کنید)',
+    'hint.devInvite': 'برنامه‌ها یا بازی‌های هوش مصنوعی بسازید — به \"Reversi\" و \"AI Translate\" مراجعه کنید.',
+};
+
+export default fa;

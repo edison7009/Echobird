@@ -1,0 +1,53 @@
+// תרגום לעברית
+import { Translations } from './types';
+
+const he: Partial<Translations> = {
+    'nav.modelNexus': 'מרכז מודלים', 'nav.skillBrowser': 'דפדפן כישורים', 'nav.appManager': 'מנהל אפליקציות', 'nav.localServer': 'שרת מקומי', 'nav.logsDebug': 'לוגים וניפוי',
+    'page.modelNexus': 'מרכז מודלים', 'page.skillBrowser': 'דפדפן כישורים', 'page.appManager': 'מנהל אפליקציות', 'page.localServer': 'שרת מקומי', 'page.logsDebug': 'לוגים וניפוי',
+    'settings.title': 'הגדרות', 'settings.version': 'גרסה', 'settings.language': 'שפה', 'settings.logsDebug': 'לוגים וניפוי', 'settings.updates': 'עדכונים',
+    'settings.checkForUpdates': 'בדוק עדכונים', 'settings.checking': 'בודק…', 'settings.latestVersion': 'הגרסה שלך עדכנית', 'settings.checkFailed': 'הבדיקה נכשלה — נסה שוב',
+    'btn.addModel': 'הוסף מודל', 'btn.apply': 'החל', 'btn.scanAgain': 'סרוק שוב', 'btn.refresh': 'רענן', 'btn.save': 'שמור', 'btn.cancel': 'ביטול', 'btn.delete': 'מחק', 'btn.edit': 'ערוך',
+    'btn.install': 'התקן', 'btn.uninstall': 'הסר התקנה', 'btn.launchApp': 'הפעל אפליקציה', 'btn.loading': 'טוען…', 'btn.open': 'פתח', 'btn.modifyOnly': 'שנה בלבד',
+    'btn.start': 'התחל', 'btn.stop': 'עצור', 'btn.add': 'הוסף', 'btn.remove': 'הסר', 'btn.saveModel': 'שמור מודל', 'btn.compute': 'חשב', 'btn.sendLogs': 'שלח לוגים ל-AI',
+    'status.running': 'פועל', 'status.offline': 'לא מחובר', 'status.installed': 'מותקן', 'status.notInstalled': 'לא מותקן', 'status.scanning': 'סורק…', 'status.paused': 'מושהה',
+    'search.skills': 'חפש כישורים…',
+    'model.name': 'שם', 'model.apiKey': 'מפתח API', 'model.modelId': 'מזהה מודל', 'model.openaiUrl': 'OpenAI URL', 'model.anthropicUrl': 'Anthropic URL', 'model.proxyNode': 'צומת פרוקסי',
+    'model.editConfig': 'ערוך הגדרות מודל', 'model.proxyTunnel': 'מנהרת פרוקסי', 'model.specificProxy': 'פרוקסי ייעודי למודל',
+    'model.deleteTitle': 'מחק מודל', 'model.deleteConfirm': 'הגדרות המודל יימחקו לצמיתות. לא ניתן לבטל פעולה זו.',
+    'model.selectToTest': 'בחר מודל להתחלת בדיקה', 'model.escCancel': '[ESC] ביטול', 'model.enterSave': '[ENTER] שמור',
+    'skills.details': 'פרטי כישור', 'skills.selectToView': 'בחר כישור לצפייה', 'skills.author': 'מחבר', 'skills.category': 'קטגוריה',
+    'skills.description': 'תיאור', 'skills.noDescription': 'אין תיאור', 'skills.noSkillsInCategory': 'אין כישורים בקטגוריה זו',
+    'skills.catAll': 'הכל', 'skills.catDevelopment': 'פיתוח', 'skills.catMarketing': 'שיווק', 'skills.catDesign': 'עיצוב', 'skills.catResearch': 'מחקר', 'skills.catAIML': 'AI/ML', 'skills.catFinance': 'פיננסים',
+    'agent.myLocalModel': 'המודל המקומי שלי', 'agent.selectTool': 'בחר כלי להגדרה', 'agent.selectModelFor': 'בחר מודל:', 'agent.installedSkillsFor': 'כישורים מותקנים',
+    'agent.noSkills': 'אין כישורים מותקנים', 'agent.applyAndLaunch': 'החל הגדרות והפעל', 'agent.appliedVia': 'הוחל דרך קבצי הגדרות רשמיים',
+    'server.selectModel': 'בחר מודל:', 'server.context': 'הקשר', 'server.port': 'פורט', 'server.removeDirectories': 'הסר תיקיות',
+    'server.removeDirectoryConfirm': 'הסר תיקייה 1 מהרשימה. קבצים מקומיים לא יימחקו.', 'server.compute': 'חשב', 'server.stdout': 'STDOUT',
+    'server.selectFromPanel': 'בחר מודל מהפאנל הימני', 'server.awaitingInit': 'ממתין לאתחול שרת…', 'server.selectConfigStart': 'בחר מודל → הגדר → התחל',
+    'server.local': 'מקומי', 'server.store': 'חנות', 'server.selectModelDir': 'בחר תיקיית מודלים', 'server.downloadFromStore': 'הורד מודלים מהחנות',
+    'debug.console': 'מסוף ניפוי', 'debug.selectModelForAI': 'בחר מודל לניתוח AI', 'debug.selectModelHint': 'בחר מודל לניתוח לוגים',
+    'debug.sendLogsToAI': 'שלח לוגים ל-AI', 'debug.selectModelFirst': 'בחר מודל תחילה',
+    'download.location': 'מיקום הורדה:', 'download.changePath': 'שנה נתיב הורדה', 'download.selectNewDir': 'בחר תיקיית הורדה חדשה?',
+    'quant.light': 'קל', 'quant.standard': 'סטנדרט', 'quant.extended': 'מורחב', 'quant.large': 'גדול', 'quant.maximum': 'מקסימום',
+    'model.label': 'מודל', 'model.source': 'מקור', 'model.latency': 'השהייה', 'model.debugTesting': 'בדיקת ניפוי', 'model.cloud': 'ענן', 'model.local': 'מקומי', 'model.tunnel': 'מנהרה',
+    'btn.copy': '[העתק]', 'btn.copied': '[✓]',
+    'common.noData': 'אין נתונים', 'common.confirm': 'אישור', 'common.website': 'אתר', 'common.areYouSure': 'האם אתה בטוח?', 'btn.select': 'בחר',
+    'toolCat.all': 'הכל', 'toolCat.agentOS': 'AgentOS', 'toolCat.ide': 'IDE', 'toolCat.cli': 'CLI', 'toolCat.autoTrading': 'מסחר אוטומטי', 'toolCat.game': 'משחק',
+    'toolCat.utility': 'כלים',
+    'agent.modelsTab': 'מודלים', 'agent.skillsTab': 'כישורים', 'tool.models': 'מודלים', 'tool.skills': 'כישורים', 'tool.skillsInstalled': 'מותקנים', 'tool.app': 'אפליקציה', 'tool.config': 'הגדרות',
+    'skills.viewGithub': 'צפה ב-GITHUB', 'skills.loading': 'טוען כישורים…',
+    'vram.easy': 'קל', 'vram.good': 'טוב', 'vram.tight': 'צפוף', 'vram.heavy': 'כבד',
+    'status.complete': 'הושלם', 'status.failed': 'נכשל', 'download.inQueue': 'בתור', 'download.pause': 'השהה', 'download.resume': 'המשך', 'download.cancel': 'ביטול', 'download.retry': 'נסה שוב',
+    'log.systemLog': 'יומן מערכת', 'log.entries': 'רשומות', 'log.clear': 'נקה',
+    'debug.ready': '[SYS] מסוף ניפוי מוכן', 'debug.analyzing': '[EXEC] מנתח…', 'debug.idle': '_ מוכן', 'debug.errors': 'שגיאות',
+    'server.gpuFull': '⚡ GPU מלא', 'server.cpuOnly': '🖥 CPU בלבד',
+    'store.add': '[+הוסף]', 'store.del': '[-מחק]', 'store.cancel': '[ביטול]', 'store.remove': 'הסר', 'store.ver': 'גרסה', 'store.ready': '✓ מוכן',
+    'close.title': 'סגור חלון', 'close.message': 'להקטין לשורת המשימות או לצאת לגמרי?', 'close.minimize': 'הקטן למגש', 'close.quit': 'צא', 'close.remember': 'זכור את הבחירה שלי',
+    'settings.closeBehavior': 'התנהגות סגירה', 'settings.closeAsk': 'שאל בכל פעם', 'settings.closeMinimize': 'הקטן למגש', 'settings.closeQuit': 'צא לגמרי',
+    // 开发者邀请提示
+    // API Key encryption status hints
+    'key.encrypted': 'מוצפן — API Key יושמד אוטומטית בשינוי סביבה)',
+    'key.destroyed': 'זוהה שינוי סביבה — API Key הושמד, אנא הזן מחדש',
+    'hint.devInvite': 'פתחו אפליקציות AI או משחקי AI — ראו \"Reversi\" ו-\"AI Translate\".',
+};
+
+export default he;

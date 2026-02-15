@@ -1,0 +1,53 @@
+// Svensk översättning
+import { Translations } from './types';
+
+const sv: Partial<Translations> = {
+    'nav.modelNexus': 'Modellcenter', 'nav.skillBrowser': 'Färdighetsbläddrare', 'nav.appManager': 'Apphanterare', 'nav.localServer': 'Lokal server', 'nav.logsDebug': 'Loggar & Felsökning',
+    'page.modelNexus': 'MODELLCENTER', 'page.skillBrowser': 'FÄRDIGHETSBLÄDDRARE', 'page.appManager': 'APPHANTERARE', 'page.localServer': 'LOKAL SERVER', 'page.logsDebug': 'LOGGAR & FELSÖKNING',
+    'settings.title': 'INSTÄLLNINGAR', 'settings.version': 'VERSION', 'settings.language': 'SPRÅK', 'settings.logsDebug': 'LOGGAR & FELSÖKNING', 'settings.updates': 'UPPDATERINGAR',
+    'settings.checkForUpdates': 'SÖK EFTER UPPDATERINGAR', 'settings.checking': 'Kontrollerar…', 'settings.latestVersion': 'Du har den senaste versionen', 'settings.checkFailed': 'Kontroll misslyckades — försök igen',
+    'btn.addModel': 'LÄGG TILL MODELL', 'btn.apply': 'TILLÄMPA', 'btn.scanAgain': 'SKANNA IGEN', 'btn.refresh': 'UPPDATERA', 'btn.save': 'SPARA', 'btn.cancel': 'AVBRYT', 'btn.delete': 'RADERA', 'btn.edit': 'REDIGERA',
+    'btn.install': 'INSTALLERA', 'btn.uninstall': 'AVINSTALLERA', 'btn.launchApp': 'STARTA APP', 'btn.loading': 'LADDAR…', 'btn.open': 'ÖPPNA', 'btn.modifyOnly': 'ÄNDRA BARA',
+    'btn.start': 'STARTA', 'btn.stop': 'STOPPA', 'btn.add': 'LÄGG TILL', 'btn.remove': 'TA BORT', 'btn.saveModel': 'SPARA MODELL', 'btn.compute': 'BERÄKNA', 'btn.sendLogs': 'SKICKA LOGGAR TILL AI',
+    'status.running': 'Kör', 'status.offline': 'Offline', 'status.installed': 'Installerad', 'status.notInstalled': 'Ej installerad', 'status.scanning': 'Skannar…', 'status.paused': 'Pausad',
+    'search.skills': 'Sök färdigheter…',
+    'model.name': 'Namn', 'model.apiKey': 'API-nyckel', 'model.modelId': 'Modell-ID', 'model.openaiUrl': 'OpenAI URL', 'model.anthropicUrl': 'Anthropic URL', 'model.proxyNode': 'Proxynod',
+    'model.editConfig': 'REDIGERA MODELLKONFIGURATION', 'model.proxyTunnel': 'PROXYTUNNEL', 'model.specificProxy': 'Modellspecifik proxy',
+    'model.deleteTitle': 'RADERA MODELL', 'model.deleteConfirm': 'Denna modellkonfiguration kommer att tas bort permanent. Denna åtgärd kan inte ångras.',
+    'model.selectToTest': 'Välj en modell för att börja testa', 'model.escCancel': '[ESC] AVBRYT', 'model.enterSave': '[ENTER] SPARA',
+    'skills.details': 'FÄRDIGHETSDETALJER', 'skills.selectToView': 'Välj en färdighet för att se detaljer', 'skills.author': 'Författare', 'skills.category': 'Kategori',
+    'skills.description': 'BESKRIVNING', 'skills.noDescription': 'Ingen beskrivning tillgänglig', 'skills.noSkillsInCategory': 'Inga färdigheter i denna kategori',
+    'skills.catAll': 'Alla', 'skills.catDevelopment': 'Utveckling', 'skills.catMarketing': 'Marknadsföring', 'skills.catDesign': 'Design', 'skills.catResearch': 'Forskning', 'skills.catAIML': 'AI/ML', 'skills.catFinance': 'Finans',
+    'agent.myLocalModel': 'Min lokala modell', 'agent.selectTool': 'Välj ett verktyg att konfigurera', 'agent.selectModelFor': 'Välj modell för', 'agent.installedSkillsFor': 'Installerade färdigheter för',
+    'agent.noSkills': 'Inga färdigheter installerade', 'agent.applyAndLaunch': 'Tillämpa konfiguration & starta app', 'agent.appliedVia': 'Tillämpad via officiella konfigurationsfiler',
+    'server.selectModel': 'Välj modell:', 'server.context': 'KONTEXT', 'server.port': 'PORT', 'server.removeDirectories': 'TA BORT MAPPAR',
+    'server.removeDirectoryConfirm': 'Ta bort 1 mapp från listan. Lokala filer kommer INTE att raderas.', 'server.compute': 'BERÄKNA', 'server.stdout': 'STDOUT',
+    'server.selectFromPanel': 'välj modell från höger panel', 'server.awaitingInit': 'väntar på serverinitiering…', 'server.selectConfigStart': 'välj modell → konfigurera → STARTA',
+    'server.local': 'LOKAL', 'server.store': 'BUTIK', 'server.selectModelDir': 'Välj modellmapp', 'server.downloadFromStore': 'Ladda ner modeller från BUTIKEN',
+    'debug.console': 'FELSÖKNINGSKONSOL', 'debug.selectModelForAI': 'Välj modell för AI-analys', 'debug.selectModelHint': 'Välj en modell för att aktivera AI-logganalys',
+    'debug.sendLogsToAI': 'SKICKA LOGGAR TILL AI', 'debug.selectModelFirst': 'Välj modell först',
+    'download.location': 'Nedladdningsplats:', 'download.changePath': 'Ändra nedladdningssökväg', 'download.selectNewDir': 'Välj ny standardmapp för nedladdning?',
+    'quant.light': 'Lätt', 'quant.standard': 'Standard', 'quant.extended': 'Utökad', 'quant.large': 'Stor', 'quant.maximum': 'Maximum',
+    'model.label': 'MODELL', 'model.source': 'KÄLLA', 'model.latency': 'FÖRDRÖJNING', 'model.debugTesting': 'FELSÖKNINGSTEST', 'model.cloud': 'MOLN', 'model.local': 'LOKAL', 'model.tunnel': 'TUNNEL',
+    'btn.copy': '[KOPIERA]', 'btn.copied': '[✓]',
+    'common.noData': 'Ingen data', 'common.confirm': 'Bekräfta', 'common.website': 'Webbplats', 'common.areYouSure': 'Är du säker?', 'btn.select': 'VÄLJ',
+    'toolCat.all': 'ALLA', 'toolCat.agentOS': 'AgentOS', 'toolCat.ide': 'IDE', 'toolCat.cli': 'CLI', 'toolCat.autoTrading': 'Autohandel', 'toolCat.game': 'Spel',
+    'toolCat.utility': 'Verktyg',
+    'agent.modelsTab': 'MODELLER', 'agent.skillsTab': 'FÄRDIGHETER', 'tool.models': 'Modeller', 'tool.skills': 'Färdigheter', 'tool.skillsInstalled': 'installerade', 'tool.app': 'App', 'tool.config': 'Konfig',
+    'skills.viewGithub': 'VISA GITHUB', 'skills.loading': 'Laddar färdigheter…',
+    'vram.easy': 'Lätt', 'vram.good': 'Bra', 'vram.tight': 'Tight', 'vram.heavy': 'Tung',
+    'status.complete': 'Klar', 'status.failed': 'Misslyckad', 'download.inQueue': 'i kö', 'download.pause': 'Pausa', 'download.resume': 'Återuppta', 'download.cancel': 'Avbryt', 'download.retry': 'Försök igen',
+    'log.systemLog': 'SYSTEMLOGG', 'log.entries': 'poster', 'log.clear': 'RENSA',
+    'debug.ready': '[SYS] Felsökningskonsol redo', 'debug.analyzing': '[EXEC] analyserar…', 'debug.idle': '_ redo', 'debug.errors': 'fel',
+    'server.gpuFull': '⚡ GPU Full', 'server.cpuOnly': '🖥 Bara CPU',
+    'store.add': '[+LÄGG TILL]', 'store.del': '[-RADERA]', 'store.cancel': '[AVBRYT]', 'store.remove': 'TA BORT', 'store.ver': 'ver', 'store.ready': '✓ Klar',
+    'close.title': 'Stäng fönster', 'close.message': 'Vill du minimera till systemfältet eller avsluta helt?', 'close.minimize': 'Minimera till systemfältet', 'close.quit': 'Avsluta', 'close.remember': 'Kom ihåg mitt val',
+    'settings.closeBehavior': 'Stängningsbeteende', 'settings.closeAsk': 'Fråga varje gång', 'settings.closeMinimize': 'Minimera till systemfältet', 'settings.closeQuit': 'Avsluta helt',
+    // 开发者邀请提示
+    // API Key encryption status hints
+    'key.encrypted': 'Krypterat — API Key förstörs vid miljöändring)',
+    'key.destroyed': 'Miljöändring upptäckt — API Key har förstörts, ange på nytt',
+    'hint.devInvite': 'Utveckla AI-appar eller AI-spel — se \"Reversi\" och \"AI Translate\".',
+};
+
+export default sv;

@@ -1,0 +1,9 @@
+{
+  "gpuName": "RTX 3060",
+  "gpuVramGB": 12,
+  "modelsDirs": [
+    "D:\\Qwen\\Qwen2.5-Coder-1.5B-Instruct-GGUF",
+    "D:\\Qwen\\Qwen2___5-Coder-1___5B-Instruct-GGUF"
+  ],
+  "downloadDir": "D:\\Qwen"
+}
