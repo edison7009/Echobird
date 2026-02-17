@@ -1,6 +1,6 @@
 {
   "name": "whichclaw",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AI Model & Skill Management Desktop Application",
   "author": "WhichClaw Team",
   "main": "dist-electron/main.cjs",
