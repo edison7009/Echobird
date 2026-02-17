@@ -48,7 +48,3 @@ electron/tools/llama-server/bin/
 
 # Antigravity local cache
 .gemini/
-
-# Tests (local only)
-tests/
-vitest.config.ts

@@ -51,6 +51,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run tests
+        run: npm test
+
       # llama-server is downloaded at runtime (see llamaDownloader.ts)
 
       # Generate icons
