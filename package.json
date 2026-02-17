@@ -93,7 +93,6 @@
       "uninstallDisplayName": "WhichClaw",
       "installerSidebar": "build/installerSidebar.bmp",
       "uninstallerSidebar": "build/installerSidebar.bmp",
-      "installerHeader": "build/installerHeader.bmp",
       "installerLanguages": [
         "en_US",
         "zh_CN",
