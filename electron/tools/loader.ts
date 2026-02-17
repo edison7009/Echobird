@@ -5,6 +5,7 @@ import * as os from 'os';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 import { ModelInfo, ToolConfigurator } from './types';
+import { expandPath, getNestedValue, setNestedValue, deleteNestedValue } from './utils';
 
 const execAsync = promisify(exec);
 
@@ -65,22 +66,10 @@ interface ConfigMapping {
     writeProxy?: Record<string, string>; // 代理写入映射（有代理时写入，无代理时删除）
 }
 
-// --- 工具函数 ---
+// --- Tool utility functions from utils.ts ---
+// expandPath, getNestedValue, setNestedValue, deleteNestedValue are imported from ./utils
 
-/** 展开路径中的环境变量和 ~ */
-function expandPath(inputPath: string): string {
-    let result = inputPath;
-    if (process.platform === 'win32') {
-        result = result.replace(/%([^%]+)%/g, (_, name) => process.env[name] || '');
-    }
-    if (result.startsWith('~/') || result === '~') {
-        result = path.join(os.homedir(), result.slice(1));
-    }
-    // 统一分隔符
-    return path.normalize(result);
-}
-
-/** 跨平台查找可执行文件 */
+/** Cross-platform executable lookup */
 async function findExecutable(command: string): Promise<string | null> {
     const isWindows = process.platform === 'win32';
     const checkCmd = isWindows ? `where ${command}` : `which ${command}`;
@@ -99,43 +88,6 @@ async function findExecutable(command: string): Promise<string | null> {
         return null;
     } catch {
         return null;
-    }
-}
-
-/** 从嵌套对象中按点号路径读取值（如 "env.ANTHROPIC_MODEL"） */
-function getNestedValue(obj: any, dotPath: string): any {
-    const parts = dotPath.split('.');
-    let current = obj;
-    for (const part of parts) {
-        if (current == null || typeof current !== 'object') return undefined;
-        current = current[part];
-    }
-    return current;
-}
-
-/** 设置嵌套对象的值（自动创建中间对象） */
-function setNestedValue(obj: any, dotPath: string, value: any): void {
-    const parts = dotPath.split('.');
-    let current = obj;
-    for (let i = 0; i < parts.length - 1; i++) {
-        if (current[parts[i]] == null || typeof current[parts[i]] !== 'object') {
-            current[parts[i]] = {};
-        }
-        current = current[parts[i]];
-    }
-    current[parts[parts.length - 1]] = value;
-}
-
-/** 删除嵌套对象的值 */
-function deleteNestedValue(obj: any, dotPath: string): void {
-    const parts = dotPath.split('.');
-    let current = obj;
-    for (let i = 0; i < parts.length - 1; i++) {
-        if (current == null || typeof current !== 'object') return;
-        current = current[parts[i]];
-    }
-    if (current != null && typeof current === 'object') {
-        delete current[parts[parts.length - 1]];
     }
 }
 
