@@ -1,8 +1,8 @@
 {
-  "name": "whichclaw",
+  "name": "cybernexus",
   "version": "1.0.7",
   "description": "AI Model & Skill Management Desktop Application",
-  "author": "WhichClaw Team",
+  "author": "CyberNexus Team",
   "main": "dist-electron/main.cjs",
   "type": "module",
   "scripts": {
@@ -50,9 +50,9 @@
     "wait-on": "^7.2.0"
   },
   "build": {
-    "appId": "com.whichclaw.app",
-    "productName": "WhichClaw",
-    "copyright": "Copyright © 2026 WhichClaw",
+    "appId": "com.cybernexus.chat",
+    "productName": "CyberNexus",
+    "copyright": "Copyright © 2026 CyberNexus",
     "afterPack": "./scripts/afterPack.cjs",
     "directories": {
       "output": "release",
@@ -78,7 +78,7 @@
     ],
     "publish": {
       "provider": "generic",
-      "url": "https://whichclaw.com/update/"
+      "url": "https://cybernexus.chat/update/"
     },
     "win": {
       "target": [
@@ -92,7 +92,7 @@
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "build/icon.ico",
       "uninstallerIcon": "build/icon.ico",
-      "uninstallDisplayName": "WhichClaw",
+      "uninstallDisplayName": "CyberNexus",
       "installerSidebar": "build/installerSidebar.bmp",
       "uninstallerSidebar": "build/installerSidebar.bmp",
       "installerLanguages": [

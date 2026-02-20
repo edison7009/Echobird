@@ -13,7 +13,7 @@ const execAsync = promisify(exec);
 const HOME = os.homedir();
 
 console.log('='.repeat(60));
-console.log('WhichClaw Tool Detection Debug');
+console.log('CyberNexus Tool Detection Debug');
 console.log('='.repeat(60));
 console.log(`Operating System: ${os.platform()}`);
 console.log(`User Directory: ${HOME}`);

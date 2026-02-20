@@ -31,7 +31,7 @@ function extractDomainName(url: string): string {
         }
         return hostname;
     } catch {
-        return 'whichclaw';
+        return 'CyberNexus';
     }
 }
 
@@ -101,7 +101,7 @@ export async function applyConfig(
         config.provider = {};
         config.provider[providerName] = {
             npm: '@ai-sdk/openai-compatible',
-            name: `${providerName} (via WhichClaw)`,
+            name: `${providerName} (via CyberNexus)`,
             options: {
                 baseURL: baseUrl,
                 apiKey: modelInfo.apiKey || '',

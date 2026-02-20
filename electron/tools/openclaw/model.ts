@@ -7,21 +7,21 @@ import { ModelInfo } from '../types';
 /**
  * OpenClaw Model Module (Patch Injection)
  * 
- * 配置写到 ~/.whichclaw/openclaw.json，
+ * 配置写到 ~/.cybernexus/openclaw.json，
  * 补丁脚本注入到 OpenClaw 入口文件 openclaw.mjs，
  * 每次 OpenClaw 启动时自动读取并注入模型配置。
  * 不直接修改 ~/.openclaw/openclaw.json。
  */
 
-const WHICHCLAW_DIR = path.join(os.homedir(), '.whichclaw');
-const WC_OPENCLAW_CONFIG = path.join(WHICHCLAW_DIR, 'openclaw.json');
+const CyberNexus_DIR = path.join(os.homedir(), '.cybernexus');
+const WC_OPENCLAW_CONFIG = path.join(CyberNexus_DIR, 'openclaw.json');
 // 补丁标记
-const PATCH_MARKER = '[WhichClaw-Patched]';
+const PATCH_MARKER = '[CyberNexus-Patched]';
 
 /**
- * WhichClaw OpenClaw 配置文件格式
+ * CyberNexus OpenClaw 配置文件格式
  */
-interface WhichClawOpenClawConfig {
+interface CyberNexusOpenClawConfig {
     apiKey: string;
     baseUrl?: string;
     modelId: string;
@@ -33,30 +33,30 @@ interface WhichClawOpenClawConfig {
  * 确保配置目录存在
  */
 function ensureConfigDir(): void {
-    if (!fs.existsSync(WHICHCLAW_DIR)) {
-        fs.mkdirSync(WHICHCLAW_DIR, { recursive: true });
+    if (!fs.existsSync(CyberNexus_DIR)) {
+        fs.mkdirSync(CyberNexus_DIR, { recursive: true });
     }
 }
 
 /**
- * 读取 WhichClaw 自己的 OpenClaw 配置
+ * 读取 CyberNexus 自己的 OpenClaw 配置
  */
-function readWcConfig(): WhichClawOpenClawConfig | null {
+function readWcConfig(): CyberNexusOpenClawConfig | null {
     try {
         if (fs.existsSync(WC_OPENCLAW_CONFIG)) {
             const content = fs.readFileSync(WC_OPENCLAW_CONFIG, 'utf-8');
-            return JSON.parse(content) as WhichClawOpenClawConfig;
+            return JSON.parse(content) as CyberNexusOpenClawConfig;
         }
     } catch (e: any) {
-        console.error('[OpenClaw] Failed to read WhichClaw config:', e.message);
+        console.error('[OpenClaw] Failed to read CyberNexus config:', e.message);
     }
     return null;
 }
 
 /**
- * 写入 WhichClaw 自己的 OpenClaw 配置
+ * 写入 CyberNexus 自己的 OpenClaw 配置
  */
-function writeWcConfig(config: WhichClawOpenClawConfig): boolean {
+function writeWcConfig(config: CyberNexusOpenClawConfig): boolean {
     try {
         ensureConfigDir();
         fs.writeFileSync(WC_OPENCLAW_CONFIG, JSON.stringify(config, null, 2), 'utf-8');
@@ -69,14 +69,14 @@ function writeWcConfig(config: WhichClawOpenClawConfig): boolean {
 }
 
 /**
- * 获取配置文件路径（返回 WhichClaw 自己的配置路径）
+ * 获取配置文件路径（返回 CyberNexus 自己的配置路径）
  */
 export function getConfigFile(): string {
     return WC_OPENCLAW_CONFIG;
 }
 
 /**
- * 从 WhichClaw 配置读取当前模型信息
+ * 从 CyberNexus 配置读取当前模型信息
  */
 export async function getCurrentModelInfo(
     _readConfig: () => Promise<any>
@@ -155,7 +155,7 @@ function ensurePatch(): { patched: boolean; message: string } {
 
 /**
  * 应用模型配置到 OpenClaw
- * 写入 ~/.whichclaw/openclaw.json 并自动检测/打补丁
+ * 写入 ~/.cybernexus/openclaw.json 并自动检测/打补丁
  */
 export async function applyConfig(
     modelInfo: ModelInfo,
@@ -170,7 +170,7 @@ export async function applyConfig(
             return { success: false, message: 'Model ID is empty, cannot apply config' };
         }
 
-        const config: WhichClawOpenClawConfig = {
+        const config: CyberNexusOpenClawConfig = {
             apiKey: modelInfo.apiKey || '',
             modelId: modelId,
             modelName: modelInfo.name || modelId,

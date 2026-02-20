@@ -14,7 +14,7 @@ const I18nContext = createContext<I18nContextValue>({
     t: (key) => key,
 });
 
-const STORAGE_KEY = 'whichclaw-locale';
+const STORAGE_KEY = 'cybernexus-locale';
 
 export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [locale, setLocaleState] = useState(() => {

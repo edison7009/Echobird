@@ -7,24 +7,24 @@ import { ModelInfo } from '../types';
 /**
  * Roo Code Model Module (Patch Injection)
  * 
- * Writes config to ~/.whichclaw/roocode.json,
+ * Writes config to ~/.cybernexus/roocode.json,
  * patched Roo Code extension reads this file on startup and overrides API settings.
  * Auto-detects and applies patch on each Apply.
  */
 
-// WhichClaw config directory and file
-const WHICHCLAW_DIR = path.join(os.homedir(), '.whichclaw');
-const ROOCODE_CONFIG_FILE = path.join(WHICHCLAW_DIR, 'roocode.json');
+// CyberNexus config directory and file
+const CyberNexus_DIR = path.join(os.homedir(), '.cybernexus');
+const ROOCODE_CONFIG_FILE = path.join(CyberNexus_DIR, 'roocode.json');
 // Patch marker
-const PATCH_MARKER = '[WhichClaw-RooCode-Patched]';
+const PATCH_MARKER = '[CyberNexus-RooCode-Patched]';
 // VS Code extension directory
 const VSCODE_EXTENSIONS_DIR = path.join(os.homedir(), '.vscode', 'extensions');
 const ROOCODE_EXT_PREFIX = 'rooveterinaryinc.roo-cline-';
 
 /**
- * WhichClaw Roo Code config file format
+ * CyberNexus Roo Code config file format
  */
-interface WhichClawRooCodeConfig {
+interface CyberNexusRooCodeConfig {
     apiKey: string;
     baseUrl?: string;
     modelId: string;
@@ -35,19 +35,19 @@ interface WhichClawRooCodeConfig {
  * Ensure config directory exists
  */
 function ensureConfigDir(): void {
-    if (!fs.existsSync(WHICHCLAW_DIR)) {
-        fs.mkdirSync(WHICHCLAW_DIR, { recursive: true });
+    if (!fs.existsSync(CyberNexus_DIR)) {
+        fs.mkdirSync(CyberNexus_DIR, { recursive: true });
     }
 }
 
 /**
  * Read current config file
  */
-function readConfig(): WhichClawRooCodeConfig | null {
+function readConfig(): CyberNexusRooCodeConfig | null {
     try {
         if (fs.existsSync(ROOCODE_CONFIG_FILE)) {
             const content = fs.readFileSync(ROOCODE_CONFIG_FILE, 'utf-8');
-            return JSON.parse(content) as WhichClawRooCodeConfig;
+            return JSON.parse(content) as CyberNexusRooCodeConfig;
         }
     } catch (e: any) {
         console.error('[RooCode] Failed to read config:', e.message);
@@ -58,7 +58,7 @@ function readConfig(): WhichClawRooCodeConfig | null {
 /**
  * Write config file
  */
-function writeConfig(config: WhichClawRooCodeConfig): boolean {
+function writeConfig(config: CyberNexusRooCodeConfig): boolean {
     try {
         ensureConfigDir();
         fs.writeFileSync(ROOCODE_CONFIG_FILE, JSON.stringify(config, null, 2), 'utf-8');
@@ -71,7 +71,7 @@ function writeConfig(config: WhichClawRooCodeConfig): boolean {
 }
 
 /**
- * Read current model info from WhichClaw config
+ * Read current model info from CyberNexus config
  */
 export async function getCurrentModelInfo(
     _readConfig: () => Promise<any>
@@ -139,7 +139,7 @@ function ensurePatch(): { patched: boolean; message: string } {
 
 /**
  * Apply model config to Roo Code
- * Write to ~/.whichclaw/roocode.json and auto-detect/patch extension
+ * Write to ~/.cybernexus/roocode.json and auto-detect/patch extension
  */
 export async function applyConfig(
     modelInfo: ModelInfo,
@@ -148,7 +148,7 @@ export async function applyConfig(
     _getConfigFile: () => string
 ): Promise<{ success: boolean; message: string }> {
     try {
-        const config: WhichClawRooCodeConfig = {
+        const config: CyberNexusRooCodeConfig = {
             apiKey: modelInfo.apiKey || '',
             modelId: modelInfo.model,
             modelName: modelInfo.name || modelInfo.model,

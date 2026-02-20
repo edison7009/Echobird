@@ -1,5 +1,5 @@
 ---
-description: Release a new version of WhichClaw (bump version, sync files, tag, push)
+description: Release a new version of CyberNexus (bump version, sync files, tag, push)
 ---
 
 # Release Workflow
@@ -38,7 +38,7 @@ git push origin main --tags
 
 ## Post-release
 
-8. Monitor GitHub Actions: https://github.com/WhichClawTeam/WhichClaw/actions
+8. Monitor GitHub Actions: https://github.com/CyberNexus-Chat/CyberNexus/actions
 9. Verify all 3 platforms pass (Windows/macOS/Linux)
 10. Check GitHub Releases page for uploaded assets (.exe, .dmg, .AppImage)
 11. Clean up Release assets: remove `.yml` and `.blockmap` files if present

@@ -25,8 +25,8 @@ export class ToolManager {
     private configDir: string;
 
     constructor() {
-        // Use ~/.whichclaw/ as config directory
-        this.configDir = path.join(os.homedir(), '.whichclaw', 'config');
+        // Use ~/.cybernexus/ as config directory
+        this.configDir = path.join(os.homedir(), '.cybernexus', 'config');
     }
 
     async initialize(): Promise<void> {

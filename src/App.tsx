@@ -939,7 +939,7 @@ function App() {
                                                                                 <div className="text-[10px] text-cyber-text-secondary truncate">{skill.brief || skill.author}</div>
                                                                             </div>
                                                                             {/* Skills Browser only displays skill info, no INSTALLED status needed
-                                                        That is a Claude local skill, not a core WhichClaw feature */}
+                                                        That is a Claude local skill, not a core CyberNexus feature */}
                                                                             {/* {skill.installed && (
                                                         <span className="text-[9px] px-1.5 py-0.5 bg-cyber-warning/20 text-cyber-warning rounded ml-2 flex-shrink-0">
                                                             INSTALLED
@@ -1042,12 +1042,12 @@ function App() {
                                                             <div className="mb-3 select-none">
                                                                 <div className="flex items-center gap-4 py-2">
                                                                     {/* 左侧图标 */}
-                                                                    <img src="./ico.svg" alt="WhichClaw" className="w-14 h-14 flex-shrink-0 drop-shadow-[0_0_6px_rgba(0,255,157,0.3)]" />
+                                                                    <img src="./ico.svg" alt="CyberNexus" className="w-14 h-14 flex-shrink-0 drop-shadow-[0_0_6px_rgba(0,255,157,0.3)]" />
                                                                     {/* 分隔线 */}
                                                                     <div className="w-px h-12 bg-gradient-to-b from-transparent via-cyber-accent/30 to-transparent flex-shrink-0" />
                                                                     {/* 右侧信息 */}
                                                                     <div className="font-mono text-xs space-y-1">
-                                                                        <div className="text-cyber-accent text-sm font-bold tracking-wide">WhichClaw <span className="text-cyber-text-muted/60 text-xs font-normal">v{__APP_VERSION__}</span></div>
+                                                                        <div className="text-cyber-accent text-sm font-bold tracking-wide">CyberNexus <span className="text-cyber-text-muted/60 text-xs font-normal">v{__APP_VERSION__}</span></div>
                                                                         <div className="text-cyber-text-muted/65 space-y-0.5">
                                                                             <div>{userModels.length} models · {detectedTools.filter(t => t.installed).length}/{detectedTools.length} tools · {navigator.platform}</div>
                                                                         </div>

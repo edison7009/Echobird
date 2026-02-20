@@ -1,19 +1,19 @@
-﻿import fs from 'fs';
+import fs from 'fs';
 import path from 'path';
 
-const docsDir = 'd:/WhichClaw/docs';
+const docsDir = 'd:/CyberNexus/docs';
 
 const translations = {
     'zh-CN': {
         lang: '简体中文',
-        whatIs: '✨ WhichClaw 是什么？',
-        desc: 'WhichClaw 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件 —— 点一下，就能切换。',
+        whatIs: '✨ CyberNexus 是什么？',
+        desc: 'CyberNexus 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件 —— 点一下，就能切换。',
         problem: '痛点',
         p1: '😫 在 OpenClaw 等工具中切换模型需要手动编辑配置文件',
         p2: '🔄 每个工具都有自己的模型配置格式',
         p3: '🧩 没有方便的方式管理技能和扩展',
         solution: '解决方案',
-        solutionDesc: 'WhichClaw 是你所有 AI 编程工具的**中央控制面板**：',
+        solutionDesc: 'CyberNexus 是你所有 AI 编程工具的**中央控制面板**：',
         f1: '🎯 **一键切换模型** — 可视化切换任何支持工具的 AI 模型',
         f2: '🔀 **双协议支持** — OpenAI & Anthropic API 支持，随时随地切换模型',
         f3: '🚇 **智能隧道代理** — 无需全局 VPN 即可访问受限 API，仅代理 API 流量',
@@ -47,20 +47,20 @@ const translations = {
         contribDesc: '欢迎贡献！随时提交 Issue 或 Pull Request。',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **macOS 测试** — 我们还没有完全测试 macOS 构建\n- 🔧 **新工具集成** — 帮助我们支持更多 AI 编程工具\n- 🌐 **翻译改进** — 欢迎母语使用者！',
         support: '⭐ 支持',
-        supportDesc: '如果 WhichClaw 对你有帮助，请在 GitHub 上给个 ⭐ —— 让更多人发现这个项目！',
+        supportDesc: '如果 CyberNexus 对你有帮助，请在 GitHub 上给个 ⭐ —— 让更多人发现这个项目！',
         license: '📄 许可证',
-        madeWith: '由 WhichClaw 团队用 💚 打造'
+        madeWith: '由 CyberNexus 团队用 💚 打造'
     },
     'zh-TW': {
         lang: '繁體中文',
-        whatIs: '✨ WhichClaw 是什麼？',
-        desc: 'WhichClaw 是一款桌面應用，為你的 AI 程式設計工具提供**視覺化、統一的模型管理介面**。不再需要手動翻設定檔 —— 點一下，就能切換。',
+        whatIs: '✨ CyberNexus 是什麼？',
+        desc: 'CyberNexus 是一款桌面應用，為你的 AI 程式設計工具提供**視覺化、統一的模型管理介面**。不再需要手動翻設定檔 —— 點一下，就能切換。',
         problem: '痛點',
         p1: '😫 在 OpenClaw 等工具中切換模型需要手動編輯設定檔',
         p2: '🔄 每個工具都有自己的模型設定格式',
         p3: '🧩 沒有方便的方式管理技能和擴充',
         solution: '解決方案',
-        solutionDesc: 'WhichClaw 是你所有 AI 程式設計工具的**中央控制面板**：',
+        solutionDesc: 'CyberNexus 是你所有 AI 程式設計工具的**中央控制面板**：',
         f1: '🎯 **一鍵切換模型** — 視覺化切換任何支援工具的 AI 模型',
         f2: '🔀 **雙協議支援** — OpenAI & Anthropic API 支援，隨時隨地切換模型',
         f3: '🚇 **智慧隧道代理** — 無需全域 VPN 即可存取受限 API，僅代理 API 流量',
@@ -94,20 +94,20 @@ const translations = {
         contribDesc: '歡迎貢獻！隨時提交 Issue 或 Pull Request。',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **macOS 測試** — 我們還沒有完全測試 macOS 構建\n- 🔧 **新工具整合** — 幫助我們支援更多 AI 程式設計工具\n- 🌐 **翻譯改進** — 歡迎母語使用者！',
         support: '⭐ 支持',
-        supportDesc: '如果 WhichClaw 對你有幫助，請在 GitHub 上給個 ⭐ —— 讓更多人發現這個專案！',
+        supportDesc: '如果 CyberNexus 對你有幫助，請在 GitHub 上給個 ⭐ —— 讓更多人發現這個專案！',
         license: '📄 授權條款',
-        madeWith: '由 WhichClaw 團隊用 💚 打造'
+        madeWith: '由 CyberNexus 團隊用 💚 打造'
     },
     'ja': {
         lang: '日本語',
-        whatIs: '✨ WhichClaw とは？',
-        desc: 'WhichClaw は、AIコーディングツール全体でモデルを管理するための**ビジュアルで統一されたインターフェース**を提供するデスクトップアプリです。設定ファイルを掘り返す必要はもうありません — クリックするだけで切り替え。',
+        whatIs: '✨ CyberNexus とは？',
+        desc: 'CyberNexus は、AIコーディングツール全体でモデルを管理するための**ビジュアルで統一されたインターフェース**を提供するデスクトップアプリです。設定ファイルを掘り返す必要はもうありません — クリックするだけで切り替え。',
         problem: '課題',
         p1: '😫 OpenClaw などのツールでAIモデルを切り替えるには設定ファイルの手動編集が必要',
         p2: '🔄 各ツールが独自のモデル設定形式を持っている',
         p3: '🧩 ツール間でスキルや拡張機能を管理する簡単な方法がない',
         solution: 'ソリューション',
-        solutionDesc: 'WhichClaw はすべてのAIコーディングツールの**中央コントロールパネル**として機能します：',
+        solutionDesc: 'CyberNexus はすべてのAIコーディングツールの**中央コントロールパネル**として機能します：',
         f1: '🎯 **ワンクリックモデル切替** — 対応ツールのAIモデルをビジュアルに切り替え',
         f2: '🔀 **デュアルプロトコル** — OpenAI & Anthropic API対応、いつでもどこでもモデル切替',
         f3: '🚇 **スマートトンネルプロキシ** — フルVPNなしで地域制限APIにアクセス、APIトラフィックのみをプロキシ',
@@ -141,20 +141,20 @@ const translations = {
         contribDesc: 'コントリビュート大歓迎！Issue や Pull Request をお気軽にどうぞ。',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **macOSテスト** — macOSビルドのテストがまだ完了していません\n- 🔧 **新ツール統合** — より多くのAIコーディングツールのサポート追加にご協力ください\n- 🌐 **翻訳改善** — ネイティブスピーカー歓迎！',
         support: '⭐ サポート',
-        supportDesc: 'WhichClaw が役立ったら、GitHub で ⭐ をお願いします — プロジェクトの発見に繋がります！',
+        supportDesc: 'CyberNexus が役立ったら、GitHub で ⭐ をお願いします — プロジェクトの発見に繋がります！',
         license: '📄 ライセンス',
-        madeWith: 'WhichClaw チームが 💚 を込めて制作'
+        madeWith: 'CyberNexus チームが 💚 を込めて制作'
     },
     'ko': {
         lang: '한국어',
-        whatIs: '✨ WhichClaw란?',
-        desc: 'WhichClaw는 AI 코딩 도구 전반에 걸쳐 모델을 관리하기 위한 **시각적이고 통합된 인터페이스**를 제공하는 데스크톱 애플리케이션입니다. 설정 파일을 뒤질 필요 없이 — 클릭 한 번으로 전환하세요.',
+        whatIs: '✨ CyberNexus란?',
+        desc: 'CyberNexus는 AI 코딩 도구 전반에 걸쳐 모델을 관리하기 위한 **시각적이고 통합된 인터페이스**를 제공하는 데스크톱 애플리케이션입니다. 설정 파일을 뒤질 필요 없이 — 클릭 한 번으로 전환하세요.',
         problem: '문제점',
         p1: '😫 OpenClaw 같은 도구에서 AI 모델을 전환하려면 설정 파일을 수동으로 편집해야 함',
         p2: '🔄 각 도구마다 고유한 모델 구성 형식이 있음',
         p3: '🧩 도구 간 스킬과 확장 기능을 관리할 편리한 방법이 없음',
         solution: '솔루션',
-        solutionDesc: 'WhichClaw는 모든 AI 코딩 도구의 **중앙 제어 패널** 역할을 합니다:',
+        solutionDesc: 'CyberNexus는 모든 AI 코딩 도구의 **중앙 제어 패널** 역할을 합니다:',
         f1: '🎯 **원클릭 모델 전환** — 지원 도구의 AI 모델을 시각적으로 전환',
         f2: '🔀 **듀얼 프로토콜** — OpenAI & Anthropic API 지원, 언제 어디서나 모델 전환',
         f3: '🚇 **스마트 터널 프록시** — VPN 없이 지역 제한 API에 접근, API 트래픽만 프록시',
@@ -188,20 +188,20 @@ const translations = {
         contribDesc: '기여를 환영합니다! 이슈나 풀 리퀘스트를 자유롭게 제출해 주세요.',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **macOS 테스트** — macOS 빌드를 아직 완전히 테스트하지 못했습니다\n- 🔧 **새로운 도구 통합** — 더 많은 AI 코딩 도구 지원 추가에 도움을 주세요\n- 🌐 **번역 개선** — 원어민 환영!',
         support: '⭐ 지원',
-        supportDesc: 'WhichClaw가 유용하다면, GitHub에서 ⭐를 눌러주세요 — 더 많은 사람들이 프로젝트를 발견하는 데 도움이 됩니다!',
+        supportDesc: 'CyberNexus가 유용하다면, GitHub에서 ⭐를 눌러주세요 — 더 많은 사람들이 프로젝트를 발견하는 데 도움이 됩니다!',
         license: '📄 라이선스',
-        madeWith: 'WhichClaw 팀이 💚으로 제작'
+        madeWith: 'CyberNexus 팀이 💚으로 제작'
     },
     'es': {
         lang: 'Español',
-        whatIs: '✨ ¿Qué es WhichClaw?',
-        desc: 'WhichClaw es una aplicación de escritorio que proporciona una **interfaz visual y unificada** para gestionar modelos de IA en tus herramientas de programación. Sin más archivos de configuración — solo haz clic y cambia.',
+        whatIs: '✨ ¿Qué es CyberNexus?',
+        desc: 'CyberNexus es una aplicación de escritorio que proporciona una **interfaz visual y unificada** para gestionar modelos de IA en tus herramientas de programación. Sin más archivos de configuración — solo haz clic y cambia.',
         problem: 'El Problema',
         p1: '😫 Cambiar modelos de IA en herramientas como OpenClaw requiere editar archivos de configuración manualmente',
         p2: '🔄 Cada herramienta tiene su propio formato de configuración de modelos',
         p3: '🧩 No hay forma fácil de gestionar habilidades y extensiones entre herramientas',
         solution: 'La Solución',
-        solutionDesc: 'WhichClaw actúa como un **panel de control central** para todas tus herramientas de programación con IA:',
+        solutionDesc: 'CyberNexus actúa como un **panel de control central** para todas tus herramientas de programación con IA:',
         f1: '🎯 **Cambio de Modelo con Un Clic** — Cambia visualmente modelos de IA para cualquier herramienta compatible',
         f2: '🔀 **Protocolo Dual** — Soporte OpenAI y Anthropic API, cambia modelos en cualquier momento',
         f3: '🚇 **Proxy Túnel Inteligente** — Accede a APIs con restricción geográfica sin VPN completa; solo se proxifica el tráfico API',
@@ -235,20 +235,20 @@ const translations = {
         contribDesc: '¡Las contribuciones son bienvenidas! No dudes en abrir issues o enviar pull requests.',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **Pruebas en macOS** — Aún no hemos probado completamente las builds de macOS\n- 🔧 **Nuevas integraciones** — Ayúdanos a agregar soporte para más herramientas de IA\n- 🌐 **Mejoras de traducción** — ¡Hablantes nativos bienvenidos!',
         support: '⭐ Apoyo',
-        supportDesc: 'Si WhichClaw te resulta útil, considera darle una ⭐ en GitHub — ¡ayuda a que otros descubran el proyecto!',
+        supportDesc: 'Si CyberNexus te resulta útil, considera darle una ⭐ en GitHub — ¡ayuda a que otros descubran el proyecto!',
         license: '📄 Licencia',
-        madeWith: 'Hecho con 💚 por el equipo de WhichClaw'
+        madeWith: 'Hecho con 💚 por el equipo de CyberNexus'
     },
     'fr': {
         lang: 'Français',
-        whatIs: '✨ Qu\'est-ce que WhichClaw ?',
-        desc: 'WhichClaw est une application de bureau qui fournit une **interface visuelle et unifiée** pour gérer les modèles d\'IA à travers vos outils de développement. Plus besoin de fouiller dans les fichiers de configuration — cliquez et basculez.',
+        whatIs: '✨ Qu\'est-ce que CyberNexus ?',
+        desc: 'CyberNexus est une application de bureau qui fournit une **interface visuelle et unifiée** pour gérer les modèles d\'IA à travers vos outils de développement. Plus besoin de fouiller dans les fichiers de configuration — cliquez et basculez.',
         problem: 'Le Problème',
         p1: '😫 Changer de modèle IA dans des outils comme OpenClaw nécessite d\'éditer manuellement les fichiers de configuration',
         p2: '🔄 Chaque outil a son propre format de configuration de modèles',
         p3: '🧩 Pas de moyen facile de gérer les compétences et extensions entre les outils',
         solution: 'La Solution',
-        solutionDesc: 'WhichClaw agit comme un **panneau de contrôle central** pour tous vos outils de développement IA :',
+        solutionDesc: 'CyberNexus agit comme un **panneau de contrôle central** pour tous vos outils de développement IA :',
         f1: '🎯 **Changement de Modèle en Un Clic** — Basculez visuellement les modèles IA pour n\'importe quel outil compatible',
         f2: '🔀 **Double Protocole** — Support OpenAI et Anthropic API, changez de modèle à tout moment',
         f3: '🚇 **Proxy Tunnel Intelligent** — Accédez aux APIs géo-restreintes sans VPN complet ; seul le trafic API est proxifié',
@@ -282,20 +282,20 @@ const translations = {
         contribDesc: 'Les contributions sont les bienvenues ! N\'hésitez pas à ouvrir des issues ou soumettre des pull requests.',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **Tests macOS** — Nous n\'avons pas encore entièrement testé les builds macOS\n- 🔧 **Nouvelles intégrations** — Aidez-nous à ajouter le support de plus d\'outils IA\n- 🌐 **Améliorations des traductions** — Locuteurs natifs bienvenus !',
         support: '⭐ Soutien',
-        supportDesc: 'Si WhichClaw vous est utile, pensez à lui donner une ⭐ sur GitHub — cela aide les autres à découvrir le projet !',
+        supportDesc: 'Si CyberNexus vous est utile, pensez à lui donner une ⭐ sur GitHub — cela aide les autres à découvrir le projet !',
         license: '📄 Licence',
-        madeWith: 'Fait avec 💚 par l\'équipe WhichClaw'
+        madeWith: 'Fait avec 💚 par l\'équipe CyberNexus'
     },
     'de': {
         lang: 'Deutsch',
-        whatIs: '✨ Was ist WhichClaw?',
-        desc: 'WhichClaw ist eine Desktop-Anwendung, die eine **visuelle, einheitliche Oberfläche** zur Verwaltung von KI-Modellen in deinen Programmier-Tools bietet. Kein Durchsuchen von Konfigurationsdateien mehr — einfach klicken und wechseln.',
+        whatIs: '✨ Was ist CyberNexus?',
+        desc: 'CyberNexus ist eine Desktop-Anwendung, die eine **visuelle, einheitliche Oberfläche** zur Verwaltung von KI-Modellen in deinen Programmier-Tools bietet. Kein Durchsuchen von Konfigurationsdateien mehr — einfach klicken und wechseln.',
         problem: 'Das Problem',
         p1: '😫 Das Wechseln von KI-Modellen in Tools wie OpenClaw erfordert manuelles Bearbeiten von Konfigurationsdateien',
         p2: '🔄 Jedes Tool hat sein eigenes Modell-Konfigurationsformat',
         p3: '🧩 Keine einfache Möglichkeit, Skills und Erweiterungen über Tools hinweg zu verwalten',
         solution: 'Die Lösung',
-        solutionDesc: 'WhichClaw fungiert als **zentrale Steuerungszentrale** für alle deine KI-Programmier-Tools:',
+        solutionDesc: 'CyberNexus fungiert als **zentrale Steuerungszentrale** für alle deine KI-Programmier-Tools:',
         f1: '🎯 **Ein-Klick Modellwechsel** — Visuell KI-Modelle für jedes unterstützte Tool wechseln',
         f2: '🔀 **Dual-Protokoll** — OpenAI & Anthropic API-Unterstützung, jederzeit und überall Modelle wechseln',
         f3: '🚇 **Intelligenter Tunnel-Proxy** — Zugriff auf geo-beschränkte APIs ohne vollständiges VPN; nur API-Traffic wird proxied',
@@ -329,20 +329,20 @@ const translations = {
         contribDesc: 'Beiträge sind willkommen! Erstelle gerne Issues oder sende Pull Requests.',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **macOS-Tests** — Wir haben die macOS-Builds noch nicht vollständig getestet\n- 🔧 **Neue Tool-Integrationen** — Hilf uns, mehr KI-Tools zu unterstützen\n- 🌐 **Übersetzungsverbesserungen** — Muttersprachler willkommen!',
         support: '⭐ Unterstützung',
-        supportDesc: 'Wenn du WhichClaw nützlich findest, gib bitte einen ⭐ auf GitHub — das hilft anderen, das Projekt zu entdecken!',
+        supportDesc: 'Wenn du CyberNexus nützlich findest, gib bitte einen ⭐ auf GitHub — das hilft anderen, das Projekt zu entdecken!',
         license: '📄 Lizenz',
-        madeWith: 'Mit 💚 vom WhichClaw Team erstellt'
+        madeWith: 'Mit 💚 vom CyberNexus Team erstellt'
     },
     'pt': {
         lang: 'Português',
-        whatIs: '✨ O que é WhichClaw?',
-        desc: 'WhichClaw é um aplicativo de desktop que fornece uma **interface visual e unificada** para gerenciar modelos de IA nas suas ferramentas de programação. Sem mais edição de arquivos de configuração — apenas clique e troque.',
+        whatIs: '✨ O que é CyberNexus?',
+        desc: 'CyberNexus é um aplicativo de desktop que fornece uma **interface visual e unificada** para gerenciar modelos de IA nas suas ferramentas de programação. Sem mais edição de arquivos de configuração — apenas clique e troque.',
         problem: 'O Problema',
         p1: '😫 Trocar modelos de IA em ferramentas como OpenClaw requer edição manual de arquivos de configuração',
         p2: '🔄 Cada ferramenta tem seu próprio formato de configuração de modelos',
         p3: '🧩 Sem forma fácil de gerenciar habilidades e extensões entre ferramentas',
         solution: 'A Solução',
-        solutionDesc: 'WhichClaw atua como um **painel de controle central** para todas as suas ferramentas de programação com IA:',
+        solutionDesc: 'CyberNexus atua como um **painel de controle central** para todas as suas ferramentas de programação com IA:',
         f1: '🎯 **Troca de Modelo com Um Clique** — Troque visualmente modelos de IA para qualquer ferramenta compatível',
         f2: '🔀 **Protocolo Duplo** — Suporte OpenAI e Anthropic API, troque modelos a qualquer momento',
         f3: '🚇 **Proxy Túnel Inteligente** — Acesse APIs com restrição geográfica sem VPN completa; apenas o tráfego API é proxificado',
@@ -376,20 +376,20 @@ const translations = {
         contribDesc: 'Contribuições são bem-vindas! Fique à vontade para abrir issues ou enviar pull requests.',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **Testes no macOS** — Ainda não testamos completamente as builds do macOS\n- 🔧 **Novas integrações** — Ajude-nos a adicionar suporte para mais ferramentas de IA\n- 🌐 **Melhorias de tradução** — Falantes nativos são bem-vindos!',
         support: '⭐ Apoio',
-        supportDesc: 'Se WhichClaw é útil para você, considere dar uma ⭐ no GitHub — ajuda outros a descobrirem o projeto!',
+        supportDesc: 'Se CyberNexus é útil para você, considere dar uma ⭐ no GitHub — ajuda outros a descobrirem o projeto!',
         license: '📄 Licença',
-        madeWith: 'Feito com 💚 pela equipe WhichClaw'
+        madeWith: 'Feito com 💚 pela equipe CyberNexus'
     },
     'ru': {
         lang: 'Русский',
-        whatIs: '✨ Что такое WhichClaw?',
-        desc: 'WhichClaw — это настольное приложение, предоставляющее **визуальный, унифицированный интерфейс** для управления ИИ-моделями во всех ваших инструментах разработки. Больше не нужно копаться в конфигурационных файлах — просто нажмите и переключите.',
+        whatIs: '✨ Что такое CyberNexus?',
+        desc: 'CyberNexus — это настольное приложение, предоставляющее **визуальный, унифицированный интерфейс** для управления ИИ-моделями во всех ваших инструментах разработки. Больше не нужно копаться в конфигурационных файлах — просто нажмите и переключите.',
         problem: 'Проблема',
         p1: '😫 Переключение ИИ-моделей в инструментах вроде OpenClaw требует ручного редактирования конфигурационных файлов',
         p2: '🔄 У каждого инструмента свой формат конфигурации моделей',
         p3: '🧩 Нет удобного способа управлять навыками и расширениями между инструментами',
         solution: 'Решение',
-        solutionDesc: 'WhichClaw выступает **центральной панелью управления** для всех ваших ИИ-инструментов разработки:',
+        solutionDesc: 'CyberNexus выступает **центральной панелью управления** для всех ваших ИИ-инструментов разработки:',
         f1: '🎯 **Переключение Модели в Один Клик** — Визуально переключайте ИИ-модели для любого поддерживаемого инструмента',
         f2: '🔀 **Двойной Протокол** — Поддержка OpenAI и Anthropic API, переключение моделей в любое время',
         f3: '🚇 **Умный Туннельный Прокси** — Доступ к гео-ограниченным API без полного VPN; проксируется только API-трафик',
@@ -423,20 +423,20 @@ const translations = {
         contribDesc: 'Вклады приветствуются! Не стесняйтесь открывать issues или отправлять pull requests.',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **Тестирование macOS** — Мы ещё не полностью протестировали сборки macOS\n- 🔧 **Новые интеграции** — Помогите добавить поддержку большего количества ИИ-инструментов\n- 🌐 **Улучшение переводов** — Приглашаем носителей языка!',
         support: '⭐ Поддержка',
-        supportDesc: 'Если WhichClaw вам полезен, поставьте ⭐ на GitHub — это помогает другим найти проект!',
+        supportDesc: 'Если CyberNexus вам полезен, поставьте ⭐ на GitHub — это помогает другим найти проект!',
         license: '📄 Лицензия',
-        madeWith: 'Сделано с 💚 командой WhichClaw'
+        madeWith: 'Сделано с 💚 командой CyberNexus'
     },
     'ar': {
         lang: 'العربية',
-        whatIs: '✨ ما هو WhichClaw؟',
-        desc: 'WhichClaw هو تطبيق سطح مكتب يوفر **واجهة مرئية وموحدة** لإدارة نماذج الذكاء الاصطناعي عبر أدوات البرمجة الخاصة بك. لا مزيد من البحث في ملفات التكوين — فقط انقر وبدّل.',
+        whatIs: '✨ ما هو CyberNexus؟',
+        desc: 'CyberNexus هو تطبيق سطح مكتب يوفر **واجهة مرئية وموحدة** لإدارة نماذج الذكاء الاصطناعي عبر أدوات البرمجة الخاصة بك. لا مزيد من البحث في ملفات التكوين — فقط انقر وبدّل.',
         problem: 'المشكلة',
         p1: '😫 تبديل نماذج الذكاء الاصطناعي في أدوات مثل OpenClaw يتطلب تعديل ملفات التكوين يدوياً',
         p2: '🔄 كل أداة لها تنسيق تكوين النماذج الخاص بها',
         p3: '🧩 لا توجد طريقة سهلة لإدارة المهارات والإضافات عبر الأدوات',
         solution: 'الحل',
-        solutionDesc: 'WhichClaw يعمل كـ **لوحة تحكم مركزية** لجميع أدوات البرمجة بالذكاء الاصطناعي:',
+        solutionDesc: 'CyberNexus يعمل كـ **لوحة تحكم مركزية** لجميع أدوات البرمجة بالذكاء الاصطناعي:',
         f1: '🎯 **تبديل النموذج بنقرة واحدة** — بدّل نماذج الذكاء الاصطناعي بصرياً لأي أداة مدعومة',
         f2: '🔀 **بروتوكول مزدوج** — دعم OpenAI و Anthropic API، بدّل النماذج في أي وقت',
         f3: '🚇 **وكيل نفق ذكي** — الوصول إلى واجهات برمجة التطبيقات المحظورة جغرافياً بدون VPN كامل',
@@ -470,9 +470,9 @@ const translations = {
         contribDesc: 'المساهمات مرحب بها! لا تتردد في فتح issues أو إرسال pull requests.',
         contribHelp: 'We\'re especially looking for help with:\n- 🍎 **اختبار macOS** — لم نختبر بناء macOS بالكامل بعد\n- 🔧 **تكاملات جديدة** — ساعدنا في إضافة دعم لمزيد من أدوات الذكاء الاصطناعي\n- 🌐 **تحسين الترجمات** — المتحدثون الأصليون مرحب بهم!',
         support: '⭐ الدعم',
-        supportDesc: 'إذا وجدت WhichClaw مفيداً، فكّر في إعطائه ⭐ على GitHub — يساعد الآخرين على اكتشاف المشروع!',
+        supportDesc: 'إذا وجدت CyberNexus مفيداً، فكّر في إعطائه ⭐ على GitHub — يساعد الآخرين على اكتشاف المشروع!',
         license: '📄 الرخصة',
-        madeWith: 'صنع بـ 💚 من فريق WhichClaw'
+        madeWith: 'صنع بـ 💚 من فريق CyberNexus'
     }
 };
 
@@ -491,10 +491,10 @@ function buildLangLinks(currentLang) {
 function generateReadme(lang, t) {
     const langLinks = buildLangLinks(lang);
     return `<p align="center">
-  <img src="../build/icon.png" alt="WhichClaw" width="120" />
+  <img src="../build/icon.png" alt="CyberNexus" width="120" />
 </p>
 
-<h1 align="center">WhichClaw</h1>
+<h1 align="center">CyberNexus</h1>
 
 <p align="center">
   <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
@@ -502,11 +502,11 @@ function generateReadme(lang, t) {
 </p>
 
 <p align="center">
-  <a href="https://github.com/WhichClawTeam/WhichClaw/releases">
-    <img src="https://img.shields.io/github/v/release/WhichClawTeam/WhichClaw?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
+    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/WhichClawTeam/WhichClaw?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
@@ -560,15 +560,15 @@ ${t.downloadDesc}
 
 | ${t.platform} | ${t.download} |
 |----------|----------|
-| Windows  | [WhichClaw-Setup.exe](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| macOS    | [WhichClaw.dmg](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| Linux    | [WhichClaw.AppImage](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
+| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
 
 ### ${t.linuxNotes}
 
 \`\`\`bash
-chmod +x WhichClaw-*.AppImage
-./WhichClaw-*.AppImage
+chmod +x CyberNexus-*.AppImage
+./CyberNexus-*.AppImage
 \`\`\`
 
 > ${t.fuseNote} \`sudo apt install libfuse2\`
@@ -615,9 +615,9 @@ ${t.contribHelp || ''}
 
 ## 📬 Contact
 
-- 📧 Email: [hi@whichclaw.com](mailto:hi@whichclaw.com)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/WhichClawTeam/WhichClaw/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/WhichClawTeam/WhichClaw/discussions)
+- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
 
 ## ${t.support}
 
@@ -631,7 +631,7 @@ ${t.supportDesc}
 
 <p align="center">
   ${t.madeWith}<br/>
-  <sub>📧 <a href="mailto:hi@whichclaw.com">hi@whichclaw.com</a></sub>
+  <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
 </p>
 `;
 }

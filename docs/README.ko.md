@@ -1,8 +1,8 @@
-﻿<p align="center">
-  <img src="../build/icon.png" alt="WhichClaw" width="120" />
+<p align="center">
+  <img src="../build/icon.png" alt="CyberNexus" width="120" />
 </p>
 
-<h1 align="center">WhichClaw</h1>
+<h1 align="center">CyberNexus</h1>
 
 <p align="center">
   <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/WhichClawTeam/WhichClaw/releases">
-    <img src="https://img.shields.io/github/v/release/WhichClawTeam/WhichClaw?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
+    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/WhichClawTeam/WhichClaw?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 ---
 
-## ✨ WhichClaw란?
+## ✨ CyberNexus란?
 
-WhichClaw는 AI 코딩 도구의 모델을 **시각적으로 통합 관리**할 수 있는 데스크톱 애플리케이션입니다. 설정 파일을 직접 편집할 필요 없이 클릭 한 번으로 전환하세요.
+CyberNexus는 AI 코딩 도구의 모델을 **시각적으로 통합 관리**할 수 있는 데스크톱 애플리케이션입니다. 설정 파일을 직접 편집할 필요 없이 클릭 한 번으로 전환하세요.
 
 ### 문제점
 
@@ -35,7 +35,7 @@ WhichClaw는 AI 코딩 도구의 모델을 **시각적으로 통합 관리**할 
 
 ### 솔루션
 
-WhichClaw는 모든 AI 코딩 도구의 **중앙 컨트롤 패널**입니다:
+CyberNexus는 모든 AI 코딩 도구의 **중앙 컨트롤 패널**입니다:
 
 - 🎯 **원클릭 모델 전환** — 지원되는 도구의 AI 모델을 시각적으로 전환
 - 🔀 **듀얼 프로토콜** — OpenAI & Anthropic API 지원, 언제 어디서나 모델 전환
@@ -66,15 +66,15 @@ WhichClaw는 모든 AI 코딩 도구의 **중앙 컨트롤 패널**입니다:
 
 | 플랫폼 | 다운로드 |
 |----------|----------|
-| Windows  | [WhichClaw-Setup.exe](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| macOS    | [WhichClaw.dmg](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| Linux    | [WhichClaw.AppImage](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
+| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
 
 ### Linux 참고사항
 
 ```bash
-chmod +x WhichClaw-*.AppImage
-./WhichClaw-*.AppImage
+chmod +x CyberNexus-*.AppImage
+./CyberNexus-*.AppImage
 ```
 
 > FUSE 오류 발생 시: `sudo apt install libfuse2`
@@ -126,13 +126,13 @@ We're especially looking for help with:
 
 ## 📬 Contact
 
-- 📧 Email: [hi@whichclaw.com](mailto:hi@whichclaw.com)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/WhichClawTeam/WhichClaw/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/WhichClawTeam/WhichClaw/discussions)
+- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
 
 ## ⭐ 지원
 
-WhichClaw가 유용하셨다면 GitHub에서 ⭐을 눌러 주세요!
+CyberNexus가 유용하셨다면 GitHub에서 ⭐을 눌러 주세요!
 
 ## 📄 라이선스
 
@@ -141,6 +141,6 @@ WhichClaw가 유용하셨다면 GitHub에서 ⭐을 눌러 주세요!
 ---
 
 <p align="center">
-  WhichClaw 팀이 💚으로 만들었습니다<br/>
-  <sub>📧 <a href="mailto:hi@whichclaw.com">hi@whichclaw.com</a></sub>
+  CyberNexus 팀이 💚으로 만들었습니다<br/>
+  <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
 </p>

@@ -200,11 +200,11 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
                             <span className="text-xs font-mono text-cyber-text-secondary tracking-wider">{t('settings.closeBehavior')}</span>
                         </div>
                         <MiniSelect
-                            value={(() => { try { return localStorage.getItem('whichclaw-close-behavior') || 'ask'; } catch { return 'ask'; } })()}
+                            value={(() => { try { return localStorage.getItem('cybernexus-close-behavior') || 'ask'; } catch { return 'ask'; } })()}
                             onChange={(val) => {
                                 try {
-                                    if (val === 'ask') localStorage.removeItem('whichclaw-close-behavior');
-                                    else localStorage.setItem('whichclaw-close-behavior', val);
+                                    if (val === 'ask') localStorage.removeItem('cybernexus-close-behavior');
+                                    else localStorage.setItem('cybernexus-close-behavior', val);
                                 } catch { }
                             }}
                             options={[
@@ -249,7 +249,7 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
 
                             {updateStatus === 'available' && (
                                 <button
-                                    onClick={() => (window as any).electron.openExternal('https://whichclaw.com/download')}
+                                    onClick={() => (window as any).electron.openExternal('https://cybernexus.chat/download')}
                                     className="flex items-center justify-center gap-1.5 w-full text-[10px] font-mono py-1.5 border border-cyber-accent-secondary/30 text-cyber-accent-secondary hover:bg-cyber-accent-secondary/10 transition-colors tracking-wider rounded-button"
                                 >
                                     UPDATE TO v{latestVersion} <ExternalLink size={10} />
@@ -270,10 +270,10 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
                     {/* Website link */}
                     <div className="pt-1 flex justify-center">
                         <button
-                            onClick={() => (window as any).electron.openExternal('https://whichclaw.com')}
+                            onClick={() => (window as any).electron.openExternal('https://cybernexus.chat')}
                             className="text-[13px] font-mono text-cyber-text-secondary/80 hover:text-cyber-accent transition-colors tracking-wider flex items-center gap-1.5"
                         >
-                            WhichClaw.com <ExternalLink size={12} />
+                            CyberNexus.chat <ExternalLink size={12} />
                         </button>
                     </div>
                 </div>

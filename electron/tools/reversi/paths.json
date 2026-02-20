@@ -19,19 +19,19 @@
     ],
     "docs": "https://en.wikipedia.org/wiki/Reversi",
     "command": "",
-    "configDir": "~/.whichclaw",
-    "configFile": "~/.whichclaw/reversi.json",
+    "configDir": "~/.cybernexus",
+    "configFile": "~/.cybernexus/reversi.json",
     "requireConfigFile": false,
     "paths": {},
     "skillsPath": {
         "win32": [
-            "~/.whichclaw/reversi-skills"
+            "~/.cybernexus/reversi-skills"
         ],
         "darwin": [
-            "~/.whichclaw/reversi-skills"
+            "~/.cybernexus/reversi-skills"
         ],
         "linux": [
-            "~/.whichclaw/reversi-skills"
+            "~/.cybernexus/reversi-skills"
         ]
     },
     "alwaysInstalled": true,

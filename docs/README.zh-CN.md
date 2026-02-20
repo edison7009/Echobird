@@ -1,8 +1,8 @@
-﻿<p align="center">
-  <img src="../build/icon.png" alt="WhichClaw" width="120" />
+<p align="center">
+  <img src="../build/icon.png" alt="CyberNexus" width="120" />
 </p>
 
-<h1 align="center">WhichClaw</h1>
+<h1 align="center">CyberNexus</h1>
 
 <p align="center">
   <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/WhichClawTeam/WhichClaw/releases">
-    <img src="https://img.shields.io/github/v/release/WhichClawTeam/WhichClaw?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
+    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/WhichClawTeam/WhichClaw?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 ---
 
-## ✨ WhichClaw 是什么？
+## ✨ CyberNexus 是什么？
 
-WhichClaw 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件——点一下，就能切换。
+CyberNexus 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件——点一下，就能切换。
 
 ### 痛点
 
@@ -35,7 +35,7 @@ WhichClaw 是一款桌面应用，为你的 AI 编程工具提供**可视化、�
 
 ### 解决方案
 
-WhichClaw 是你所有 AI 编程工具的**中央控制面板**：
+CyberNexus 是你所有 AI 编程工具的**中央控制面板**：
 
 - 🎯 **一键切换模型** — 可视化切换任何支持工具的 AI 模型
 - 🔀 **双协议支持** — OpenAI & Anthropic API 支持，随时随地切换模型
@@ -68,15 +68,15 @@ WhichClaw 是你所有 AI 编程工具的**中央控制面板**：
 
 | 平台 | 下载 |
 |----------|----------|
-| Windows  | [WhichClaw-Setup.exe](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| macOS    | [WhichClaw.dmg](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| Linux    | [WhichClaw.AppImage](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
+| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
 
 ### Linux 说明
 
 ```bash
-chmod +x WhichClaw-*.AppImage
-./WhichClaw-*.AppImage
+chmod +x CyberNexus-*.AppImage
+./CyberNexus-*.AppImage
 ```
 
 > 如果遇到 FUSE 错误：`sudo apt install libfuse2`
@@ -128,13 +128,13 @@ We're especially looking for help with:
 
 ## 📬 Contact
 
-- 📧 Email: [hi@whichclaw.com](mailto:hi@whichclaw.com)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/WhichClawTeam/WhichClaw/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/WhichClawTeam/WhichClaw/discussions)
+- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
 
 ## ⭐ 支持
 
-如果 WhichClaw 对你有帮助，请在 GitHub 上给个 ⭐ — 让更多人发现这个项目！
+如果 CyberNexus 对你有帮助，请在 GitHub 上给个 ⭐ — 让更多人发现这个项目！
 
 ## 📄 许可证
 
@@ -143,6 +143,6 @@ We're especially looking for help with:
 ---
 
 <p align="center">
-  由 WhichClaw 团队用 💚 打造<br/>
-  <sub>📧 <a href="mailto:hi@whichclaw.com">hi@whichclaw.com</a></sub>
+  由 CyberNexus 团队用 💚 打造<br/>
+  <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
 </p>

@@ -16,11 +16,11 @@ let isQuitting = false;
 // 主进程托盘菜单翻译
 let trayLocale = 'en';
 const trayStrings: Record<string, Record<string, string>> = {
-    en: { show: 'Show WhichClaw', server: 'LOCAL SERVER', on: 'ON', off: 'OFF', quit: 'Quit', tooltip: 'Local Server' },
-    'zh-Hans': { show: '显示 WhichClaw', server: '本地服务器', on: '开启', off: '关闭', quit: '退出', tooltip: '本地服务器' },
-    'zh-Hant': { show: '顯示 WhichClaw', server: '本機伺服器', on: '開啟', off: '關閉', quit: '結束', tooltip: '本機伺服器' },
-    ja: { show: 'WhichClaw を表示', server: 'ローカルサーバー', on: 'オン', off: 'オフ', quit: '終了', tooltip: 'ローカルサーバー' },
-    ko: { show: 'WhichClaw 표시', server: '로컬 서버', on: '켜기', off: '끄기', quit: '종료', tooltip: '로컬 서버' },
+    en: { show: 'Show CyberNexus', server: 'LOCAL SERVER', on: 'ON', off: 'OFF', quit: 'Quit', tooltip: 'Local Server' },
+    'zh-Hans': { show: '显示 CyberNexus', server: '本地服务器', on: '开启', off: '关闭', quit: '退出', tooltip: '本地服务器' },
+    'zh-Hant': { show: '顯示 CyberNexus', server: '本機伺服器', on: '開啟', off: '關閉', quit: '結束', tooltip: '本機伺服器' },
+    ja: { show: 'CyberNexus を表示', server: 'ローカルサーバー', on: 'オン', off: 'オフ', quit: '終了', tooltip: 'ローカルサーバー' },
+    ko: { show: 'CyberNexus 표시', server: '로컬 서버', on: '켜기', off: '끄기', quit: '종료', tooltip: '로컬 서버' },
 };
 function trayT(key: string): string {
     return trayStrings[trayLocale]?.[key] || trayStrings.en[key] || key;
@@ -162,7 +162,7 @@ function createWindow() {
 
 // 从像素数据生成托盘图标（彻底避免 SVG 渲染缝隙）
 function createTrayIcon(color: 'green' | 'yellow' = 'green'): Electron.NativeImage {
-    // 7×7 pixel pattern (WhichClaw logo), 1=filled, 0=transparent
+    // 7×7 pixel pattern (CyberNexus logo), 1=filled, 0=transparent
     const pixels = [
         [0, 1, 1, 1, 1, 1, 0],
         [1, 0, 1, 1, 0, 1, 1],
@@ -221,7 +221,7 @@ function createTray() {
     }
 
     tray = new Tray(trayIcon);
-    tray.setToolTip('WhichClaw');
+    tray.setToolTip('CyberNexus');
 
     // 构建并更新右键菜单
     updateTrayMenu();
@@ -257,11 +257,11 @@ function updateTrayMenu() {
         icon.setTemplateImage(true);
     }
     tray.setImage(icon);
-    tray.setToolTip(`WhichClaw - ${trayT('tooltip')} ${isServerOnline ? trayT('on') : trayT('off')}`);
+    tray.setToolTip(`CyberNexus - ${trayT('tooltip')} ${isServerOnline ? trayT('on') : trayT('off')}`);
 
     const contextMenu = Menu.buildFromTemplate([
         {
-            label: `WhichClaw v${version}`,
+            label: `CyberNexus v${version}`,
             enabled: false,  // 灰色版本号
         },
         { type: 'separator' },
@@ -560,7 +560,7 @@ ipcMain.handle('launch-game', async (_event, toolId: string, launchFile: string,
             height: 700,
             frame: false,
             maximizable: false,
-            title: `WhichClaw - ${toolId}`,
+            title: `CyberNexus - ${toolId}`,
             icon: path.join(__dirname, '../public/ico.svg'),
             autoHideMenuBar: true,
             backgroundColor: '#0a0e17',
@@ -1002,7 +1002,7 @@ ipcMain.handle('check-for-updates', async () => {
     try {
         const https = await import('https');
         return new Promise((resolve) => {
-            const req = https.get('https://whichclaw.com/api/version/index.json', { timeout: 8000 }, (res) => {
+            const req = https.get('https://cybernexus.chat/api/version/index.json', { timeout: 8000 }, (res) => {
                 let data = '';
                 res.on('data', (chunk: string) => { data += chunk; });
                 res.on('end', () => {

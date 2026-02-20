@@ -1,8 +1,8 @@
-﻿<p align="center">
-  <img src="../build/icon.png" alt="WhichClaw" width="120" />
+<p align="center">
+  <img src="../build/icon.png" alt="CyberNexus" width="120" />
 </p>
 
-<h1 align="center">WhichClaw</h1>
+<h1 align="center">CyberNexus</h1>
 
 <p align="center">
   <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/WhichClawTeam/WhichClaw/releases">
-    <img src="https://img.shields.io/github/v/release/WhichClawTeam/WhichClaw?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
+    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/WhichClawTeam/WhichClaw?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 ---
 
-## ✨ ¿Qué es WhichClaw?
+## ✨ ¿Qué es CyberNexus?
 
-WhichClaw es una aplicación de escritorio que proporciona una **interfaz visual y unificada** para gestionar modelos de IA en tus herramientas de programación. Sin más búsquedas en archivos de configuración — simplemente haz clic y cambia.
+CyberNexus es una aplicación de escritorio que proporciona una **interfaz visual y unificada** para gestionar modelos de IA en tus herramientas de programación. Sin más búsquedas en archivos de configuración — simplemente haz clic y cambia.
 
 ### El Problema
 
@@ -35,7 +35,7 @@ WhichClaw es una aplicación de escritorio que proporciona una **interfaz visual
 
 ### La Solución
 
-WhichClaw actúa como un **panel de control central** para todas tus herramientas de programación con IA:
+CyberNexus actúa como un **panel de control central** para todas tus herramientas de programación con IA:
 
 - 🎯 **Cambio con Un Clic** — Cambia visualmente modelos de IA para cualquier herramienta soportada
 - 🔀 **Protocolo Dual** — Soporte OpenAI & Anthropic API, cambia modelos en cualquier momento
@@ -66,15 +66,15 @@ WhichClaw actúa como un **panel de control central** para todas tus herramienta
 
 | Plataforma | Descarga |
 |----------|----------|
-| Windows  | [WhichClaw-Setup.exe](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| macOS    | [WhichClaw.dmg](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| Linux    | [WhichClaw.AppImage](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
+| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
 
 ### Notas de Linux
 
 ```bash
-chmod +x WhichClaw-*.AppImage
-./WhichClaw-*.AppImage
+chmod +x CyberNexus-*.AppImage
+./CyberNexus-*.AppImage
 ```
 
 > Si encuentras errores de FUSE: `sudo apt install libfuse2`
@@ -126,13 +126,13 @@ We're especially looking for help with:
 
 ## 📬 Contact
 
-- 📧 Email: [hi@whichclaw.com](mailto:hi@whichclaw.com)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/WhichClawTeam/WhichClaw/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/WhichClawTeam/WhichClaw/discussions)
+- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
 
 ## ⭐ Apoyo
 
-Si WhichClaw te resulta útil, ¡dale una ⭐ en GitHub!
+Si CyberNexus te resulta útil, ¡dale una ⭐ en GitHub!
 
 ## 📄 Licencia
 
@@ -141,6 +141,6 @@ Si WhichClaw te resulta útil, ¡dale una ⭐ en GitHub!
 ---
 
 <p align="center">
-  Hecho con 💚 por el equipo WhichClaw<br/>
-  <sub>📧 <a href="mailto:hi@whichclaw.com">hi@whichclaw.com</a></sub>
+  Hecho con 💚 por el equipo CyberNexus<br/>
+  <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
 </p>

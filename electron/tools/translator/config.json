@@ -1,6 +1,6 @@
 {
     "docs": "",
-    "configFile": "~/.whichclaw/translator.json",
+    "configFile": "~/.cybernexus/translator.json",
     "format": "json",
     "custom": false,
     "read": {

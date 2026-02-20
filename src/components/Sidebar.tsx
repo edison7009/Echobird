@@ -37,7 +37,7 @@ export const Sidebar = ({ activePage, onPageChange, showLogsPage = true }: Sideb
         <nav className="w-64 flex flex-col px-6 pb-6">
             <div className="text-2xl font-bold mb-10 tracking-wide flex items-center gap-2.5">
                 <img src={activePage === 'skills' ? './ico-yellow.svg' : './ico.svg'} alt="" className="w-6 h-6 -translate-y-[2px]" />
-                <span className={activePage === 'skills' ? 'text-cyber-warning' : 'text-cyber-accent'}>WhichClaw</span>
+                <span className={activePage === 'skills' ? 'text-cyber-warning' : 'text-cyber-accent'}>CyberNexus</span>
             </div>
 
             <div className="flex-1 space-y-6 text-sm">

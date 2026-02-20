@@ -1,8 +1,8 @@
-﻿<p align="center">
-  <img src="build/icon.png" alt="WhichClaw" width="120" />
+<p align="center">
+  <img src="build/icon.png" alt="CyberNexus" width="120" />
 </p>
 
-<h1 align="center">WhichClaw</h1>
+<h1 align="center">CyberNexus</h1>
 
 <p align="center">
   <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
@@ -10,11 +10,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/WhichClawTeam/WhichClaw/releases">
-    <img src="https://img.shields.io/github/v/release/WhichClawTeam/WhichClaw?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
+    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/WhichClawTeam/WhichClaw?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
@@ -33,9 +33,9 @@
 
 ---
 
-## ✨ What is WhichClaw?
+## ✨ What is CyberNexus?
 
-WhichClaw is a desktop application that provides a **visual, unified interface** for managing AI models across your coding tools. No more digging through config files — just point, click, and switch.
+CyberNexus is a desktop application that provides a **visual, unified interface** for managing AI models across your coding tools. No more digging through config files — just point, click, and switch.
 
 ### The Problem
 
@@ -45,7 +45,7 @@ WhichClaw is a desktop application that provides a **visual, unified interface**
 
 ### The Solution
 
-WhichClaw acts as a **central control panel** for all your AI-powered coding tools:
+CyberNexus acts as a **central control panel** for all your AI-powered coding tools:
 
 - 🎯 **One-Click Model Switching** — Visually switch AI models for any supported tool
 - 🔀 **Dual Protocol** — OpenAI & Anthropic API support, switch models anytime anywhere
@@ -78,15 +78,15 @@ Get the latest release for your platform:
 
 | Platform | Download |
 |----------|----------|
-| Windows  | [WhichClaw-Setup.exe](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| macOS    | [WhichClaw.dmg](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
-| Linux    | [WhichClaw.AppImage](https://github.com/WhichClawTeam/WhichClaw/releases/latest) |
+| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
 
 ### Linux Notes
 
 ```bash
-chmod +x WhichClaw-*.AppImage
-./WhichClaw-*.AppImage
+chmod +x CyberNexus-*.AppImage
+./CyberNexus-*.AppImage
 ```
 
 > If you encounter FUSE errors: `sudo apt install libfuse2`
@@ -143,13 +143,13 @@ We're especially looking for help with:
 
 ## 📬 Contact
 
-- 📧 Email: [hi@whichclaw.com](mailto:hi@whichclaw.com)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/WhichClawTeam/WhichClaw/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/WhichClawTeam/WhichClaw/discussions)
+- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
 
 ## ⭐ Support
 
-If you find WhichClaw useful, please consider giving it a ⭐ on GitHub — it helps others discover the project!
+If you find CyberNexus useful, please consider giving it a ⭐ on GitHub — it helps others discover the project!
 
 ## 📄 License
 
@@ -158,6 +158,6 @@ If you find WhichClaw useful, please consider giving it a ⭐ on GitHub — it h
 ---
 
 <p align="center">
-  Made with 💚 by the WhichClaw Team<br/>
-  <sub>🌐 <a href="https://whichclaw.com">whichclaw.com</a></sub>
+  Made with 💚 by the CyberNexus Team<br/>
+  <sub>🌐 <a href="https://cybernexus.chat">cybernexus.chat</a></sub>
 </p>

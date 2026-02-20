@@ -7,23 +7,23 @@ import { ModelInfo } from '../types';
 /**
  * Cline Model Module (Patch Injection)
  * 
- * Writes config to ~/.whichclaw/cline.json,
+ * Writes config to ~/.cybernexus/cline.json,
  * patched Cline extension reads this file on startup and overrides API settings.
  * Auto-detects and applies patch on each Apply.
  */
 
-const WHICHCLAW_DIR = path.join(os.homedir(), '.whichclaw');
-const CLINE_CONFIG_FILE = path.join(WHICHCLAW_DIR, 'cline.json');
+const CyberNexus_DIR = path.join(os.homedir(), '.cybernexus');
+const CLINE_CONFIG_FILE = path.join(CyberNexus_DIR, 'cline.json');
 // 补丁标记
-const PATCH_MARKER = '[WhichClaw-Patched]';
+const PATCH_MARKER = '[CyberNexus-Patched]';
 // VS Code 扩展目录
 const VSCODE_EXTENSIONS_DIR = path.join(os.homedir(), '.vscode', 'extensions');
 const CLINE_EXT_PREFIX = 'saoudrizwan.claude-dev-';
 
 /**
- * WhichClaw Cline config file format
+ * CyberNexus Cline config file format
  */
-interface WhichClawClineConfig {
+interface CyberNexusClineConfig {
     provider: 'openai';
     apiKey: string;
     baseUrl?: string;
@@ -35,19 +35,19 @@ interface WhichClawClineConfig {
  * Ensure config directory exists
  */
 function ensureConfigDir(): void {
-    if (!fs.existsSync(WHICHCLAW_DIR)) {
-        fs.mkdirSync(WHICHCLAW_DIR, { recursive: true });
+    if (!fs.existsSync(CyberNexus_DIR)) {
+        fs.mkdirSync(CyberNexus_DIR, { recursive: true });
     }
 }
 
 /**
  * Read current config file
  */
-function readConfig(): WhichClawClineConfig | null {
+function readConfig(): CyberNexusClineConfig | null {
     try {
         if (fs.existsSync(CLINE_CONFIG_FILE)) {
             const content = fs.readFileSync(CLINE_CONFIG_FILE, 'utf-8');
-            return JSON.parse(content) as WhichClawClineConfig;
+            return JSON.parse(content) as CyberNexusClineConfig;
         }
     } catch (e: any) {
         console.error('[Cline] Failed to read config:', e.message);
@@ -58,7 +58,7 @@ function readConfig(): WhichClawClineConfig | null {
 /**
  * Write config file
  */
-function writeConfig(config: WhichClawClineConfig): boolean {
+function writeConfig(config: CyberNexusClineConfig): boolean {
     try {
         ensureConfigDir();
         fs.writeFileSync(CLINE_CONFIG_FILE, JSON.stringify(config, null, 2), 'utf-8');
@@ -71,7 +71,7 @@ function writeConfig(config: WhichClawClineConfig): boolean {
 }
 
 /**
- * Read current Cline model info from WhichClaw config
+ * Read current Cline model info from CyberNexus config
  */
 export async function getCurrentModelInfo(
     _readConfig: () => Promise<any>
@@ -139,7 +139,7 @@ function ensurePatch(): { patched: boolean; message: string } {
 
 /**
  * Apply model config to Cline
- * Write to ~/.whichclaw/cline.json and auto-detect/patch extension
+ * Write to ~/.cybernexus/cline.json and auto-detect/patch extension
  */
 export async function applyConfig(
     modelInfo: ModelInfo,
@@ -150,7 +150,7 @@ export async function applyConfig(
     try {
         const provider: 'openai' = 'openai';
 
-        const config: WhichClawClineConfig = {
+        const config: CyberNexusClineConfig = {
             provider,
             apiKey: modelInfo.apiKey || '',
             modelId: modelInfo.model,

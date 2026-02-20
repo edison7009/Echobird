@@ -1,6 +1,6 @@
 {
     "docs": "https://en.wikipedia.org/wiki/Reversi",
-    "configFile": "~/.whichclaw/reversi.json",
+    "configFile": "~/.cybernexus/reversi.json",
     "format": "json",
     "custom": false,
     "read": {

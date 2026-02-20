@@ -1,4 +1,4 @@
-// channelManager.ts — Channel config manager (~/.whichclaw/config/channels.json)
+// channelManager.ts — Channel config manager (~/.cybernexus/config/channels.json)
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -15,19 +15,19 @@ export interface ChannelConfig {
 // Default channel count
 const DEFAULT_CHANNEL_COUNT = 6;
 
-// WhichClaw user config directory (cross-platform: ~/.whichclaw/)
-function getWhichClawDir(): string {
-    return path.join(os.homedir(), '.whichclaw');
+// CyberNexus user config directory (cross-platform: ~/.cybernexus/)
+function getCyberNexusDir(): string {
+    return path.join(os.homedir(), '.cybernexus');
 }
 
 // Channels config file path
 function getChannelsConfigPath(): string {
-    return path.join(getWhichClawDir(), 'config', 'channels.json');
+    return path.join(getCyberNexusDir(), 'config', 'channels.json');
 }
 
 // Ensure config directory exists
 function ensureConfigDir(): void {
-    const configDir = path.join(getWhichClawDir(), 'config');
+    const configDir = path.join(getCyberNexusDir(), 'config');
     if (!fs.existsSync(configDir)) {
         fs.mkdirSync(configDir, { recursive: true });
     }

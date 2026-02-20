@@ -76,7 +76,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: WhichClaw-${{ matrix.platform }}
+          name: CyberNexus-${{ matrix.platform }}
           path: |
             release/*Setup*.exe
             release/*.dmg
@@ -117,7 +117,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release create ${{ github.ref_name }} \
-            --title "WhichClaw ${{ github.ref_name }}" \
+            --title "CyberNexus ${{ github.ref_name }}" \
             --generate-notes
 
       - name: Upload release assets
@@ -125,9 +125,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p upload
-          cp artifacts/WhichClaw-win/* upload/ 2>/dev/null || true
-          cp artifacts/WhichClaw-mac/* upload/ 2>/dev/null || true
-          cp artifacts/WhichClaw-linux/* upload/ 2>/dev/null || true
+          cp artifacts/CyberNexus-win/* upload/ 2>/dev/null || true
+          cp artifacts/CyberNexus-mac/* upload/ 2>/dev/null || true
+          cp artifacts/CyberNexus-linux/* upload/ 2>/dev/null || true
           echo "Files to upload:"
           ls -la upload/
           gh release upload ${{ github.ref_name }} --clobber upload/*

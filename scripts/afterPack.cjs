@@ -15,10 +15,10 @@ exports.default = async function afterPack(context) {
         await rcedit(exePath, {
             icon: iconPath,
             'version-string': {
-                ProductName: 'WhichClaw',
-                FileDescription: 'WhichClaw - AI Model & Skill Management',
-                CompanyName: 'WhichClaw',
-                LegalCopyright: 'Copyright 2026 WhichClaw',
+                ProductName: 'CyberNexus',
+                FileDescription: 'CyberNexus - AI Model & Skill Management',
+                CompanyName: 'CyberNexus',
+                LegalCopyright: 'Copyright 2026 CyberNexus',
             },
             'file-version': context.packager.appInfo.version,
             'product-version': context.packager.appInfo.version,

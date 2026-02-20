@@ -1,9 +1,9 @@
 /**
- * WhichClaw OpenClaw 补丁脚本
- * 在已安装的 OpenClaw 的 openclaw.mjs 入口文件中注入 WhichClaw 配置读取代码
+ * CyberNexus OpenClaw 补丁脚本
+ * 在已安装的 OpenClaw 的 openclaw.mjs 入口文件中注入 CyberNexus 配置读取代码
  * 
  * 功能：在加载 dist/entry.js 之前注入一段代码，
- * 从 ~/.whichclaw/openclaw.json 读取模型配置，
+ * 从 ~/.cybernexus/openclaw.json 读取模型配置，
  * 并将其写入 ~/.openclaw/openclaw.json 的 models.providers 中。
  * 
  * 用法：node patch-openclaw.cjs [--restore]
@@ -21,18 +21,18 @@ const NPM_GLOBAL_MODULES = [
   '/usr/lib/node_modules/openclaw',
 ];
 
-// WhichClaw 补丁标记
-const PATCH_MARKER = '/* [WhichClaw-Patched] */';
+// CyberNexus 补丁标记
+const PATCH_MARKER = '/* [CyberNexus-Patched] */';
 
-// 注入代码：在 OpenClaw 启动前读取 ~/.whichclaw/openclaw.json 并合并到 ~/.openclaw/openclaw.json
+// 注入代码：在 OpenClaw 启动前读取 ~/.cybernexus/openclaw.json 并合并到 ~/.openclaw/openclaw.json
 const INJECT_CODE = `
 ${PATCH_MARKER}
 import { readFileSync as _wc_readFileSync, writeFileSync as _wc_writeFileSync, existsSync as _wc_existsSync, mkdirSync as _wc_mkdirSync } from "node:fs";
 import { join as _wc_join } from "node:path";
 import { homedir as _wc_homedir } from "node:os";
-(function _whichclaw_inject() {
+(function _CyberNexus_inject() {
   try {
-    const wcConfigPath = _wc_join(_wc_homedir(), ".whichclaw", "openclaw.json");
+    const wcConfigPath = _wc_join(_wc_homedir(), ".cybernexus", "openclaw.json");
     if (!_wc_existsSync(wcConfigPath)) return;
     const wcConfig = JSON.parse(_wc_readFileSync(wcConfigPath, "utf-8"));
     if (!wcConfig.modelId || !wcConfig.apiKey) return;
@@ -54,7 +54,7 @@ import { homedir as _wc_homedir } from "node:os";
     if (!ocConfig.agents.defaults) ocConfig.agents.defaults = {};
     if (!ocConfig.agents.defaults.model) ocConfig.agents.defaults.model = {};
 
-    // 清理旧的 WhichClaw provider（以 wc_ 开头的都是 WhichClaw 推送的）
+    // 清理旧的 CyberNexus provider（以 wc_ 开头的都是 CyberNexus 推送的）
     for (const key of Object.keys(ocConfig.models.providers)) {
       if (key.startsWith("wc_")) {
         delete ocConfig.models.providers[key];
@@ -97,12 +97,12 @@ import { homedir as _wc_homedir } from "node:os";
       }]
     };
     ocConfig.agents.defaults.model.primary = wcProviderName + "/" + wcConfig.modelId;
-    console.log("[WhichClaw] Injected " + apiType + " model: " + wcProviderName + "/" + wcConfig.modelId);
+    console.log("[CyberNexus] Injected " + apiType + " model: " + wcProviderName + "/" + wcConfig.modelId);
 
     // 写回 openclaw.json
     _wc_writeFileSync(ocConfigPath, JSON.stringify(ocConfig, null, 2), "utf-8");
   } catch (err) {
-    console.warn("[WhichClaw] Config injection failed:", err.message);
+    console.warn("[CyberNexus] Config injection failed:", err.message);
   }
 })();
 
@@ -148,7 +148,7 @@ function patchOpenClaw(restore = false) {
     return false;
   }
 
-  const backupPath = entryPath + '.whichclaw-backup';
+  const backupPath = entryPath + '.cybernexus-backup';
 
   if (restore) {
     if (fs.existsSync(backupPath)) {
@@ -203,10 +203,10 @@ function patchOpenClaw(restore = false) {
 
   console.log('✅ 补丁成功！OpenClaw 入口文件:', entryPath);
   console.log('');
-  console.log('💡 每次 OpenClaw 启动时，会自动从 ~/.whichclaw/openclaw.json 读取模型配置');
+  console.log('💡 每次 OpenClaw 启动时，会自动从 ~/.cybernexus/openclaw.json 读取模型配置');
   console.log('   然后注入到 ~/.openclaw/openclaw.json 的 providers 中');
   console.log('');
-  console.log('📁 配置文件格式 (~/.whichclaw/openclaw.json):');
+  console.log('📁 配置文件格式 (~/.cybernexus/openclaw.json):');
   console.log(JSON.stringify({
     apiKey: 'sk-xxx',
     baseUrl: 'https://api.example.com/v1',
@@ -226,7 +226,7 @@ if (isRestore) {
   const success = patchOpenClaw(true);
   process.exit(success ? 0 : 1);
 } else {
-  console.log('🔧 正在为 OpenClaw 打 WhichClaw 补丁...');
+  console.log('🔧 正在为 OpenClaw 打 CyberNexus 补丁...');
   const success = patchOpenClaw(false);
   process.exit(success ? 0 : 1);
 }

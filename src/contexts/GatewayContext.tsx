@@ -248,13 +248,14 @@ class ChannelConnection {
                             params: {
                                 minProtocol: 3, maxProtocol: 3,
                                 client: { id: 'webchat-ui', version: '1.0.0', platform: navigator.platform, mode: 'webchat' },
+                                scopes: ['operator.read', 'operator.write'],
                                 caps: [],
                                 auth: {
                                     ...(options.token ? { token: options.token } : {}),
                                     ...(options.password ? { password: options.password } : {}),
                                 },
                                 locale: navigator.language,
-                                userAgent: 'WhichClaw/1.0.0',
+                                userAgent: 'CyberNexus/1.0.0',
                             },
                         }));
                     } catch { safeReject(new Error('Failed to send connect request')); }

@@ -126,7 +126,7 @@ interface SSNodeConfig {
 }
 
 interface ModelConfig {
-    internalId: string;      // 内部通信 ID (WhichClaw 内部使用)
+    internalId: string;      // 内部通信 ID (CyberNexus 内部使用)
     name: string;          // 用户自定义名称
     modelId?: string;      // API 模型 ID (传给 API)
     baseUrl: string;       // OpenAI 兼容 API 端点

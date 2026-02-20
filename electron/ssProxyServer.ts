@@ -298,7 +298,7 @@ function getProxyConfigDir(): string {
     } catch {
         baseDir = process.cwd();
     }
-    const configDir = path.join(baseDir, '.whichclaw', 'proxy');
+    const configDir = path.join(baseDir, '.cybernexus', 'proxy');
     if (!fs.existsSync(configDir)) {
         fs.mkdirSync(configDir, { recursive: true });
     }
@@ -468,7 +468,7 @@ class ProxyServer {
             console.log(`[Proxy] SS Tunnel established for ${hostname}`);
 
             clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
-                'Proxy-agent: WhichClaw-SS-Proxy\r\n' +
+                'Proxy-agent: CyberNexus-SS-Proxy\r\n' +
                 '\r\n');
 
             // Pipe data
@@ -496,7 +496,7 @@ class ProxyServer {
     private handleConnectDirect(hostname: string, port: number, clientSocket: any, head: Buffer) {
         const serverSocket = net.connect(port, hostname, () => {
             clientSocket.write('HTTP/1.1 200 Connection Established\r\n' +
-                'Proxy-agent: WhichClaw-Direct\r\n' +
+                'Proxy-agent: CyberNexus-Direct\r\n' +
                 '\r\n');
             if (head && head.length > 0) serverSocket.write(head);
             serverSocket.pipe(clientSocket);

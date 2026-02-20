@@ -79,7 +79,7 @@ import { useConfirm } from '../ConfirmDialog';
 import { useI18n } from '../../hooks/useI18n';
 
 const MATRIX_CHARS = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789';
-const TARGET_TEXT = 'WHICHCLAW';
+const TARGET_TEXT = 'CYBERNEXUS';
 
 // Generate random character
 const randomChar = () => MATRIX_CHARS[Math.floor(Math.random() * MATRIX_CHARS.length)];
