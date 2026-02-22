@@ -5,8 +5,8 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
-  <sub>Ein Cyberpunk-Kontrollpanel für das KI-Zeitalter.</sub>
+  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <sub>CyberNexus ist eine Desktop-Anwendung, die eine</sub>
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <strong>Deutsch</strong> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
+  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · **Deutsch** · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
 </p>
 
 ---
@@ -39,12 +39,12 @@ CyberNexus fungiert als **zentrale Steuerungszentrale** für alle deine KI-Progr
 
 - 🎯 **Ein-Klick Modellwechsel** — Visuell KI-Modelle für jedes unterstützte Tool wechseln
 - 🔀 **Dual-Protokoll** — OpenAI & Anthropic API-Unterstützung, jederzeit und überall Modelle wechseln
-- 🚇 **Intelligenter Tunnel-Proxy** — Zugriff auf geo-beschränkte APIs ohne vollständiges VPN
+- 🚇 **Intelligenter Tunnel-Proxy** — Zugriff auf geo-beschränkte APIs ohne vollständiges VPN; nur API-Traffic wird proxied
 - 🧩 **Skill-Browser** — KI-Skills entdecken, installieren und verwalten
 - 🖥️ **Lokaler Modell-Server** — Open-Source-Modelle (Qwen, DeepSeek, Llama) lokal über llama.cpp ausführen
 - 🌍 **28 Sprachen** — Vollständige Internationalisierung
 - 🎮 **Integrierte KI-Apps** — Interaktive KI-Spiele und Werkzeuge wie Reversi und AI Translate
-- 🌃 **Cyberpunk-UI** — Atemberaubende neongrüne Terminal-Ästhetik
+- 🌃 **Cyberpunk-UI** — Atemberaubende neongrüne Terminal-Ästhetik für futuristisches Programmieren
 
 ## 🖼️ Screenshots
 
@@ -63,6 +63,8 @@ CyberNexus fungiert als **zentrale Steuerungszentrale** für alle deine KI-Progr
 ## 🚀 Schnellstart
 
 ### Download
+
+Hol dir die neueste Version für deine Plattform:
 
 | Plattform | Download |
 |----------|----------|
@@ -90,8 +92,6 @@ chmod +x CyberNexus-*.AppImage
 | OpenCode | ✅ Unterstützt | ✅ | OpenAI |
 | Codex | ✅ Unterstützt | ✅ | OpenAI |
 | Roo Code | ✅ Unterstützt | ✅ | OpenAI |
-| ZeroClaw | ✅ Unterstützt | ✅ | OpenAI |
-| Aider | ✅ Unterstützt | ✅ | OpenAI / Anthropic |
 
 ## 🏗️ Tech-Stack
 

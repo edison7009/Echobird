@@ -5,8 +5,8 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
-  <sub>AI時代のサイバーパンクコントロールパネル。</sub>
+  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <sub>CyberNexus は、AIコーディングツール全体でモデルを管理するための</sub>
 </p>
 
 <p align="center">
@@ -18,51 +18,53 @@
 </p>
 
 <p align="center">
-  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · <strong>日本語</strong> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
+  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · **日本語** · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
 </p>
 
 ---
 
 ## ✨ CyberNexus とは？
 
-CyberNexus は、AIコーディングツールのモデルを**ビジュアルに一元管理**できるデスクトップアプリです。設定ファイルを手動で編集する必要はもうありません — クリックするだけで切り替えられます。
+CyberNexus は、AIコーディングツール全体でモデルを管理するための**ビジュアルで統一されたインターフェース**を提供するデスクトップアプリです。設定ファイルを掘り返す必要はもうありません — クリックするだけで切り替え。
 
 ### 課題
 
-- 😫 OpenClaw などのツールでモデルを切り替えるには設定ファイルの手動編集が必要
-- 🔄 ツールごとにモデル設定のフォーマットが異なる
-- 🧩 スキルや拡張機能を横断的に管理する簡単な方法がない
+- 😫 OpenClaw などのツールでAIモデルを切り替えるには設定ファイルの手動編集が必要
+- 🔄 各ツールが独自のモデル設定形式を持っている
+- 🧩 ツール間でスキルや拡張機能を管理する簡単な方法がない
 
 ### ソリューション
 
-CyberNexus はすべてのAIコーディングツールの**中央コントロールパネル**です：
+CyberNexus はすべてのAIコーディングツールの**中央コントロールパネル**として機能します：
 
-- 🎯 **ワンクリック切替** — 対応ツールのAIモデルをビジュアルに切り替え
+- 🎯 **ワンクリックモデル切替** — 対応ツールのAIモデルをビジュアルに切り替え
 - 🔀 **デュアルプロトコル** — OpenAI & Anthropic API対応、いつでもどこでもモデル切替
-- 🚇 **スマートトンネルプロキシ** — フルVPNなしで地域制限APIにアクセス
-- 🧩 **スキルブラウザ** — AIスキルの発見、インストール、管理
-- 🖥️ **ローカルモデルサーバー** — llama.cppでオープンソースモデル（Qwen、DeepSeek、Llama）をローカル実行
-- 🌍 **28言語対応** — 完全な国際化サポート
-- 🎮 **内蔵AIアプリ** — Reversi、AI翻訳など
-- 🌃 **サイバーパンクUI** — ネオングリーンのターミナル美学
+- 🚇 **スマートトンネルプロキシ** — フルVPNなしで地域制限APIにアクセス、APIトラフィックのみをプロキシ
+- 🧩 **スキルブラウザ** — AIスキルを発見、インストール、管理
+- 🖥️ **ローカルモデルサーバー** — llama.cpp経由でオープンソースモデル（Qwen、DeepSeek、Llama）をローカル実行
+- 🌍 **28言語対応** — グローバル対応の完全国際化
+- 🎮 **内蔵AIアプリ** — Reversi やAI翻訳などのインタラクティブなAIゲームとユーティリティ
+- 🌃 **サイバーパンク UI** — ネオングリーンのターミナル美学で近未来的コーディング体験
 
 ## 🖼️ スクリーンショット
 
-### Model Nexus — すべてのAIモデルを一か所で管理
+### Model Nexus — すべてのAIモデルを一箇所で管理
 ![Model Nexus](1.png)
 
-### App Manager — すべてのツールでワンクリックモデル切替
+### App Manager — すべてのコーディングツールをワンクリックでモデル切替
 ![App Manager](2.png)
 
 ### Local Server — llama.cppでオープンソースモデルをローカル実行
 ![Local Server](3.png)
 
-### Skill Browser — AIスキルの発見とインストール
+### Skill Browser — AIスキルを発見・インストール
 ![Skill Browser](4.png)
 
 ## 🚀 クイックスタート
 
 ### ダウンロード
+
+お使いのプラットフォーム向けの最新リリースを入手：
 
 | プラットフォーム | ダウンロード |
 |----------|----------|
@@ -77,7 +79,7 @@ chmod +x CyberNexus-*.AppImage
 ./CyberNexus-*.AppImage
 ```
 
-> FUSEエラーが出る場合：`sudo apt install libfuse2`
+> FUSE エラーが発生した場合： `sudo apt install libfuse2`
 
 ## 🔧 対応ツール
 
@@ -90,8 +92,6 @@ chmod +x CyberNexus-*.AppImage
 | OpenCode | ✅ 対応済み | ✅ | OpenAI |
 | Codex | ✅ 対応済み | ✅ | OpenAI |
 | Roo Code | ✅ 対応済み | ✅ | OpenAI |
-| ZeroClaw | ✅ 対応済み | ✅ | OpenAI |
-| Aider | ✅ 対応済み | ✅ | OpenAI / Anthropic |
 
 ## 🏗️ 技術スタック
 
@@ -109,13 +109,13 @@ npm run dev
 npm run build
 ```
 
-## 🤝 コントリビューション
+## 🤝 コントリビュート
 
-コントリビューション歓迎！Issue や Pull Request をお気軽にどうぞ。
+コントリビュート大歓迎！Issue や Pull Request をお気軽にどうぞ。
 
 We're especially looking for help with:
-- 🍎 **macOS テスト** — macOSビルドの完全なテストがまだです
-- 🔧 **新ツール統合** — より多くのAIツールのサポート追加を支援
+- 🍎 **macOSテスト** — macOSビルドのテストがまだ完了していません
+- 🔧 **新ツール統合** — より多くのAIコーディングツールのサポート追加にご協力ください
 - 🌐 **翻訳改善** — ネイティブスピーカー歓迎！
 
 1. Fork the repository
@@ -132,7 +132,7 @@ We're especially looking for help with:
 
 ## ⭐ サポート
 
-CyberNexus が役に立ったら、GitHub で ⭐ をお願いします！
+CyberNexus が役立ったら、GitHub で ⭐ をお願いします — プロジェクトの発見に繋がります！
 
 ## 📄 ライセンス
 
@@ -141,6 +141,6 @@ CyberNexus が役に立ったら、GitHub で ⭐ をお願いします！
 ---
 
 <p align="center">
-  CyberNexus チームが 💚 で作りました<br/>
+  CyberNexus チームが 💚 を込めて制作<br/>
   <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
 </p>

@@ -5,8 +5,8 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
-  <sub>Un panel de control cyberpunk para la era de la IA.</sub>
+  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <sub>CyberNexus es una aplicación de escritorio que proporciona una</sub>
 </p>
 
 <p align="center">
@@ -18,35 +18,35 @@
 </p>
 
 <p align="center">
-  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <strong>Español</strong> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
+  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · **Español** · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
 </p>
 
 ---
 
 ## ✨ ¿Qué es CyberNexus?
 
-CyberNexus es una aplicación de escritorio que proporciona una **interfaz visual y unificada** para gestionar modelos de IA en tus herramientas de programación. Sin más búsquedas en archivos de configuración — simplemente haz clic y cambia.
+CyberNexus es una aplicación de escritorio que proporciona una **interfaz visual y unificada** para gestionar modelos de IA en tus herramientas de programación. Sin más archivos de configuración — solo haz clic y cambia.
 
 ### El Problema
 
 - 😫 Cambiar modelos de IA en herramientas como OpenClaw requiere editar archivos de configuración manualmente
 - 🔄 Cada herramienta tiene su propio formato de configuración de modelos
-- 🧩 No hay una forma fácil de gestionar skills y extensiones entre herramientas
+- 🧩 No hay forma fácil de gestionar habilidades y extensiones entre herramientas
 
 ### La Solución
 
 CyberNexus actúa como un **panel de control central** para todas tus herramientas de programación con IA:
 
-- 🎯 **Cambio con Un Clic** — Cambia visualmente modelos de IA para cualquier herramienta soportada
-- 🔀 **Protocolo Dual** — Soporte OpenAI & Anthropic API, cambia modelos en cualquier momento
-- 🚇 **Proxy Túnel Inteligente** — Accede a APIs geo-restringidas sin VPN completo
-- 🧩 **Explorador de Skills** — Descubre, instala y gestiona skills de IA
-- 🖥️ **Servidor Local** — Ejecuta modelos open-source (Qwen, DeepSeek, Llama) localmente via llama.cpp
+- 🎯 **Cambio de Modelo con Un Clic** — Cambia visualmente modelos de IA para cualquier herramienta compatible
+- 🔀 **Protocolo Dual** — Soporte OpenAI y Anthropic API, cambia modelos en cualquier momento
+- 🚇 **Proxy Túnel Inteligente** — Accede a APIs con restricción geográfica sin VPN completa; solo se proxifica el tráfico API
+- 🧩 **Explorador de Habilidades** — Descubre, instala y gestiona habilidades de IA
+- 🖥️ **Servidor de Modelos Local** — Ejecuta modelos de código abierto (Qwen, DeepSeek, Llama) localmente vía llama.cpp
 - 🌍 **28 Idiomas** — Soporte completo de internacionalización
-- 🎮 **Apps de IA Integradas** — Juegos y utilidades como Reversi y AI Translate
-- 🌃 **UI Cyberpunk** — Estética de terminal neón verde
+- 🎮 **Apps de IA Integradas** — Juegos y utilidades de IA interactivos como Reversi y AI Translate
+- 🌃 **UI Cyberpunk** — Estética de terminal neón verde que hace que programar se sienta futurista
 
-## 🖼️ Capturas de Pantalla
+## 🖼️ Capturas de pantalla
 
 ### Model Nexus — Gestiona todos tus modelos de IA en un solo lugar
 ![Model Nexus](1.png)
@@ -54,17 +54,19 @@ CyberNexus actúa como un **panel de control central** para todas tus herramient
 ### App Manager — Cambio de modelo con un clic para todas las herramientas
 ![App Manager](2.png)
 
-### Local Server — Ejecuta modelos open-source localmente con llama.cpp
+### Local Server — Ejecuta modelos de código abierto localmente con llama.cpp
 ![Local Server](3.png)
 
-### Skill Browser — Descubre e instala skills de IA
+### Skill Browser — Descubre e instala habilidades de IA
 ![Skill Browser](4.png)
 
 ## 🚀 Inicio Rápido
 
-### Descarga
+### Descargar
 
-| Plataforma | Descarga |
+Obtén la última versión para tu plataforma:
+
+| Plataforma | Descargar |
 |----------|----------|
 | Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
 | macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
@@ -79,26 +81,24 @@ chmod +x CyberNexus-*.AppImage
 
 > Si encuentras errores de FUSE: `sudo apt install libfuse2`
 
-## 🔧 Herramientas Soportadas
+## 🔧 Herramientas Compatibles
 
 | Herramienta | Estado | Cambio de Modelo | Protocolo |
 |------|--------|----------------|----------|
-| OpenClaw | ✅ Soportado | ✅ | OpenAI / Anthropic |
-| Claude Code | ✅ Soportado | ✅ | Anthropic |
-| Cline | ✅ Soportado | ✅ | OpenAI |
-| Continue | ✅ Soportado | ✅ | OpenAI |
-| OpenCode | ✅ Soportado | ✅ | OpenAI |
-| Codex | ✅ Soportado | ✅ | OpenAI |
-| Roo Code | ✅ Soportado | ✅ | OpenAI |
-| ZeroClaw | ✅ Soportado | ✅ | OpenAI |
-| Aider | ✅ Soportado | ✅ | OpenAI / Anthropic |
+| OpenClaw | ✅ Compatible | ✅ | OpenAI / Anthropic |
+| Claude Code | ✅ Compatible | ✅ | Anthropic |
+| Cline | ✅ Compatible | ✅ | OpenAI |
+| Continue | ✅ Compatible | ✅ | OpenAI |
+| OpenCode | ✅ Compatible | ✅ | OpenAI |
+| Codex | ✅ Compatible | ✅ | OpenAI |
+| Roo Code | ✅ Compatible | ✅ | OpenAI |
 
 ## 🏗️ Stack Tecnológico
 
 - **Electron** — Framework de escritorio multiplataforma
 - **React + TypeScript** — Framework de UI
 - **Vanilla CSS** — Sistema de diseño cyberpunk personalizado
-- **Vite** — Herramienta de build
+- **Vite** — Herramienta de compilación
 - **llama.cpp** — Motor de inferencia de modelos local
 
 ## 🛠️ Desarrollo
@@ -114,8 +114,8 @@ npm run build
 ¡Las contribuciones son bienvenidas! No dudes en abrir issues o enviar pull requests.
 
 We're especially looking for help with:
-- 🍎 **Pruebas en macOS** — Aún no hemos probado completamente los builds de macOS
-- 🔧 **Nuevas integraciones** — Ayúdanos a soportar más herramientas de IA
+- 🍎 **Pruebas en macOS** — Aún no hemos probado completamente las builds de macOS
+- 🔧 **Nuevas integraciones** — Ayúdanos a agregar soporte para más herramientas de IA
 - 🌐 **Mejoras de traducción** — ¡Hablantes nativos bienvenidos!
 
 1. Fork the repository
@@ -132,7 +132,7 @@ We're especially looking for help with:
 
 ## ⭐ Apoyo
 
-Si CyberNexus te resulta útil, ¡dale una ⭐ en GitHub!
+Si CyberNexus te resulta útil, considera darle una ⭐ en GitHub — ¡ayuda a que otros descubran el proyecto!
 
 ## 📄 Licencia
 
@@ -141,6 +141,6 @@ Si CyberNexus te resulta útil, ¡dale una ⭐ en GitHub!
 ---
 
 <p align="center">
-  Hecho con 💚 por el equipo CyberNexus<br/>
+  Hecho con 💚 por el equipo de CyberNexus<br/>
   <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
 </p>

@@ -5,8 +5,8 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
-  <sub>AI 시대의 사이버펑크 컨트롤 패널.</sub>
+  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <sub>CyberNexus는 AI 코딩 도구 전반에 걸쳐 모델을 관리하기 위한</sub>
 </p>
 
 <p align="center">
@@ -18,40 +18,40 @@
 </p>
 
 <p align="center">
-  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <strong>한국어</strong> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
+  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · **한국어** · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
 </p>
 
 ---
 
 ## ✨ CyberNexus란?
 
-CyberNexus는 AI 코딩 도구의 모델을 **시각적으로 통합 관리**할 수 있는 데스크톱 애플리케이션입니다. 설정 파일을 직접 편집할 필요 없이 클릭 한 번으로 전환하세요.
+CyberNexus는 AI 코딩 도구 전반에 걸쳐 모델을 관리하기 위한 **시각적이고 통합된 인터페이스**를 제공하는 데스크톱 애플리케이션입니다. 설정 파일을 뒤질 필요 없이 — 클릭 한 번으로 전환하세요.
 
 ### 문제점
 
-- 😫 OpenClaw 등에서 모델을 전환하려면 설정 파일을 수동으로 편집해야 함
-- 🔄 각 도구마다 고유한 모델 설정 형식이 존재
-- 🧩 스킬과 확장 기능을 도구 간에 관리할 편리한 방법이 없음
+- 😫 OpenClaw 같은 도구에서 AI 모델을 전환하려면 설정 파일을 수동으로 편집해야 함
+- 🔄 각 도구마다 고유한 모델 구성 형식이 있음
+- 🧩 도구 간 스킬과 확장 기능을 관리할 편리한 방법이 없음
 
 ### 솔루션
 
-CyberNexus는 모든 AI 코딩 도구의 **중앙 컨트롤 패널**입니다:
+CyberNexus는 모든 AI 코딩 도구의 **중앙 제어 패널** 역할을 합니다:
 
-- 🎯 **원클릭 모델 전환** — 지원되는 도구의 AI 모델을 시각적으로 전환
+- 🎯 **원클릭 모델 전환** — 지원 도구의 AI 모델을 시각적으로 전환
 - 🔀 **듀얼 프로토콜** — OpenAI & Anthropic API 지원, 언제 어디서나 모델 전환
-- 🚇 **스마트 터널 프록시** — 전체 VPN 없이 지역 제한 API에 접근
-- 🧩 **스킬 브라우저** — AI 스킬 검색, 설치 및 관리
+- 🚇 **스마트 터널 프록시** — VPN 없이 지역 제한 API에 접근, API 트래픽만 프록시
+- 🧩 **스킬 브라우저** — AI 스킬 검색, 설치, 관리
 - 🖥️ **로컬 모델 서버** — llama.cpp로 오픈소스 모델(Qwen, DeepSeek, Llama) 로컬 실행
-- 🌍 **28개 언어** — 완전한 국제화 지원
-- 🎮 **내장 AI 앱** — Reversi, AI 번역 등
-- 🌃 **사이버펑크 UI** — 네온 그린 터미널 미학
+- 🌍 **28개 언어** — 글로벌 대응 완전 국제화
+- 🎮 **내장 AI 앱** — Reversi, AI 번역 등 인터랙티브 AI 게임 및 유틸리티
+- 🌃 **사이버펑크 UI** — 네온 그린 터미널 미학으로 미래지향적 코딩 경험
 
 ## 🖼️ 스크린샷
 
-### Model Nexus — 모든 AI 모델을 한 곳에서 관리
+### Model Nexus — 한 곳에서 모든 AI 모델 관리
 ![Model Nexus](1.png)
 
-### App Manager — 모든 도구에서 원클릭 모델 전환
+### App Manager — 모든 코딩 도구 원클릭 모델 전환
 ![App Manager](2.png)
 
 ### Local Server — llama.cpp로 오픈소스 모델 로컬 실행
@@ -63,6 +63,8 @@ CyberNexus는 모든 AI 코딩 도구의 **중앙 컨트롤 패널**입니다:
 ## 🚀 빠른 시작
 
 ### 다운로드
+
+플랫폼에 맞는 최신 릴리스를 받으세요:
 
 | 플랫폼 | 다운로드 |
 |----------|----------|
@@ -77,7 +79,7 @@ chmod +x CyberNexus-*.AppImage
 ./CyberNexus-*.AppImage
 ```
 
-> FUSE 오류 발생 시: `sudo apt install libfuse2`
+> FUSE 오류가 발생하면: `sudo apt install libfuse2`
 
 ## 🔧 지원 도구
 
@@ -90,8 +92,6 @@ chmod +x CyberNexus-*.AppImage
 | OpenCode | ✅ 지원 | ✅ | OpenAI |
 | Codex | ✅ 지원 | ✅ | OpenAI |
 | Roo Code | ✅ 지원 | ✅ | OpenAI |
-| ZeroClaw | ✅ 지원 | ✅ | OpenAI |
-| Aider | ✅ 지원 | ✅ | OpenAI / Anthropic |
 
 ## 🏗️ 기술 스택
 
@@ -111,11 +111,11 @@ npm run build
 
 ## 🤝 기여
 
-기여를 환영합니다! Issue나 Pull Request를 자유롭게 제출해 주세요.
+기여를 환영합니다! 이슈나 풀 리퀘스트를 자유롭게 제출해 주세요.
 
 We're especially looking for help with:
-- 🍎 **macOS 테스트** — macOS 빌드 테스트가 아직 완전하지 않습니다
-- 🔧 **새 도구 통합** — 더 많은 AI 코딩 도구 지원 추가
+- 🍎 **macOS 테스트** — macOS 빌드를 아직 완전히 테스트하지 못했습니다
+- 🔧 **새로운 도구 통합** — 더 많은 AI 코딩 도구 지원 추가에 도움을 주세요
 - 🌐 **번역 개선** — 원어민 환영!
 
 1. Fork the repository
@@ -132,7 +132,7 @@ We're especially looking for help with:
 
 ## ⭐ 지원
 
-CyberNexus가 유용하셨다면 GitHub에서 ⭐을 눌러 주세요!
+CyberNexus가 유용하다면, GitHub에서 ⭐를 눌러주세요 — 더 많은 사람들이 프로젝트를 발견하는 데 도움이 됩니다!
 
 ## 📄 라이선스
 
@@ -141,6 +141,6 @@ CyberNexus가 유용하셨다면 GitHub에서 ⭐을 눌러 주세요!
 ---
 
 <p align="center">
-  CyberNexus 팀이 💚으로 만들었습니다<br/>
+  CyberNexus 팀이 💚으로 제작<br/>
   <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
 </p>

@@ -5,8 +5,8 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
-  <sub>AI 时代的赛博朋克控制台。</sub>
+  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <sub>CyberNexus 是一款桌面应用，为你的 AI 编程工具提供</sub>
 </p>
 
 <p align="center">
@@ -18,14 +18,14 @@
 </p>
 
 <p align="center">
-  <a href="../README.md">English</a> · <strong>简体中文</strong> · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
+  <a href="../README.md">English</a> · **简体中文** · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
 </p>
 
 ---
 
 ## ✨ CyberNexus 是什么？
 
-CyberNexus 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件——点一下，就能切换。
+CyberNexus 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件 —— 点一下，就能切换。
 
 ### 痛点
 
@@ -79,7 +79,7 @@ chmod +x CyberNexus-*.AppImage
 ./CyberNexus-*.AppImage
 ```
 
-> 如果遇到 FUSE 错误：`sudo apt install libfuse2`
+> 如果遇到 FUSE 错误： `sudo apt install libfuse2`
 
 ## 🔧 支持的工具
 
@@ -92,8 +92,6 @@ chmod +x CyberNexus-*.AppImage
 | OpenCode | ✅ 已支持 | ✅ | OpenAI |
 | Codex | ✅ 已支持 | ✅ | OpenAI |
 | Roo Code | ✅ 已支持 | ✅ | OpenAI |
-| ZeroClaw | ✅ 已支持 | ✅ | OpenAI |
-| Aider | ✅ 已支持 | ✅ | OpenAI / Anthropic |
 
 ## 🏗️ 技术栈
 
@@ -134,7 +132,7 @@ We're especially looking for help with:
 
 ## ⭐ 支持
 
-如果 CyberNexus 对你有帮助，请在 GitHub 上给个 ⭐ — 让更多人发现这个项目！
+如果 CyberNexus 对你有帮助，请在 GitHub 上给个 ⭐ —— 让更多人发现这个项目！
 
 ## 📄 许可证
 

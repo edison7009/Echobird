@@ -5,8 +5,8 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>One Hub. All Models. Every Coding Tool.</strong><br/>
-  <sub>AI 時代的賽博龐克控制台。</sub>
+  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <sub>CyberNexus 是一款桌面應用，為你的 AI 程式設計工具提供</sub>
 </p>
 
 <p align="center">
@@ -18,20 +18,20 @@
 </p>
 
 <p align="center">
-  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · <strong>繁體中文</strong> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
+  <a href="../README.md">English</a> · <a href="./README.zh-CN.md">简体中文</a> · **繁體中文** · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
 </p>
 
 ---
 
 ## ✨ CyberNexus 是什麼？
 
-CyberNexus 是一款桌面應用，為你的 AI 程式設計工具提供**視覺化、統一的模型管理介面**。無需再手動翻設定檔——點一下，就能切換。
+CyberNexus 是一款桌面應用，為你的 AI 程式設計工具提供**視覺化、統一的模型管理介面**。不再需要手動翻設定檔 —— 點一下，就能切換。
 
 ### 痛點
 
 - 😫 在 OpenClaw 等工具中切換模型需要手動編輯設定檔
 - 🔄 每個工具都有自己的模型設定格式
-- 🧩 沒有方便的方式管理技能和擴充功能
+- 🧩 沒有方便的方式管理技能和擴充
 
 ### 解決方案
 
@@ -79,7 +79,7 @@ chmod +x CyberNexus-*.AppImage
 ./CyberNexus-*.AppImage
 ```
 
-> 如果遇到 FUSE 錯誤：`sudo apt install libfuse2`
+> 如果遇到 FUSE 錯誤： `sudo apt install libfuse2`
 
 ## 🔧 支援的工具
 
@@ -92,8 +92,6 @@ chmod +x CyberNexus-*.AppImage
 | OpenCode | ✅ 已支援 | ✅ | OpenAI |
 | Codex | ✅ 已支援 | ✅ | OpenAI |
 | Roo Code | ✅ 已支援 | ✅ | OpenAI |
-| ZeroClaw | ✅ 已支援 | ✅ | OpenAI |
-| Aider | ✅ 已支援 | ✅ | OpenAI / Anthropic |
 
 ## 🏗️ 技術棧
 
@@ -116,7 +114,7 @@ npm run build
 歡迎貢獻！隨時提交 Issue 或 Pull Request。
 
 We're especially looking for help with:
-- 🍎 **macOS 測試** — 我們還沒有完全測試 macOS 建置
+- 🍎 **macOS 測試** — 我們還沒有完全測試 macOS 構建
 - 🔧 **新工具整合** — 幫助我們支援更多 AI 程式設計工具
 - 🌐 **翻譯改進** — 歡迎母語使用者！
 
@@ -134,7 +132,7 @@ We're especially looking for help with:
 
 ## ⭐ 支持
 
-如果 CyberNexus 對你有幫助，請在 GitHub 上給個 ⭐ — 讓更多人發現這個專案！
+如果 CyberNexus 對你有幫助，請在 GitHub 上給個 ⭐ —— 讓更多人發現這個專案！
 
 ## 📄 授權條款
 
