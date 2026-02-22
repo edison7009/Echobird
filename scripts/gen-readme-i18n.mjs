@@ -497,7 +497,7 @@ function generateReadme(lang, t) {
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <strong>The Nexus for **Models**, **Agents** & **Vibe Coding**.</strong><br/>
   <sub>${t.desc.split('**')[0].trim()}</sub>
 </p>
 

@@ -5,7 +5,7 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <strong>The Nexus for **Models**, **Agents** & **Vibe Coding**.</strong><br/>
   <sub>CyberNexus es una aplicación de escritorio que proporciona una</sub>
 </p>
 

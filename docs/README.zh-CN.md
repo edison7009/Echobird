@@ -5,7 +5,7 @@
 <h1 align="center">CyberNexus</h1>
 
 <p align="center">
-  <strong>The Nexus for Models, Agents & Vibe Coding.</strong><br/>
+  <strong>The Nexus for **Models**, **Agents** & **Vibe Coding**.</strong><br/>
   <sub>CyberNexus 是一款桌面应用，为你的 AI 编程工具提供</sub>
 </p>
 

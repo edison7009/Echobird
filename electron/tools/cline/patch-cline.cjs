@@ -1,29 +1,29 @@
 /**
- * CyberNexus Cline 补丁脚本
- * 在已安装的 Cline 扩展的 extension.js 中注入外部配置读取代码
+ * CyberNexus Cline Patch Script
+ * Injects external config reading code into the installed Cline extension's extension.js
  * 
- * 功能：在 StateManager.populateCache() 调用后注入一段代码，
- * 从 ~/.cybernexus/cline.json 读取配置并覆盖 globalStateCache 和 secretsCache。
+ * Functionality: After the StateManager.populateCache() call, injects code that
+ * reads config from ~/.cybernexus/cline.json and overrides globalStateCache and secretsCache.
  * 
- * 支持 OpenAI Compatible 和 Anthropic 两种 API 协议。
+ * Supports OpenAI Compatible and Anthropic API protocols.
  * 
- * 用法：node patch-cline.cjs [--restore]
+ * Usage: node patch-cline.cjs [--restore]
  */
 
 const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-// Cline 扩展搜索路径
+// Cline extension search paths
 const VSCODE_EXTENSIONS_DIR = path.join(os.homedir(), '.vscode', 'extensions');
 const CLINE_EXTENSION_PREFIX = 'saoudrizwan.claude-dev-';
 
-// CyberNexus 补丁标记
+// CyberNexus patch marker
 const PATCH_MARKER = '/* [CyberNexus-Patched] */';
 
-// 要注入的代码 — 在 populateCache 后读取外部配置文件
-// 适配 Cline 3.61.0+：使用 actModeApiProvider / planModeApiProvider
-// 仅支持 OpenAI Compatible 模式
+// Code to inject — reads external config file after populateCache
+// Compatible with Cline 3.61.0+: uses actModeApiProvider / planModeApiProvider
+// Only OpenAI Compatible mode currently supported
 const INJECT_CODE = `
 ${PATCH_MARKER}
 (function(){try{
@@ -48,30 +48,30 @@ console.log("[CyberNexus] Loaded: openai-compat, model="+_wc_cfg.modelId);
 `;
 
 /**
- * 查找已安装的 Cline 扩展目录
+ * Find the installed Cline extension directory
  */
 function findClineExtension() {
     if (!fs.existsSync(VSCODE_EXTENSIONS_DIR)) {
-        console.error('VS Code 扩展目录不存在:', VSCODE_EXTENSIONS_DIR);
+        console.error('VS Code extensions directory not found:', VSCODE_EXTENSIONS_DIR);
         return null;
     }
 
     const dirs = fs.readdirSync(VSCODE_EXTENSIONS_DIR)
         .filter(d => d.startsWith(CLINE_EXTENSION_PREFIX))
         .sort()
-        .reverse(); // 最新版本排前面
+        .reverse(); // Latest version first
 
     if (dirs.length === 0) {
-        console.error('未找到已安装的 Cline 扩展');
+        console.error('No installed Cline extension found');
         return null;
     }
 
-    console.log(`找到 ${dirs.length} 个 Cline 扩展版本:`, dirs);
+    console.log(`Found ${dirs.length} Cline extension versions:`, dirs);
     return path.join(VSCODE_EXTENSIONS_DIR, dirs[0]);
 }
 
 /**
- * 对 Cline 的 extension.js 打补丁
+ * Patch Cline's extension.js entry file
  */
 function patchCline(restore = false) {
     const extDir = findClineExtension();
@@ -79,66 +79,66 @@ function patchCline(restore = false) {
 
     const extensionJsPath = path.join(extDir, 'dist', 'extension.js');
     if (!fs.existsSync(extensionJsPath)) {
-        console.error('extension.js 不存在:', extensionJsPath);
+        console.error('extension.js does not exist:', extensionJsPath);
         return false;
     }
 
-    // 备份原始文件
+    // Backup original file
     const backupPath = extensionJsPath + '.cybernexus-backup';
 
     if (restore) {
-        // 恢复原始文件
+        // Restore original file
         if (fs.existsSync(backupPath)) {
             fs.copyFileSync(backupPath, extensionJsPath);
-            console.log('✅ 已恢复原始 extension.js');
+            console.log('Original extension.js restored');
             return true;
         } else {
-            console.error('备份文件不存在:', backupPath);
+            console.error('Backup file does not exist:', backupPath);
             return false;
         }
     }
 
-    // 读取 extension.js
+    // Read extension.js
     let content = fs.readFileSync(extensionJsPath, 'utf-8');
 
-    // 检查是否已经打过补丁
+    // Check if already patched
     if (content.includes(PATCH_MARKER)) {
-        console.log('⚠️ 扩展已经打过补丁，先恢复再重新打补丁');
+        console.log('Extension already patched, restoring before re-patching');
         if (fs.existsSync(backupPath)) {
             content = fs.readFileSync(backupPath, 'utf-8');
         } else {
-            console.error('备份文件不存在，无法重新打补丁');
+            console.error('Backup file does not exist, cannot re-patch');
             return false;
         }
     } else {
-        // 首次打补丁，创建备份
+        // First time patching, create backup
         fs.copyFileSync(extensionJsPath, backupPath);
-        console.log('📦 已备份原始文件:', backupPath);
+        console.log('Original file backed up:', backupPath);
     }
 
-    // 查找注入点：t.instance.populateCache(r,n,o)
+    // Injection point: t.instance.populateCache(r,n,o)
     const SEARCH_PATTERN = '.populateCache(r,n,o),';
     const idx = content.indexOf(SEARCH_PATTERN);
 
     if (idx < 0) {
-        console.error('❌ 未找到注入点 (.populateCache(r,n,o),)');
-        console.error('Cline 版本可能不兼容，请检查 extension.js');
+        console.error('Injection point not found (.populateCache(r,n,o),)');
+        console.error('Cline version might be incompatible, please check extension.js');
         return false;
     }
 
-    // 在 populateCache(r,n,o), 后面注入代码
+    // Inject code after populateCache(r,n,o),
     const insertPos = idx + SEARCH_PATTERN.length;
     const patched = content.substring(0, insertPos) + INJECT_CODE + content.substring(insertPos);
 
-    // 写入修补后的文件
+    // Write patched file
     fs.writeFileSync(extensionJsPath, patched);
 
-    console.log('✅ 补丁成功！注入位置:', idx);
-    console.log('📁 Cline 扩展路径:', extDir);
+    console.log('Patch applied successfully! Injection position:', idx);
+    console.log('Cline extension path:', extDir);
     console.log('');
-    console.log('💡 下次 VS Code 启动 Cline 时，会自动从 ~/.cybernexus/cline.json 读取配置');
+    console.log('On next Cline startup within VS Code, configuration will be read from ~/.cybernexus/cline.json');
     console.log('');
-    console.log('配置文件格式 (~/.cybernexus/cline.json):');
+    console.log('Config file format (~/.cybernexus/cline.json):');
     console.log(JSON.stringify({
         provider: 'openai',
         apiKey: 'sk-xxx',
@@ -150,16 +150,16 @@ function patchCline(restore = false) {
     return true;
 }
 
-// 主入口
+// Main entry
 const args = process.argv.slice(2);
 const isRestore = args.includes('--restore');
 
 if (isRestore) {
-    console.log('🔄 恢复原始 Cline 扩展...');
+    console.log('Restoring original Cline extension...');
     const success = patchCline(true);
     process.exit(success ? 0 : 1);
 } else {
-    console.log('🔧 正在为 Cline 打 CyberNexus 补丁...');
+    console.log('Applying CyberNexus patch to Cline...');
     const success = patchCline(false);
     process.exit(success ? 0 : 1);
 }
