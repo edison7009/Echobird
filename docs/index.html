@@ -934,17 +934,22 @@
         (function () {
             const c = document.getElementById('matrix'), x = c.getContext('2d');
             let W, H, cols, drops;
+            const S = 20;
             const chars = 'ﾊﾐﾋｰｳｼﾅﾓﾆｻﾜﾂｵﾘｱﾎﾃﾏｹﾒｴｶｷﾑﾕﾗｾﾈｽﾀﾇﾍ01';
-            function init() { W = c.width = innerWidth; H = c.height = innerHeight; cols = Math.floor(W / 14); drops = Array(cols).fill(1) }
+            function init() { W = c.width = innerWidth; H = c.height = innerHeight; cols = Math.floor(W / S); drops = Array(cols).fill(1) }
             init(); addEventListener('resize', init);
             setInterval(() => {
-                x.fillStyle = 'rgba(5,10,14,.06)'; x.fillRect(0, 0, W, H);
-                x.fillStyle = '#00FF9D'; x.font = '13px monospace';
+                x.fillStyle = 'rgba(5,10,14,.04)'; x.fillRect(0, 0, W, H);
+                x.font = S + 'px monospace';
+                x.shadowColor = '#00FF9D'; x.shadowBlur = 3;
                 for (let i = 0; i < cols; i++) {
-                    x.fillText(chars[Math.floor(Math.random() * chars.length)], i * 14, drops[i] * 14);
-                    if (drops[i] * 14 > H && Math.random() > .975) drops[i] = 0;
+                    const bright = Math.random() > .6;
+                    x.fillStyle = bright ? '#00FF9D' : 'rgba(0,255,157,.35)';
+                    x.fillText(chars[Math.floor(Math.random() * chars.length)], i * S, drops[i] * S);
+                    if (drops[i] * S > H && Math.random() > .975) drops[i] = 0;
                     drops[i]++;
                 }
+                x.shadowBlur = 0;
             }, 40);
         })();
 
@@ -970,24 +975,24 @@
             'zh-CN': {
                 nav_features: '功能', nav_screenshots: '截图', nav_download: '下载',
                 hero_tag: 'The Nexus for <strong>Models</strong>, <strong>Agents</strong> & <strong>Vibe Coding</strong>.', hero_dl: '免费下载', hero_note: 'AI 时代的赛博朋克控制台。',
-                sec_features: '核心功能', features_title: '切换模型。<br>不是配置文件。', features_desc: 'Echobird 是所有 AI 编程工具的可视化控制面板。点一下，就切换。',
+                sec_features: '核心功能', features_title: '切换模型。<br>不是配置文件。', features_desc: '百灵鸟是所有 AI 编程工具的可视化控制面板。点一下，就切换。',
                 f1_t: '一键切换模型', f1_d: '可视化配置任何支持工具的 AI 模型。不再手动翻 JSON 文件。',
                 f2_t: '双协议支持', f2_d: 'OpenAI & Anthropic API，随时切换。', f3_t: '智能隧道代理', f3_d: '无需 VPN 即可访问受限 API。',
                 f4_t: '本地模型服务器', f4_d: '通过内置 llama.cpp 服务器本地运行 Qwen、DeepSeek、Llama 等开源模型。数据留在本地。',
                 f5_t: '技能浏览器', f5_d: '发现和安装 AI 技能。', f6_t: '内置 AI 应用', f6_d: 'Reversi、AI 翻译，更多即将到来。',
                 f7_t: '28 种语言', f7_d: '完整国际化支持。',
                 sec_ss: '截图', ss_title: '实际效果。', ss1: 'Model Nexus · 在一处管理所有 AI 模型', ss2: 'App Manager · 一键切换所有工具的模型', ss3: 'Local Server · 本地运行开源模型', ss4: 'Skill Browser · 发现和安装 AI 技能',
-                sec_dl: '下载', dl_title: '几秒上手。', dl_desc: '下载 Echobird，免费开源，MIT 许可。', dl_btn: '下载',
+                sec_dl: '下载', dl_title: '几秒上手。', dl_desc: '下载百灵鸟，免费开源，MIT 许可。', dl_btn: '下载',
                 sec_tools: '支持的工具', tools_title: '你喜欢的工具。', tools_desc: '统一管理所有编程工具的 AI 模型。', ft_issues: '问题反馈', ft_discuss: '讨论'
             },
             'zh-TW': {
                 nav_features: '功能', nav_screenshots: '截圖', nav_download: '下載',
                 hero_tag: 'The Nexus for <strong>Models</strong>, <strong>Agents</strong> & <strong>Vibe Coding</strong>.', hero_dl: '免費下載', hero_note: 'AI 時代的賽博龐克控制台。',
-                sec_features: '核心功能', features_title: '切換模型。<br>不是設定檔。', features_desc: 'Echobird 是所有 AI 程式設計工具的視覺化控制面板。',
+                sec_features: '核心功能', features_title: '切換模型。<br>不是設定檔。', features_desc: '百靈鳥是所有 AI 程式設計工具的視覺化控制面板。',
                 f1_t: '一鍵切換模型', f1_d: '視覺化設定任何支援工具的 AI 模型。', f2_t: '雙協議支援', f2_d: 'OpenAI & Anthropic API。', f3_t: '智慧隧道代理', f3_d: '無需 VPN 即可存取受限 API。',
                 f4_t: '本地模型伺服器', f4_d: '透過內建 llama.cpp 本地執行開源模型。', f5_t: '技能瀏覽器', f5_d: '發現和安裝 AI 技能。', f6_t: '內建 AI 應用', f6_d: 'Reversi、AI 翻譯。', f7_t: '28 種語言', f7_d: '完整國際化支援。',
                 sec_ss: '截圖', ss_title: '實際效果。', ss1: 'Model Nexus · 管理所有 AI 模型', ss2: 'App Manager · 一鍵切換模型', ss3: 'Local Server · 本地執行模型', ss4: 'Skill Browser · 發現和安裝技能',
-                sec_dl: '下載', dl_title: '幾秒上手。', dl_desc: '下載 Echobird，免費開源。', dl_btn: '下載',
+                sec_dl: '下載', dl_title: '幾秒上手。', dl_desc: '下載百靈鳥，免費開源。', dl_btn: '下載',
                 sec_tools: '支援的工具', tools_title: '你喜歡的工具。', tools_desc: '統一管理所有程式設計工具的 AI 模型。', ft_issues: '問題回報', ft_discuss: '討論'
             },
             ja: {
@@ -1055,7 +1060,7 @@
                 hero_tag: '<strong>Один Хаб.</strong> Все Модели. Каждый Инструмент.', hero_dl: 'Скачать бесплатно', hero_note: 'Киберпанк-панель управления для эпохи ИИ.',
                 sec_features: 'ФУНКЦИИ', features_title: 'Переключайте модели.<br>Не конфиги.', features_desc: 'Echobird — визуальный пульт управления для всех ваших ИИ-инструментов.',
                 f1_t: 'Переключение в Один Клик', f1_d: 'Визуально настраивайте ИИ-модели.', f2_t: 'Двойной Протокол', f2_d: 'OpenAI и Anthropic API.', f3_t: 'Туннельный Прокси', f3_d: 'Доступ к API без VPN.',
-                f4_t: 'Локальный Сервер', f4_d: 'Запускайте open-source модели локально.', f5_t: 'Браузер Навыков', f5_d: 'Находите ИИ-навыки.', f6_t: 'ИИ-Приложения', f6_d: 'Reversi, AI Translate.', f7_t: '28 Языков', f7_ Russian: 'Полная интернационализация.',
+                f4_t: 'Локальный Сервер', f4_d: 'Запускайте open-source модели локально.', f5_t: 'Браузер Навыков', f5_d: 'Находите ИИ-навыки.', f6_t: 'ИИ-Приложения', f6_d: 'Reversi, AI Translate.', f7_t: '28 Языков', f7_d: 'Полная интернационализация.',
                 sec_ss: 'СКРИНШОТЫ', ss_title: 'В действии.', ss1: 'Model Nexus', ss2: 'App Manager', ss3: 'Local Server', ss4: 'Skill Browser',
                 sec_dl: 'СКАЧАТЬ', dl_title: 'Начните за секунды.', dl_desc: 'Бесплатно, open source, MIT.', dl_btn: 'Скачать',
                 sec_tools: 'СОВМЕСТИМ С', tools_title: 'Ваши любимые инструменты.', tools_desc: 'Управляйте ИИ-моделями для всех ваших инструментов.', ft_issues: 'Баги', ft_discuss: 'Обсуждения'
