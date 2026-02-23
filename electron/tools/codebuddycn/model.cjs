@@ -34,7 +34,7 @@ async function getCurrentModelInfo(readConfig) {
 
 /**
  * 应用模型配置
- * 将 CyberNexus 的模型信息写入 models.json
+ * 将 Echobird model info写入 models.json
  * CodeBuddy 要求 URL 以 /chat/completions 结尾
  */
 async function applyConfig(modelInfo, readConfig, writeConfig, getConfigFile) {
@@ -61,8 +61,8 @@ async function applyConfig(modelInfo, readConfig, writeConfig, getConfigFile) {
         } catch { }
 
         const newModel = {
-            id: modelInfo.model || modelInfo.name || 'CyberNexus-model',
-            name: modelInfo.name || modelInfo.model || 'CyberNexus Model',
+            id: modelInfo.model || modelInfo.name || 'Echobird-model',
+            name: modelInfo.name || modelInfo.model || 'Echobird Model',
             vendor: vendor,
             apiKey: modelInfo.apiKey || '',
             url: url,

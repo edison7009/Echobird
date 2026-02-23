@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const vi: Partial<Translations> = {
+    'app.name': 'Echobird',
     'nav.modelNexus': 'Trung tâm Model',
     'nav.skillBrowser': 'Duyệt Skill',
     'nav.appManager': 'Quản lý ứng dụng',

@@ -1,6 +1,6 @@
 {
-    "version": "1.0.9",
-    "releaseDate": "2026-02-20",
-    "releaseNotes": "Font localization (offline support), website brand font update, UI polish",
-    "downloadUrl": "https://github.com/CyberNexus-Chat/CyberNexus/releases/latest"
+    "version": "1.1.0",
+    "releaseDate": "2026-02-23",
+    "releaseNotes": "i18n product name, system language auto-detect, splash locale persistence, brand migration to echobird.ai, GitHub org to edison7009, Logs & Debug always visible",
+    "downloadUrl": "https://github.com/edison7009/Echobird/releases/latest"
 }

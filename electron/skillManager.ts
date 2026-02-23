@@ -8,7 +8,7 @@ import * as fs from 'fs';
 import * as os from 'os';
 
 // Remote API endpoint
-const SKILLS_API_URL = 'https://CyberNexus.com/api/skills/index.json';
+const SKILLS_API_URL = 'https://echobird.ai/api/skills/index.json';
 
 // Skill info type
 export interface SkillInfo {

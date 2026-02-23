@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const fa: Partial<Translations> = {
+    'app.name': 'Echobird',
     'nav.modelNexus': 'مرکز مدل‌ها', 'nav.skillBrowser': 'مرورگر مهارت‌ها', 'nav.appManager': 'مدیریت برنامه‌ها', 'nav.localServer': 'سرور محلی', 'nav.logsDebug': 'گزارش‌ها و اشکال‌زدایی',
     'page.modelNexus': 'مرکز مدل‌ها', 'page.skillBrowser': 'مرورگر مهارت‌ها', 'page.appManager': 'مدیریت برنامه‌ها', 'page.localServer': 'سرور محلی', 'page.logsDebug': 'گزارش‌ها و اشکال‌زدایی',
     'settings.title': 'تنظیمات', 'settings.version': 'نسخه', 'settings.language': 'زبان', 'settings.logsDebug': 'گزارش‌ها و اشکال‌زدایی', 'settings.updates': 'به‌روزرسانی‌ها',

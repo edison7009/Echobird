@@ -13,14 +13,21 @@ let mainWindow: BrowserWindow | null = null;
 let tray: Tray | null = null;
 let isQuitting = false;
 
-// 主进程托盘菜单翻译
-let trayLocale = 'en';
+// Locale persistence (for splash screen + tray menu)
+const localeFilePath = path.join(app.getPath('userData'), 'locale.txt');
+function getSavedLocale(): string {
+    try { return fs.readFileSync(localeFilePath, 'utf-8').trim(); } catch { return ''; }
+}
+function saveLocale(locale: string) {
+    try { fs.writeFileSync(localeFilePath, locale, 'utf-8'); } catch { /* ignore */ }
+}
+let trayLocale = getSavedLocale() || 'en';
 const trayStrings: Record<string, Record<string, string>> = {
-    en: { show: 'Show CyberNexus', server: 'LOCAL SERVER', on: 'ON', off: 'OFF', quit: 'Quit', tooltip: 'Local Server' },
-    'zh-Hans': { show: '显示 CyberNexus', server: '本地服务器', on: '开启', off: '关闭', quit: '退出', tooltip: '本地服务器' },
-    'zh-Hant': { show: '顯示 CyberNexus', server: '本機伺服器', on: '開啟', off: '關閉', quit: '結束', tooltip: '本機伺服器' },
-    ja: { show: 'CyberNexus を表示', server: 'ローカルサーバー', on: 'オン', off: 'オフ', quit: '終了', tooltip: 'ローカルサーバー' },
-    ko: { show: 'CyberNexus 표시', server: '로컬 서버', on: '켜기', off: '끄기', quit: '종료', tooltip: '로컬 서버' },
+    en: { show: 'Show Echobird', server: 'LOCAL SERVER', on: 'ON', off: 'OFF', quit: 'Quit', tooltip: 'Local Server' },
+    'zh-Hans': { show: '显示 Echobird', server: '本地服务器', on: '开启', off: '关闭', quit: '退出', tooltip: '本地服务器' },
+    'zh-Hant': { show: '顯示 Echobird', server: '本機伺服器', on: '開啟', off: '關閉', quit: '結束', tooltip: '本機伺服器' },
+    ja: { show: 'Echobird を表示', server: 'ローカルサーバー', on: 'オン', off: 'オフ', quit: '終了', tooltip: 'ローカルサーバー' },
+    ko: { show: 'Echobird 표시', server: '로컬 서버', on: '켜기', off: '끄기', quit: '종료', tooltip: '로컬 서버' },
 };
 function trayT(key: string): string {
     return trayStrings[trayLocale]?.[key] || trayStrings.en[key] || key;
@@ -43,12 +50,12 @@ function createSplashWindow() {
         },
     });
 
+    const splashLocale = getSavedLocale() || app.getLocale() || 'en';
+
     if (!app.isPackaged) {
-        // 开发模式：从 public 目录加载
-        splashWindow.loadFile(path.join(__dirname, '../public/splash.html'));
+        splashWindow.loadFile(path.join(__dirname, '../public/splash.html'), { query: { locale: splashLocale } });
     } else {
-        // 生产模式：从 dist 目录加载（vite 会复制 public 里的文件到 dist）
-        splashWindow.loadFile(path.join(__dirname, '../dist/splash.html'));
+        splashWindow.loadFile(path.join(__dirname, '../dist/splash.html'), { query: { locale: splashLocale } });
     }
 
     splashWindow.center();
@@ -162,7 +169,7 @@ function createWindow() {
 
 // 从像素数据生成托盘图标（彻底避免 SVG 渲染缝隙）
 function createTrayIcon(color: 'green' | 'yellow' = 'green'): Electron.NativeImage {
-    // 7×7 pixel pattern (CyberNexus logo), 1=filled, 0=transparent
+    // 7×7 pixel pattern (Echobird logo), 1=filled, 0=transparent
     const pixels = [
         [0, 1, 1, 1, 1, 1, 0],
         [1, 0, 0, 0, 0, 1, 1],
@@ -221,7 +228,7 @@ function createTray() {
     }
 
     tray = new Tray(trayIcon);
-    tray.setToolTip('CyberNexus');
+    tray.setToolTip('Echobird');
 
     // 构建并更新右键菜单
     updateTrayMenu();
@@ -257,11 +264,11 @@ function updateTrayMenu() {
         icon.setTemplateImage(true);
     }
     tray.setImage(icon);
-    tray.setToolTip(`CyberNexus - ${trayT('tooltip')} ${isServerOnline ? trayT('on') : trayT('off')}`);
+    tray.setToolTip(`Echobird - ${trayT('tooltip')} ${isServerOnline ? trayT('on') : trayT('off')}`);
 
     const contextMenu = Menu.buildFromTemplate([
         {
-            label: `CyberNexus v${version}`,
+            label: `Echobird v${version}`,
             enabled: false,  // 灰色版本号
         },
         { type: 'separator' },
@@ -560,7 +567,7 @@ ipcMain.handle('launch-game', async (_event, toolId: string, launchFile: string,
             height: 700,
             frame: false,
             maximizable: false,
-            title: `CyberNexus - ${toolId}`,
+            title: `Echobird - ${toolId}`,
             icon: path.join(__dirname, '../public/ico.svg'),
             autoHideMenuBar: true,
             backgroundColor: '#0a0e17',
@@ -605,6 +612,7 @@ ipcMain.handle('get-app-version', () => {
 // 前端切换语言时同步到主进程，重建托盘菜单
 ipcMain.handle('set-locale', (_event, locale: string) => {
     trayLocale = locale;
+    saveLocale(locale);
     updateTrayMenu();
 });
 
@@ -1002,7 +1010,7 @@ ipcMain.handle('check-for-updates', async () => {
     try {
         const https = await import('https');
         return new Promise((resolve) => {
-            const req = https.get('https://cybernexus.chat/api/version/index.json', { timeout: 8000 }, (res) => {
+            const req = https.get('https://echobird.ai/api/version/index.json', { timeout: 8000 }, (res) => {
                 let data = '';
                 res.on('data', (chunk: string) => { data += chunk; });
                 res.on('end', () => {

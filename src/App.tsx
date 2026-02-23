@@ -53,7 +53,7 @@ const defaultTools: LocalTool[] = [
 function App() {
     const [activePage, setActivePage] = useState<PageType>('models');
     const [showSettings, setShowSettings] = useState(false);
-    const [showLogsPage, setShowLogsPage] = useState(true);
+
     const { t, locale: currentLocale, setLocale: setCurrentLocale } = useI18n();
     const [localModelPath, setLocalModelPath] = useState<string>(''); // Selected local model path in ModelStore (right panel)
     const [selectedModel, setSelectedModel] = useState<string | null>('gpt4o');
@@ -671,7 +671,7 @@ function App() {
                                 {/* TODO: pass channels={[{id,status:'ok'|'error'}]} when OpenClaw plugin channels are ready */}
                                 <CircuitFlow />
                                 {/* Sidebar */}
-                                <Sidebar activePage={activePage} onPageChange={setActivePage} showLogsPage={showLogsPage} />
+                                <Sidebar activePage={activePage} onPageChange={setActivePage} />
 
                                 {/* Main content wrapper */}
                                 <div className="flex-1 flex flex-col overflow-hidden">
@@ -934,20 +934,13 @@ function App() {
                                                                     filteredSkills.map(skill => (
                                                                         <div
                                                                             key={skill.id}
-                                                                            className={`p-3 border-l-2 border ${selectedSkill === skill.id ? 'border-l-cyber-warning border-cyber-warning bg-cyber-warning/10' : 'border-l-cyber-border border-cyber-border hover:border-l-cyber-warning/50'} cursor-pointer hover:border-cyber-warning/50 transition-all bg-black/80 flex items-center justify-between group`}
+                                                                            className={`p-3 cyber-yellow-box ${selectedSkill === skill.id ? 'selected' : ''} cursor-pointer flex items-center justify-between group h-14`}
                                                                             onClick={() => setSelectedSkill(skill.id)}
                                                                         >
                                                                             <div className="min-w-0 flex-1">
-                                                                                <div className="text-sm font-bold truncate text-cyber-warning group-hover:text-cyber-warning/80">{skill.name}</div>
-                                                                                <div className="text-[10px] text-cyber-text-secondary truncate">{skill.brief || skill.author}</div>
+                                                                                <div className={`text-sm font-bold truncate ${selectedSkill === skill.id ? 'text-cyber-warning' : 'text-cyber-text-secondary'}`}>{skill.name}</div>
+                                                                                <div className="text-[10px] text-cyber-text-secondary truncate opacity-70">{skill.brief || skill.author}</div>
                                                                             </div>
-                                                                            {/* Skills Browser only displays skill info, no INSTALLED status needed
-                                                        That is a Claude local skill, not a core CyberNexus feature */}
-                                                                            {/* {skill.installed && (
-                                                        <span className="text-[9px] px-1.5 py-0.5 bg-cyber-warning/20 text-cyber-warning rounded ml-2 flex-shrink-0">
-                                                            INSTALLED
-                                                        </span>
-                                                    )} */}
                                                                         </div>
                                                                     ))
                                                                 )}
@@ -1045,12 +1038,12 @@ function App() {
                                                             <div className="mb-3 select-none">
                                                                 <div className="flex items-center gap-4 py-2">
                                                                     {/* 左侧图标 */}
-                                                                    <img src="./ico.svg" alt="CyberNexus" className="w-14 h-14 flex-shrink-0 drop-shadow-[0_0_6px_rgba(0,255,157,0.3)]" />
+                                                                    <img src="./ico.svg" alt="Echobird" className="w-14 h-14 flex-shrink-0 drop-shadow-[0_0_6px_rgba(0,255,157,0.3)]" />
                                                                     {/* 分隔线 */}
                                                                     <div className="w-px h-12 bg-gradient-to-b from-transparent via-cyber-accent/30 to-transparent flex-shrink-0" />
                                                                     {/* 右侧信息 */}
                                                                     <div className="font-mono text-xs space-y-1">
-                                                                        <div className="text-cyber-accent text-sm font-bold tracking-wide">CyberNexus <span className="text-cyber-text-muted/60 text-xs font-normal">v{__APP_VERSION__}</span></div>
+                                                                        <div className="text-cyber-accent text-sm font-bold tracking-wide">Echobird <span className="text-cyber-text-muted/60 text-xs font-normal">v{__APP_VERSION__}</span></div>
                                                                         <div className="text-cyber-text-muted/65 space-y-0.5">
                                                                             <div>{userModels.length} models · {detectedTools.filter(t => t.installed).length}/{detectedTools.length} tools · {navigator.platform}</div>
                                                                         </div>
@@ -1251,10 +1244,10 @@ function App() {
                                                             )}
                                                         </div>
                                                         {selectedSkillData && (
-                                                            <div className="p-3 bg-black/80 border-t border-cyber-border">
+                                                            <div className="p-4 pt-0">
                                                                 <span
                                                                     onClick={(e) => { e.preventDefault(); (window as any).electron?.openExternal(`https://github.com/${selectedSkillData.author}/tree/main/skills/${selectedSkillData.id}`); }}
-                                                                    className="w-full py-2 text-sm font-bold transition-colors bg-cyber-warning text-black hover:bg-cyber-warning/80 flex items-center justify-center gap-2 cursor-pointer"
+                                                                    className="w-full py-2 text-sm font-bold transition-colors bg-cyber-warning text-black hover:bg-cyber-warning/80 flex items-center justify-center gap-2 cursor-pointer rounded-button shadow-[0_0_15px_rgba(250,204,21,0.2)]"
                                                                 >
                                                                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                                                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -2002,8 +1995,6 @@ function App() {
                                 onClose={() => setShowSettings(false)}
                                 locale={currentLocale}
                                 onLocaleChange={setCurrentLocale}
-                                showLogsPage={showLogsPage}
-                                onShowLogsPageChange={setShowLogsPage}
                             />
                         </div>
 

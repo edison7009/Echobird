@@ -25,8 +25,8 @@ export class ToolManager {
     private configDir: string;
 
     constructor() {
-        // Use ~/.cybernexus/ as config directory
-        this.configDir = path.join(os.homedir(), '.cybernexus', 'config');
+        // Use ~/.echobird/ as config directory
+        this.configDir = path.join(os.homedir(), '.echobird', 'config');
     }
 
     async initialize(): Promise<void> {

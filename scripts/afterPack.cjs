@@ -15,10 +15,10 @@ exports.default = async function afterPack(context) {
         await rcedit(exePath, {
             icon: iconPath,
             'version-string': {
-                ProductName: 'CyberNexus',
-                FileDescription: 'CyberNexus - AI Model & Skill Management',
-                CompanyName: 'CyberNexus',
-                LegalCopyright: 'Copyright 2026 CyberNexus',
+                ProductName: 'Echobird',
+                FileDescription: 'Echobird - AI Model & Skill Management',
+                CompanyName: 'Echobird',
+                LegalCopyright: 'Copyright 2026 Echobird',
             },
             'file-version': context.packager.appInfo.version,
             'product-version': context.packager.appInfo.version,

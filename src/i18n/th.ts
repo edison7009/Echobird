@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const th: Partial<Translations> = {
+    'app.name': 'Echobird',
     'nav.modelNexus': 'ศูนย์โมเดล',
     'nav.skillBrowser': 'เบราว์เซอร์สกิล',
     'nav.appManager': 'จัดการแอป',

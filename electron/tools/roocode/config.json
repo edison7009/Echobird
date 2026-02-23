@@ -1,5 +1,5 @@
 {
-    "configFile": "~/.cybernexus/roocode.json",
+    "configFile": "~/.echobird/roocode.json",
     "format": "json",
     "custom": true
 }

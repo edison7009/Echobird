@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const hu: Partial<Translations> = {
+    'app.name': 'Echobird',
     'nav.modelNexus': 'Modellközpont',
     'nav.skillBrowser': 'Készségböngésző',
     'nav.appManager': 'Alkalmazáskezelő',

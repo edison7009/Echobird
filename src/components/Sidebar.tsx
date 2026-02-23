@@ -12,10 +12,9 @@ export type PageType = 'models' | 'skills' | 'agents' | 'player' | 'logs' | 'cha
 interface SidebarProps {
     activePage: PageType;
     onPageChange: (page: PageType) => void;
-    showLogsPage?: boolean;
 }
 
-export const Sidebar = ({ activePage, onPageChange, showLogsPage = true }: SidebarProps) => {
+export const Sidebar = ({ activePage, onPageChange }: SidebarProps) => {
     const { t } = useI18n();
     // 轮询本地模型服务器状态
     const [serverRunning, setServerRunning] = useState(false);
@@ -35,8 +34,18 @@ export const Sidebar = ({ activePage, onPageChange, showLogsPage = true }: Sideb
 
     return (
         <nav className="w-64 flex flex-col px-6 pb-6">
-            <div className="font-bold mb-10 tracking-wide flex items-center">
-                <span className={activePage === 'skills' ? 'text-cyber-warning' : 'text-cyber-accent'} style={{ fontFamily: "'Orbitron', sans-serif", fontWeight: 700, letterSpacing: '3px', fontSize: '18px', lineHeight: 1 }}>CYBER NEXUS</span>
+            <div className="mb-6 tracking-wide">
+                <span
+                    className={activePage === 'skills' ? 'text-cyber-warning' : 'text-cyber-accent'}
+                    style={{
+                        fontFamily: "'Orbitron', sans-serif",
+                        fontWeight: 700,
+                        letterSpacing: '3px',
+                        fontSize: '13px',
+                        lineHeight: '13px',
+                        textTransform: 'uppercase',
+                    }}
+                >{t('app.name')} AI</span>
             </div>
 
             <div className="flex-1 space-y-6 text-sm">
@@ -68,14 +77,12 @@ export const Sidebar = ({ activePage, onPageChange, showLogsPage = true }: Sideb
                         onClick={() => onPageChange('player')}
                     />
                 )}
-                {showLogsPage && (
-                    <NavItem
-                        icon={<Activity size={18} />}
-                        label={t('nav.logsDebug')}
-                        active={activePage === 'logs'}
-                        onClick={() => onPageChange('logs')}
-                    />
-                )}
+                <NavItem
+                    icon={<Activity size={18} />}
+                    label={t('nav.logsDebug')}
+                    active={activePage === 'logs'}
+                    onClick={() => onPageChange('logs')}
+                />
                 <NavItem
                     icon={<MessageSquare size={18} />}
                     label={t('nav.channels')}

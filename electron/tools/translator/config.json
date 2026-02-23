@@ -1,6 +1,6 @@
 {
     "docs": "",
-    "configFile": "~/.cybernexus/translator.json",
+    "configFile": "~/.echobird/translator.json",
     "format": "json",
     "custom": false,
     "read": {

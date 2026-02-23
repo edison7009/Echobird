@@ -8,7 +8,7 @@ import * as nodeNet from 'net'; // Use Node's net module for probing
 
 // Model Config Interface
 export interface ModelConfig {
-    internalId: string;      // Internal Communication ID (Used internally by CyberNexus, e.g. m-abc123)
+    internalId: string;      // Internal Communication ID (Used internally by Echobird, e.g. m-abc123)
     name: string;           // User defined name (For display, e.g. "My OpenRouter")
     modelId?: string;       // API Model ID (Passed to API, e.g. MiniMAX-2.1, gpt-4o)
     baseUrl: string;        // OpenAI Compatible API Endpoint (e.g. https://api.example.com/v1)
@@ -30,19 +30,19 @@ export interface ModelConfig {
     anthropicLatency?: number;     // Anthropic Protocol Latency (ms)
 }
 
-// CyberNexus User Config Directory (Cross-platform: ~/.cybernexus/)
-function getCyberNexusDir(): string {
-    return path.join(os.homedir(), '.cybernexus');
+// Echobird User Config Directory (Cross-platform: ~/.echobird/)
+function getEchobirdDir(): string {
+    return path.join(os.homedir(), '.echobird');
 }
 
 // Model Config File Path
 function getModelsConfigPath(): string {
-    return path.join(getCyberNexusDir(), 'config', 'models.json');
+    return path.join(getEchobirdDir(), 'config', 'models.json');
 }
 
 // Ensure config directory exists
 function ensureConfigDir(): void {
-    const configDir = path.join(getCyberNexusDir(), 'config');
+    const configDir = path.join(getEchobirdDir(), 'config');
     if (!fs.existsSync(configDir)) {
         fs.mkdirSync(configDir, { recursive: true });
     }

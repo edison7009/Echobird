@@ -1,8 +1,8 @@
 {
-  "name": "cybernexus",
-  "version": "1.0.9",
+  "name": "echobird",
+  "version": "1.1.0",
   "description": "AI Model & Skill Management Desktop Application",
-  "author": "CyberNexus Team",
+  "author": "Echo Bird Team",
   "main": "dist-electron/main.cjs",
   "type": "module",
   "scripts": {
@@ -50,9 +50,9 @@
     "wait-on": "^7.2.0"
   },
   "build": {
-    "appId": "com.cybernexus.chat",
-    "productName": "CyberNexus",
-    "copyright": "Copyright © 2026 CyberNexus",
+    "appId": "com.echobird.ai",
+    "productName": "Echobird",
+    "copyright": "Copyright © 2026 Echobird",
     "afterPack": "./scripts/afterPack.cjs",
     "directories": {
       "output": "release",
@@ -78,7 +78,7 @@
     ],
     "publish": {
       "provider": "generic",
-      "url": "https://cybernexus.chat/update/"
+      "url": "https://echobird.ai/update/"
     },
     "win": {
       "target": [
@@ -92,7 +92,7 @@
       "allowToChangeInstallationDirectory": true,
       "installerIcon": "build/icon.ico",
       "uninstallerIcon": "build/icon.ico",
-      "uninstallDisplayName": "CyberNexus",
+      "uninstallDisplayName": "Echobird",
       "installerSidebar": "build/installerSidebar.bmp",
       "uninstallerSidebar": "build/installerSidebar.bmp",
       "installerLanguages": [

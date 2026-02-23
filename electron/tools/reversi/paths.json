@@ -19,19 +19,19 @@
     ],
     "docs": "https://en.wikipedia.org/wiki/Reversi",
     "command": "",
-    "configDir": "~/.cybernexus",
-    "configFile": "~/.cybernexus/reversi.json",
+    "configDir": "~/.echobird",
+    "configFile": "~/.echobird/reversi.json",
     "requireConfigFile": false,
     "paths": {},
     "skillsPath": {
         "win32": [
-            "~/.cybernexus/reversi-skills"
+            "~/.echobird/reversi-skills"
         ],
         "darwin": [
-            "~/.cybernexus/reversi-skills"
+            "~/.echobird/reversi-skills"
         ],
         "linux": [
-            "~/.cybernexus/reversi-skills"
+            "~/.echobird/reversi-skills"
         ]
     },
     "alwaysInstalled": true,

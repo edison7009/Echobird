@@ -515,7 +515,7 @@ export const Channels: React.FC = () => {
         <div className="flex h-full gap-0 overflow-hidden">
             {/* ======== Left: Channel list ======== */}
             <div className="w-56 flex-shrink-0 flex flex-col">
-                <div className="flex-1 overflow-y-auto p-2 space-y-2 custom-scrollbar">
+                <div className="flex-1 overflow-y-auto pr-2 py-2 space-y-2 custom-scrollbar">
                     {channels.map(ch => {
                         const isActive = activeId === ch.id;
                         const chState = manager.getChannelState(ch.id);

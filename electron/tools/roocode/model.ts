@@ -7,24 +7,24 @@ import { ModelInfo } from '../types';
 /**
  * Roo Code Model Module (Patch Injection)
  * 
- * Writes config to ~/.cybernexus/roocode.json,
+ * Writes config to ~/.echobird/roocode.json,
  * patched Roo Code extension reads this file on startup and overrides API settings.
  * Auto-detects and applies patch on each Apply.
  */
 
-// CyberNexus config directory and file
-const CyberNexus_DIR = path.join(os.homedir(), '.cybernexus');
-const ROOCODE_CONFIG_FILE = path.join(CyberNexus_DIR, 'roocode.json');
+// Echobird config directory and file
+const ECHOBIRD_DIR = path.join(os.homedir(), '.echobird');
+const ROOCODE_CONFIG_FILE = path.join(ECHOBIRD_DIR, 'roocode.json');
 // Patch marker
-const PATCH_MARKER = '[CyberNexus-RooCode-Patched]';
+const PATCH_MARKER = '[Echobird-RooCode-Patched]';
 // VS Code extension directory
 const VSCODE_EXTENSIONS_DIR = path.join(os.homedir(), '.vscode', 'extensions');
 const ROOCODE_EXT_PREFIX = 'rooveterinaryinc.roo-cline-';
 
 /**
- * CyberNexus Roo Code config file format
+ * Echobird Roo Code config file format
  */
-interface CyberNexusRooCodeConfig {
+interface EchobirdRooCodeConfig {
     apiKey: string;
     baseUrl?: string;
     modelId: string;
@@ -35,19 +35,19 @@ interface CyberNexusRooCodeConfig {
  * Ensure config directory exists
  */
 function ensureConfigDir(): void {
-    if (!fs.existsSync(CyberNexus_DIR)) {
-        fs.mkdirSync(CyberNexus_DIR, { recursive: true });
+    if (!fs.existsSync(ECHOBIRD_DIR)) {
+        fs.mkdirSync(ECHOBIRD_DIR, { recursive: true });
     }
 }
 
 /**
  * Read current config file
  */
-function readConfig(): CyberNexusRooCodeConfig | null {
+function readConfig(): EchobirdRooCodeConfig | null {
     try {
         if (fs.existsSync(ROOCODE_CONFIG_FILE)) {
             const content = fs.readFileSync(ROOCODE_CONFIG_FILE, 'utf-8');
-            return JSON.parse(content) as CyberNexusRooCodeConfig;
+            return JSON.parse(content) as EchobirdRooCodeConfig;
         }
     } catch (e: any) {
         console.error('[RooCode] Failed to read config:', e.message);
@@ -58,7 +58,7 @@ function readConfig(): CyberNexusRooCodeConfig | null {
 /**
  * Write config file
  */
-function writeConfig(config: CyberNexusRooCodeConfig): boolean {
+function writeConfig(config: EchobirdRooCodeConfig): boolean {
     try {
         ensureConfigDir();
         fs.writeFileSync(ROOCODE_CONFIG_FILE, JSON.stringify(config, null, 2), 'utf-8');
@@ -71,7 +71,7 @@ function writeConfig(config: CyberNexusRooCodeConfig): boolean {
 }
 
 /**
- * Read current model info from CyberNexus config
+ * Read current model info from Echobird config
  */
 export async function getCurrentModelInfo(
     _readConfig: () => Promise<any>
@@ -139,7 +139,7 @@ function ensurePatch(): { patched: boolean; message: string } {
 
 /**
  * Apply model config to Roo Code
- * Write to ~/.cybernexus/roocode.json and auto-detect/patch extension
+ * Write to ~/.echobird/roocode.json and auto-detect/patch extension
  */
 export async function applyConfig(
     modelInfo: ModelInfo,
@@ -148,7 +148,7 @@ export async function applyConfig(
     _getConfigFile: () => string
 ): Promise<{ success: boolean; message: string }> {
     try {
-        const config: CyberNexusRooCodeConfig = {
+        const config: EchobirdRooCodeConfig = {
             apiKey: modelInfo.apiKey || '',
             modelId: modelInfo.model,
             modelName: modelInfo.name || modelInfo.model,

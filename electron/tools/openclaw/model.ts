@@ -7,21 +7,21 @@ import { ModelInfo } from '../types';
 /**
  * OpenClaw Model Module (Patch Injection)
  * 
- * 配置写到 ~/.cybernexus/openclaw.json，
- * 补丁脚本注入到 OpenClaw 入口文件 openclaw.mjs，
- * 每次 OpenClaw 启动时自动读取并注入模型配置。
- * 不直接修改 ~/.openclaw/openclaw.json。
+ * Config written to ~/.echobird/openclaw.json,
+ * patch script injects into OpenClaw entry file openclaw.mjs,
+ * auto-reads and injects model config on every OpenClaw start.
+ * Does not directly modify ~/.openclaw/openclaw.json.
  */
 
-const CyberNexus_DIR = path.join(os.homedir(), '.cybernexus');
-const WC_OPENCLAW_CONFIG = path.join(CyberNexus_DIR, 'openclaw.json');
-// 补丁标记
-const PATCH_MARKER = '[CyberNexus-Patched]';
+const ECHOBIRD_DIR = path.join(os.homedir(), '.echobird');
+const WC_OPENCLAW_CONFIG = path.join(ECHOBIRD_DIR, 'openclaw.json');
+// Patch marker
+const PATCH_MARKER = '[Echobird-Patched]';
 
 /**
- * CyberNexus OpenClaw 配置文件格式
+ * Echobird OpenClaw config file format
  */
-interface CyberNexusOpenClawConfig {
+interface EchobirdOpenClawConfig {
     apiKey: string;
     baseUrl?: string;
     modelId: string;
@@ -33,30 +33,30 @@ interface CyberNexusOpenClawConfig {
  * 确保配置目录存在
  */
 function ensureConfigDir(): void {
-    if (!fs.existsSync(CyberNexus_DIR)) {
-        fs.mkdirSync(CyberNexus_DIR, { recursive: true });
+    if (!fs.existsSync(ECHOBIRD_DIR)) {
+        fs.mkdirSync(ECHOBIRD_DIR, { recursive: true });
     }
 }
 
 /**
- * 读取 CyberNexus 自己的 OpenClaw 配置
+ * Read Echobird's own OpenClaw config
  */
-function readWcConfig(): CyberNexusOpenClawConfig | null {
+function readWcConfig(): EchobirdOpenClawConfig | null {
     try {
         if (fs.existsSync(WC_OPENCLAW_CONFIG)) {
             const content = fs.readFileSync(WC_OPENCLAW_CONFIG, 'utf-8');
-            return JSON.parse(content) as CyberNexusOpenClawConfig;
+            return JSON.parse(content) as EchobirdOpenClawConfig;
         }
     } catch (e: any) {
-        console.error('[OpenClaw] Failed to read CyberNexus config:', e.message);
+        console.error('[OpenClaw] Failed to read Echobird config:', e.message);
     }
     return null;
 }
 
 /**
- * 写入 CyberNexus 自己的 OpenClaw 配置
+ * Write Echobird's own OpenClaw config
  */
-function writeWcConfig(config: CyberNexusOpenClawConfig): boolean {
+function writeWcConfig(config: EchobirdOpenClawConfig): boolean {
     try {
         ensureConfigDir();
         fs.writeFileSync(WC_OPENCLAW_CONFIG, JSON.stringify(config, null, 2), 'utf-8');
@@ -69,14 +69,14 @@ function writeWcConfig(config: CyberNexusOpenClawConfig): boolean {
 }
 
 /**
- * 获取配置文件路径（返回 CyberNexus 自己的配置路径）
+ * Get config file path (returns Echobird's own config path)
  */
 export function getConfigFile(): string {
     return WC_OPENCLAW_CONFIG;
 }
 
 /**
- * 从 CyberNexus 配置读取当前模型信息
+ * Read current model info from Echobird config
  */
 export async function getCurrentModelInfo(
     _readConfig: () => Promise<any>
@@ -154,8 +154,8 @@ function ensurePatch(): { patched: boolean; message: string } {
 }
 
 /**
- * 应用模型配置到 OpenClaw
- * 写入 ~/.cybernexus/openclaw.json 并自动检测/打补丁
+ * Apply model config to OpenClaw
+ * Write to ~/.echobird/openclaw.json and auto-detect/patch
  */
 export async function applyConfig(
     modelInfo: ModelInfo,
@@ -170,7 +170,7 @@ export async function applyConfig(
             return { success: false, message: 'Model ID is empty, cannot apply config' };
         }
 
-        const config: CyberNexusOpenClawConfig = {
+        const config: EchobirdOpenClawConfig = {
             apiKey: modelInfo.apiKey || '',
             modelId: modelId,
             modelName: modelInfo.name || modelId,

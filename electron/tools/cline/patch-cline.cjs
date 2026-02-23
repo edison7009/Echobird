@@ -1,9 +1,9 @@
 /**
- * CyberNexus Cline Patch Script
+ * Echobird Cline Patch Script
  * Injects external config reading code into the installed Cline extension's extension.js
  * 
  * Functionality: After the StateManager.populateCache() call, injects code that
- * reads config from ~/.cybernexus/cline.json and overrides globalStateCache and secretsCache.
+ * reads config from ~/.echobird/cline.json and overrides globalStateCache and secretsCache.
  * 
  * Supports OpenAI Compatible and Anthropic API protocols.
  * 
@@ -18,8 +18,8 @@ const os = require('os');
 const VSCODE_EXTENSIONS_DIR = path.join(os.homedir(), '.vscode', 'extensions');
 const CLINE_EXTENSION_PREFIX = 'saoudrizwan.claude-dev-';
 
-// CyberNexus patch marker
-const PATCH_MARKER = '/* [CyberNexus-Patched] */';
+// Echobird patch marker
+const PATCH_MARKER = '/* [Echobird-Patched] */';
 
 // Code to inject — reads external config file after populateCache
 // Compatible with Cline 3.61.0+: uses actModeApiProvider / planModeApiProvider
@@ -28,12 +28,12 @@ const INJECT_CODE = `
 ${PATCH_MARKER}
 (function(){try{
 var _wc_fs=require("fs"),_wc_path=require("path"),_wc_os=require("os");
-var _wc_cfg_path=_wc_path.join(_wc_os.homedir(),".cybernexus","cline.json");
+var _wc_cfg_path=_wc_path.join(_wc_os.homedir(),".echobird","cline.json");
 if(_wc_fs.existsSync(_wc_cfg_path)){
 var _wc_cfg=JSON.parse(_wc_fs.readFileSync(_wc_cfg_path,"utf-8"));
 if(_wc_cfg.apiKey&&_wc_cfg.modelId){
 var _inst=t.instance,_gs=_inst.globalStateCache,_sc=_inst.secretsCache;
-var _mi={maxTokens:8192,contextWindow:128000,supportsImages:true,supportsPromptCache:false,inputPrice:0,outputPrice:0,description:"[CyberNexus] "+(_wc_cfg.modelName||_wc_cfg.modelId)};
+var _mi={maxTokens:8192,contextWindow:128000,supportsImages:true,supportsPromptCache:false,inputPrice:0,outputPrice:0,description:"[Echobird] "+(_wc_cfg.modelName||_wc_cfg.modelId)};
 _gs.actModeApiProvider="openai";
 _gs.planModeApiProvider="openai";
 _gs.actModeOpenAiModelId=_wc_cfg.modelId;
@@ -42,9 +42,9 @@ if(_wc_cfg.baseUrl)_gs.openAiBaseUrl=_wc_cfg.baseUrl;
 _gs.actModeOpenAiModelInfo=_mi;
 _gs.planModeOpenAiModelInfo=_mi;
 _sc.openAiApiKey=_wc_cfg.apiKey;
-console.log("[CyberNexus] Loaded: openai-compat, model="+_wc_cfg.modelId);
+console.log("[Echobird] Loaded: openai-compat, model="+_wc_cfg.modelId);
 }}
-}catch(_wc_err){console.warn("[CyberNexus] Failed to load config:",_wc_err.message);}})(),
+}catch(_wc_err){console.warn("[Echobird] Failed to load config:",_wc_err.message);}})(),
 `;
 
 /**
@@ -84,7 +84,7 @@ function patchCline(restore = false) {
     }
 
     // Backup original file
-    const backupPath = extensionJsPath + '.cybernexus-backup';
+    const backupPath = extensionJsPath + '.echobird-backup';
 
     if (restore) {
         // Restore original file
@@ -136,9 +136,9 @@ function patchCline(restore = false) {
     console.log('Patch applied successfully! Injection position:', idx);
     console.log('Cline extension path:', extDir);
     console.log('');
-    console.log('On next Cline startup within VS Code, configuration will be read from ~/.cybernexus/cline.json');
+    console.log('On next Cline startup within VS Code, configuration will be read from ~/.echobird/cline.json');
     console.log('');
-    console.log('Config file format (~/.cybernexus/cline.json):');
+    console.log('Config file format (~/.echobird/cline.json):');
     console.log(JSON.stringify({
         provider: 'openai',
         apiKey: 'sk-xxx',
@@ -159,7 +159,7 @@ if (isRestore) {
     const success = patchCline(true);
     process.exit(success ? 0 : 1);
 } else {
-    console.log('Applying CyberNexus patch to Cline...');
+    console.log('Applying Echobird patch to Cline...');
     const success = patchCline(false);
     process.exit(success ? 0 : 1);
 }

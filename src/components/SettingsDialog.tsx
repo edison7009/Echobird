@@ -1,6 +1,6 @@
 // SettingsDialog — Global settings modal (gear button in title bar)
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { X, Globe, Terminal, Download, ExternalLink } from 'lucide-react';
+import { X, Globe, Download, ExternalLink } from 'lucide-react';
 import { MiniSelect } from './MiniSelect';
 import { useI18n } from '../hooks/useI18n';
 
@@ -44,8 +44,6 @@ interface SettingsDialogProps {
     onClose: () => void;
     locale: string;
     onLocaleChange: (locale: string) => void;
-    showLogsPage: boolean;
-    onShowLogsPageChange: (show: boolean) => void;
 }
 
 export const SettingsDialog: React.FC<SettingsDialogProps> = ({
@@ -53,8 +51,6 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
     onClose,
     locale,
     onLocaleChange,
-    showLogsPage,
-    onShowLogsPageChange,
 }) => {
     const { t } = useI18n();
     const [isAnimatingOut, setIsAnimatingOut] = useState(false);
@@ -168,30 +164,7 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
                     {/* Divider */}
                     <div className="h-px bg-cyber-border" />
 
-                    {/* Logs & Debug toggle */}
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2">
-                            <Terminal size={12} className="text-cyber-accent-secondary" />
-                            <span className="text-xs font-mono text-cyber-text-secondary tracking-wider">{t('settings.logsDebug')}</span>
-                        </div>
-                        <button
-                            onClick={() => onShowLogsPageChange(!showLogsPage)}
-                            className={`relative w-9 h-5 rounded-full transition-colors duration-200 ${showLogsPage
-                                ? 'bg-cyber-accent/30 border border-cyber-accent/50'
-                                : 'bg-cyber-border border border-cyber-border'
-                                }`}
-                        >
-                            <div
-                                className={`absolute top-0.5 w-3.5 h-3.5 rounded-full transition-all duration-200 ${showLogsPage
-                                    ? 'left-[18px] bg-cyber-accent shadow-[0_0_6px_rgba(0,255,157,0.5)]'
-                                    : 'left-0.5 bg-cyber-text-muted'
-                                    }`}
-                            />
-                        </button>
-                    </div>
 
-                    {/* Divider */}
-                    <div className="h-px bg-cyber-border" />
 
                     {/* 关闭行为 */}
                     <div className="space-y-2">
@@ -200,11 +173,11 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
                             <span className="text-xs font-mono text-cyber-text-secondary tracking-wider">{t('settings.closeBehavior')}</span>
                         </div>
                         <MiniSelect
-                            value={(() => { try { return localStorage.getItem('cybernexus-close-behavior') || 'ask'; } catch { return 'ask'; } })()}
+                            value={(() => { try { return localStorage.getItem('echobird-close-behavior') || 'ask'; } catch { return 'ask'; } })()}
                             onChange={(val) => {
                                 try {
-                                    if (val === 'ask') localStorage.removeItem('cybernexus-close-behavior');
-                                    else localStorage.setItem('cybernexus-close-behavior', val);
+                                    if (val === 'ask') localStorage.removeItem('echobird-close-behavior');
+                                    else localStorage.setItem('echobird-close-behavior', val);
                                 } catch { }
                             }}
                             options={[
@@ -249,7 +222,7 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
 
                             {updateStatus === 'available' && (
                                 <button
-                                    onClick={() => (window as any).electron.openExternal('https://cybernexus.chat/download')}
+                                    onClick={() => (window as any).electron.openExternal('https://echobird.ai/download')}
                                     className="flex items-center justify-center gap-1.5 w-full text-[10px] font-mono py-1.5 border border-cyber-accent-secondary/30 text-cyber-accent-secondary hover:bg-cyber-accent-secondary/10 transition-colors tracking-wider rounded-button"
                                 >
                                     UPDATE TO v{latestVersion} <ExternalLink size={10} />
@@ -270,10 +243,10 @@ export const SettingsDialog: React.FC<SettingsDialogProps> = ({
                     {/* Website link */}
                     <div className="pt-1 flex justify-center">
                         <button
-                            onClick={() => (window as any).electron.openExternal('https://cybernexus.chat')}
+                            onClick={() => (window as any).electron.openExternal('https://echobird.ai')}
                             className="text-[13px] font-mono text-cyber-text-secondary/80 hover:text-cyber-accent transition-colors tracking-wider flex items-center gap-1.5"
                         >
-                            CyberNexus.chat <ExternalLink size={12} />
+                            Echobird.ai <ExternalLink size={12} />
                         </button>
                     </div>
                 </div>

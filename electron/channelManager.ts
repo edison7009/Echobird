@@ -1,4 +1,4 @@
-// channelManager.ts — Channel config manager (~/.cybernexus/config/channels.json)
+// channelManager.ts — Channel config manager (~/.echobird/config/channels.json)
 
 import * as fs from 'fs';
 import * as path from 'path';
@@ -15,19 +15,19 @@ export interface ChannelConfig {
 // Default channel count
 const DEFAULT_CHANNEL_COUNT = 6;
 
-// CyberNexus user config directory (cross-platform: ~/.cybernexus/)
-function getCyberNexusDir(): string {
-    return path.join(os.homedir(), '.cybernexus');
+// Echobird user config directory (cross-platform: ~/.echobird/)
+function getEchobirdDir(): string {
+    return path.join(os.homedir(), '.echobird');
 }
 
 // Channels config file path
 function getChannelsConfigPath(): string {
-    return path.join(getCyberNexusDir(), 'config', 'channels.json');
+    return path.join(getEchobirdDir(), 'config', 'channels.json');
 }
 
 // Ensure config directory exists
 function ensureConfigDir(): void {
-    const configDir = path.join(getCyberNexusDir(), 'config');
+    const configDir = path.join(getEchobirdDir(), 'config');
     if (!fs.existsSync(configDir)) {
         fs.mkdirSync(configDir, { recursive: true });
     }

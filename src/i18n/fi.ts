@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const fi: Partial<Translations> = {
+    'app.name': 'Echobird',
     'nav.modelNexus': 'Mallikeskus', 'nav.skillBrowser': 'Taitoselain', 'nav.appManager': 'Sovellushallinta', 'nav.localServer': 'Paikallinen palvelin', 'nav.logsDebug': 'Lokit ja virheenkorjaus',
     'page.modelNexus': 'MALLIKESKUS', 'page.skillBrowser': 'TAITOSELAIN', 'page.appManager': 'SOVELLUSHALLINTA', 'page.localServer': 'PAIKALLINEN PALVELIN', 'page.logsDebug': 'LOKIT JA VIRHEENKORJAUS',
     'settings.title': 'ASETUKSET', 'settings.version': 'VERSIO', 'settings.language': 'KIELI', 'settings.logsDebug': 'LOKIT JA VIRHEENKORJAUS', 'settings.updates': 'PÄIVITYKSET',

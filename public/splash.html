@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CyberNexus</title>
+    <title>Echobird</title>
     <style>
         @font-face {
             font-family: 'Orbitron';
@@ -44,7 +44,6 @@
         .logo {
             width: 72px;
             height: 72px;
-            animation: dos-bounce 0.8s steps(1) infinite;
         }
 
         .title {
@@ -53,7 +52,6 @@
             font-weight: 700;
             letter-spacing: 3px;
             font-family: 'Orbitron', 'Segoe UI', sans-serif;
-            text-transform: uppercase;
         }
 
         .loader {
@@ -64,7 +62,7 @@
         .loader span {
             width: 4px;
             height: 4px;
-            border-radius: 50%;
+            border-radius: 1px;
             background: #00FF9D;
             opacity: 0.15;
             animation: dot 2.4s ease infinite;
@@ -78,18 +76,6 @@
             animation-delay: 1.0s;
         }
 
-        @keyframes dos-bounce {
-
-            0%,
-            49% {
-                transform: translateY(0);
-            }
-
-            50%,
-            100% {
-                transform: translateY(-8px);
-            }
-        }
 
         @keyframes dot {
 
@@ -108,13 +94,20 @@
 <body>
     <div class="splash-card">
         <img class="logo" src="ico.svg" alt="">
-        <div class="title">CYBER NEXUS</div>
+        <div class="title" id="appTitle">Echobird</div>
         <div class="loader">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </div>
+    <script>
+        try {
+            const locale = new URLSearchParams(location.search).get('locale') || 'en';
+            if (/^zh[-_]?(Hans|CN|SG)/i.test(locale)) document.getElementById('appTitle').textContent = '百灵鸟';
+            else if (/^zh/i.test(locale)) document.getElementById('appTitle').textContent = '百靈鳥';
+        } catch (e) { }
+    </script>
 </body>
 
 </html>

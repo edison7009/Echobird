@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const el: Partial<Translations> = {
+    'app.name': 'Echobird',
     'nav.modelNexus': 'Κέντρο Μοντέλων', 'nav.skillBrowser': 'Περιηγητής Δεξιοτήτων', 'nav.appManager': 'Διαχείριση Εφαρμογών', 'nav.localServer': 'Τοπικός Διακομιστής', 'nav.logsDebug': 'Αρχεία & Αποσφαλμάτωση',
     'page.modelNexus': 'ΚΕΝΤΡΟ ΜΟΝΤΕΛΩΝ', 'page.skillBrowser': 'ΠΕΡΙΗΓΗΤΗΣ ΔΕΞΙΟΤΗΤΩΝ', 'page.appManager': 'ΔΙΑΧΕΙΡΙΣΗ ΕΦΑΡΜΟΓΩΝ', 'page.localServer': 'ΤΟΠΙΚΟΣ ΔΙΑΚΟΜΙΣΤΗΣ', 'page.logsDebug': 'ΑΡΧΕΙΑ & ΑΠΟΣΦΑΛΜΑΤΩΣΗ',
     'settings.title': 'ΡΥΘΜΙΣΕΙΣ', 'settings.version': 'ΕΚΔΟΣΗ', 'settings.language': 'ΓΛΩΣΣΑ', 'settings.logsDebug': 'ΑΡΧΕΙΑ & ΑΠΟΣΦΑΛΜΑΤΩΣΗ', 'settings.updates': 'ΕΝΗΜΕΡΩΣΕΙΣ',

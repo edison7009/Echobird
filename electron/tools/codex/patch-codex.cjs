@@ -1,9 +1,9 @@
 /**
- * CyberNexus Codex 补丁脚本
- * 在 Codex 的 codex.js 启动器中注入 CyberNexus 配置读取代码
+ * Echobird Codex 补丁脚本
+ * 在 Codex 的 codex.js 启动器中注入 Echobird config reading code
  * 
  * 功能：在 spawn codex.exe 之前注入一段代码，
- * 从 ~/.cybernexus/codex.json 读取 API Key，
+ * 从 ~/.echobird/codex.json 读取 API Key，
  * 并设置 OPENAI_API_KEY 环境变量。
  * 
  * 用法：node patch-codex.cjs [--restore]
@@ -21,22 +21,22 @@ const NPM_GLOBAL_MODULES = [
     '/usr/lib/node_modules/@openai/codex',
 ];
 
-// CyberNexus 补丁标记
-const PATCH_MARKER = '/* [CyberNexus-Codex-Patched] */';
+// Echobird 补丁标记
+const PATCH_MARKER = '/* [Echobird-Codex-Patched] */';
 
-// 注入代码：在 Codex 启动前读取 ~/.cybernexus/codex.json 并设置环境变量
+// 注入代码：在 Codex 启动前读取 ~/.echobird/codex.json 并设置环境变量
 const INJECT_CODE = `
 ${PATCH_MARKER}
 import { readFileSync as _wc_rf, existsSync as _wc_ex } from "fs";
 import { join as _wc_j } from "path";
 import { homedir as _wc_h } from "os";
-(function _CyberNexus_codex() {
+(function _Echobird_codex() {
   try {
-    const p = _wc_j(_wc_h(), ".cybernexus", "codex.json");
+    const p = _wc_j(_wc_h(), ".echobird", "codex.json");
     if (!_wc_ex(p)) return;
     const c = JSON.parse(_wc_rf(p, "utf-8"));
     if (c.apiKey) process.env.OPENAI_API_KEY = c.apiKey;
-    console.log("[CyberNexus] Codex API Key injected from", p);
+    console.log("[Echobird] Codex API Key injected from", p);
   } catch {}
 })();
 
@@ -82,7 +82,7 @@ function patchCodex(restore = false) {
         return false;
     }
 
-    const backupPath = entryPath + '.cybernexus-backup';
+    const backupPath = entryPath + '.echobird-backup';
 
     if (restore) {
         if (fs.existsSync(backupPath)) {
@@ -136,7 +136,7 @@ function patchCodex(restore = false) {
 
     console.log('✅ Patch applied! Codex entry:', entryPath);
     console.log('');
-    console.log('💡 Codex will now read API Key from ~/.cybernexus/codex.json on startup');
+    console.log('💡 Codex will now read API Key from ~/.echobird/codex.json on startup');
 
     return true;
 }
@@ -150,7 +150,7 @@ if (isRestore) {
     const success = patchCodex(true);
     process.exit(success ? 0 : 1);
 } else {
-    console.log('🔧 Patching Codex for CyberNexus...');
+    console.log('🔧 Patching Codex for Echobird...');
     const success = patchCodex(false);
     process.exit(success ? 0 : 1);
 }

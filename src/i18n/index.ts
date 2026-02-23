@@ -41,6 +41,28 @@ const localeModules: Record<string, () => Promise<{ default: Partial<Translation
 // 已加载的语言缓存
 const loadedLocales: Record<string, Translations> = { en };
 
+// Supported locale codes (besides 'en')
+export const supportedLocales = ['en', ...Object.keys(localeModules)];
+
+// Detect best matching locale from browser/system language
+export function detectLocale(): string {
+    try {
+        const langs = navigator.languages || [navigator.language];
+        for (const lang of langs) {
+            const tag = lang.trim();
+            // Exact match (e.g. 'ja', 'ko', 'de')
+            if (supportedLocales.includes(tag)) return tag;
+            // Map BCP47 to our keys
+            if (/^zh\b.*(?:Hans|CN|SG)/i.test(tag)) return 'zh-Hans';
+            if (/^zh\b/i.test(tag)) return 'zh-Hant';
+            // Base language match (e.g. 'pt-BR' -> 'pt')
+            const base = tag.split('-')[0].toLowerCase();
+            if (supportedLocales.includes(base)) return base;
+        }
+    } catch { /* SSR / test env */ }
+    return 'en';
+}
+
 // 预加载语言包
 export async function loadLocale(locale: string): Promise<void> {
     if (locale === 'en' || loadedLocales[locale]) return;

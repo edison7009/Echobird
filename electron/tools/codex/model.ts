@@ -240,7 +240,7 @@ function startCodexProxy(baseUrl: string, apiKey: string): Promise<number> {
             const url = req.url || '';
             if (url.includes('/responses')) { handleResponsesRequest(req, res); return; }
             res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ status: 'ok', proxy: 'CyberNexus-codex-proxy' }));
+            res.end(JSON.stringify({ status: 'ok', proxy: 'Echobird-codex-proxy' }));
         });
         server.listen(0, '127.0.0.1', () => {
             const addr = server.address();
@@ -265,16 +265,16 @@ function stopCodexProxy() {
  * Codex CLI Model Module (Patch Injection)
  * 
  * 配置分两部分：
- * 1. ~/.cybernexus/codex.json — 存储 API Key（补丁读取后注入环境变量）
+ * 1. ~/.echobird/codex.json — 存储 API Key（补丁读取后注入环境变量）
  * 2. ~/.codex/config.toml — 存储 model/provider 配置（Codex 原生读取）
  * 
  * 补丁脚本注入到 codex.js 启动器，在 spawn codex.exe 前设置 OPENAI_API_KEY。
  */
 
-const CyberNexus_DIR = path.join(os.homedir(), '.cybernexus');
-const WC_CODEX_CONFIG = path.join(CyberNexus_DIR, 'codex.json');
+const ECHOBIRD_DIR = path.join(os.homedir(), '.echobird');
+const WC_CODEX_CONFIG = path.join(ECHOBIRD_DIR, 'codex.json');
 // 补丁标记
-const PATCH_MARKER = '[CyberNexus-Codex-Patched]';
+const PATCH_MARKER = '[Echobird-Codex-Patched]';
 
 // 从 URL 提取域名作为 provider 名
 function extractDomainName(url: string): string {
@@ -286,7 +286,7 @@ function extractDomainName(url: string): string {
         }
         return hostname;
     } catch {
-        return 'CyberNexus';
+        return 'Echobird';
     }
 }
 
@@ -382,16 +382,16 @@ function generateToml(
 }
 
 /**
- * 确保 CyberNexus 配置目录存在
+ * 确保 Echobird config directory存在
  */
 function ensureConfigDir(): void {
-    if (!fs.existsSync(CyberNexus_DIR)) {
-        fs.mkdirSync(CyberNexus_DIR, { recursive: true });
+    if (!fs.existsSync(ECHOBIRD_DIR)) {
+        fs.mkdirSync(ECHOBIRD_DIR, { recursive: true });
     }
 }
 
 /**
- * 写入 CyberNexus Codex 配置（API Key）
+ * 写入 Echobird Codex 配置（API Key）
  */
 function writeWcConfig(apiKey: string): boolean {
     try {
@@ -401,7 +401,7 @@ function writeWcConfig(apiKey: string): boolean {
         console.log(`[Codex] API Key written to ${WC_CODEX_CONFIG}`);
         return true;
     } catch (e: any) {
-        console.error('[Codex] Failed to write CyberNexus config:', e.message);
+        console.error('[Codex] Failed to write Echobird config:', e.message);
         return false;
     }
 }
@@ -502,7 +502,7 @@ export async function applyConfig(
     getConfigFile: () => string
 ): Promise<{ success: boolean; message: string }> {
     try {
-        // 1. 写入 API Key 到 ~/.cybernexus/codex.json（补丁读取）
+        // 1. 写入 API Key 到 ~/.echobird/codex.json（补丁读取）
         if (modelInfo.apiKey) {
             writeWcConfig(modelInfo.apiKey);
         }
@@ -533,7 +533,7 @@ export async function applyConfig(
 
         // 3. 写入 model/provider 配置到 ~/.codex/config.toml
         const providerName = isOpenAI ? 'openai' : extractDomainName(baseUrl);
-        const profileName = 'CyberNexus';
+        const profileName = 'Echobird';
 
         // model 字段：优先用 modelId（云端），fallback 到 name（本地模型）
         const modelName = modelInfo.model || modelInfo.name || 'unknown';
@@ -541,7 +541,7 @@ export async function applyConfig(
         const tomlContent = generateToml(
             providerName,
             {
-                name: `${providerName} (via CyberNexus)`,
+                name: `${providerName} (via Echobird)`,
                 base_url: actualBaseUrl,
                 env_key: 'OPENAI_API_KEY',
                 wire_api: 'responses',

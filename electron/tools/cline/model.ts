@@ -7,23 +7,23 @@ import { ModelInfo } from '../types';
 /**
  * Cline Model Module (Patch Injection)
  * 
- * Writes config to ~/.cybernexus/cline.json,
+ * Writes config to ~/.echobird/cline.json,
  * patched Cline extension reads this file on startup and overrides API settings.
  * Auto-detects and applies patch on each Apply.
  */
 
-const CyberNexus_DIR = path.join(os.homedir(), '.cybernexus');
-const CLINE_CONFIG_FILE = path.join(CyberNexus_DIR, 'cline.json');
-// 补丁标记
-const PATCH_MARKER = '[CyberNexus-Patched]';
+const ECHOBIRD_DIR = path.join(os.homedir(), '.echobird');
+const CLINE_CONFIG_FILE = path.join(ECHOBIRD_DIR, 'cline.json');
+// Patch marker
+const PATCH_MARKER = '[Echobird-Patched]';
 // VS Code 扩展目录
 const VSCODE_EXTENSIONS_DIR = path.join(os.homedir(), '.vscode', 'extensions');
 const CLINE_EXT_PREFIX = 'saoudrizwan.claude-dev-';
 
 /**
- * CyberNexus Cline config file format
+ * Echobird Cline config file format
  */
-interface CyberNexusClineConfig {
+interface EchobirdClineConfig {
     provider: 'openai';
     apiKey: string;
     baseUrl?: string;
@@ -35,19 +35,19 @@ interface CyberNexusClineConfig {
  * Ensure config directory exists
  */
 function ensureConfigDir(): void {
-    if (!fs.existsSync(CyberNexus_DIR)) {
-        fs.mkdirSync(CyberNexus_DIR, { recursive: true });
+    if (!fs.existsSync(ECHOBIRD_DIR)) {
+        fs.mkdirSync(ECHOBIRD_DIR, { recursive: true });
     }
 }
 
 /**
  * Read current config file
  */
-function readConfig(): CyberNexusClineConfig | null {
+function readConfig(): EchobirdClineConfig | null {
     try {
         if (fs.existsSync(CLINE_CONFIG_FILE)) {
             const content = fs.readFileSync(CLINE_CONFIG_FILE, 'utf-8');
-            return JSON.parse(content) as CyberNexusClineConfig;
+            return JSON.parse(content) as EchobirdClineConfig;
         }
     } catch (e: any) {
         console.error('[Cline] Failed to read config:', e.message);
@@ -58,7 +58,7 @@ function readConfig(): CyberNexusClineConfig | null {
 /**
  * Write config file
  */
-function writeConfig(config: CyberNexusClineConfig): boolean {
+function writeConfig(config: EchobirdClineConfig): boolean {
     try {
         ensureConfigDir();
         fs.writeFileSync(CLINE_CONFIG_FILE, JSON.stringify(config, null, 2), 'utf-8');
@@ -71,7 +71,7 @@ function writeConfig(config: CyberNexusClineConfig): boolean {
 }
 
 /**
- * Read current Cline model info from CyberNexus config
+ * Read current Cline model info from Echobird config
  */
 export async function getCurrentModelInfo(
     _readConfig: () => Promise<any>
@@ -139,7 +139,7 @@ function ensurePatch(): { patched: boolean; message: string } {
 
 /**
  * Apply model config to Cline
- * Write to ~/.cybernexus/cline.json and auto-detect/patch extension
+ * Write to ~/.echobird/cline.json and auto-detect/patch extension
  */
 export async function applyConfig(
     modelInfo: ModelInfo,
@@ -150,7 +150,7 @@ export async function applyConfig(
     try {
         const provider: 'openai' = 'openai';
 
-        const config: CyberNexusClineConfig = {
+        const config: EchobirdClineConfig = {
             provider,
             apiKey: modelInfo.apiKey || '',
             modelId: modelInfo.model,

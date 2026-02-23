@@ -2,7 +2,8 @@
 import { Translations } from './types';
 
 const ja: Partial<Translations> = {
-    // ナビゲーション
+    // ナビゲーション    'app.name': 'Echobird',
+
     'nav.modelNexus': 'モデルセンター',
     'nav.skillBrowser': 'スキル一覧',
     'nav.appManager': 'アプリ管理',

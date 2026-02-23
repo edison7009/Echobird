@@ -721,8 +721,8 @@ export function registerLocalModelHandlers() {
     }
 
     // Load Model Store Config (Remote → Cache → Built-in fallback)
-    const STORE_CONFIG_URL = 'https://CyberNexus.com/api/store/models.json';
-    const storeCachePath = path.join(os.homedir(), '.cybernexus', 'cache', 'store-models.json');
+    const STORE_CONFIG_URL = 'https://echobird.ai/api/store/models.json';
+    const storeCachePath = path.join(os.homedir(), '.echobird', 'cache', 'store-models.json');
 
     function loadLocalStoreConfig(): any[] {
         const configPaths: string[] = [];
@@ -973,7 +973,7 @@ export function registerLocalModelHandlers() {
                 if (redirectCount > 5 || settled) { done(); return; }
                 try {
                     const client = currentUrl.startsWith('https') ? https : http;
-                    const r = client.get(currentUrl, { headers: { 'User-Agent': 'CyberNexus/1.0' } }, (res) => {
+                    const r = client.get(currentUrl, { headers: { 'User-Agent': 'Echobird/1.0' } }, (res) => {
                         if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
                             const nextUrl = new URL(res.headers.location, currentUrl).href;
                             handleRedirect(nextUrl, redirectCount + 1);
@@ -991,7 +991,7 @@ export function registerLocalModelHandlers() {
 
             try {
                 const client = url.startsWith('https') ? https : http;
-                const r = client.get(url, { headers: { 'User-Agent': 'CyberNexus/1.0' } }, (res) => {
+                const r = client.get(url, { headers: { 'User-Agent': 'Echobird/1.0' } }, (res) => {
                     if (res.statusCode && res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
                         const nextUrl = new URL(res.headers.location, url).href;
                         handleRedirect(nextUrl, 1);
@@ -1033,7 +1033,7 @@ export function registerLocalModelHandlers() {
                     console.log(`[ModelStore] [${source.name}] Resume mode, downloaded ${startByte} bytes`);
                 }
 
-                const headers: Record<string, string> = { 'User-Agent': 'CyberNexus/1.0' };
+                const headers: Record<string, string> = { 'User-Agent': 'Echobird/1.0' };
                 if (startByte > 0) {
                     headers['Range'] = `bytes=${startByte}-`;
                 }

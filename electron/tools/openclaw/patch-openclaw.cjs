@@ -1,9 +1,9 @@
 /**
- * CyberNexus OpenClaw Patch Script
- * Injects CyberNexus config reading code into the installed OpenClaw's openclaw.mjs entry file
+ * Echobird OpenClaw Patch Script
+ * Injects Echobird config reading code into the installed OpenClaw's openclaw.mjs entry file
  * 
  * Functionality: Before loading dist/entry.js, injects code that
- * reads model config from ~/.cybernexus/openclaw.json
+ * reads model config from ~/.echobird/openclaw.json
  * and writes it into ~/.openclaw/openclaw.json's models.providers.
  * 
  * Usage: node patch-openclaw.cjs [--restore]
@@ -21,18 +21,18 @@ const NPM_GLOBAL_MODULES = [
   '/usr/lib/node_modules/openclaw',
 ];
 
-// CyberNexus patch marker
-const PATCH_MARKER = '/* [CyberNexus-Patched] */';
+// Echobird patch marker
+const PATCH_MARKER = '/* [Echobird-Patched] */';
 
-// Injection code: read ~/.cybernexus/openclaw.json and merge into ~/.openclaw/openclaw.json before OpenClaw starts
+// Injection code: read ~/.echobird/openclaw.json and merge into ~/.openclaw/openclaw.json before OpenClaw starts
 const INJECT_CODE = `
 ${PATCH_MARKER}
 import { readFileSync as _wc_readFileSync, writeFileSync as _wc_writeFileSync, existsSync as _wc_existsSync, mkdirSync as _wc_mkdirSync } from "node:fs";
 import { join as _wc_join } from "node:path";
 import { homedir as _wc_homedir } from "node:os";
-(function _CyberNexus_inject() {
+(function _Echobird_inject() {
   try {
-    const wcConfigPath = _wc_join(_wc_homedir(), ".cybernexus", "openclaw.json");
+    const wcConfigPath = _wc_join(_wc_homedir(), ".echobird", "openclaw.json");
     if (!_wc_existsSync(wcConfigPath)) return;
     const wcConfig = JSON.parse(_wc_readFileSync(wcConfigPath, "utf-8"));
     if (!wcConfig.modelId || !wcConfig.apiKey) return;
@@ -54,7 +54,7 @@ import { homedir as _wc_homedir } from "node:os";
     if (!ocConfig.agents.defaults) ocConfig.agents.defaults = {};
     if (!ocConfig.agents.defaults.model) ocConfig.agents.defaults.model = {};
 
-    // Clean up old CyberNexus providers (keys starting with wc_ are pushed by CyberNexus)
+    // Clean up old Echobird providers (keys starting with wc_ are pushed by Echobird)
     for (const key of Object.keys(ocConfig.models.providers)) {
       if (key.startsWith("wc_")) {
         delete ocConfig.models.providers[key];
@@ -97,12 +97,12 @@ import { homedir as _wc_homedir } from "node:os";
       }]
     };
     ocConfig.agents.defaults.model.primary = wcProviderName + "/" + wcConfig.modelId;
-    console.log("[CyberNexus] Injected " + apiType + " model: " + wcProviderName + "/" + wcConfig.modelId);
+    console.log("[Echobird] Injected " + apiType + " model: " + wcProviderName + "/" + wcConfig.modelId);
 
     // Write back openclaw.json
     _wc_writeFileSync(ocConfigPath, JSON.stringify(ocConfig, null, 2), "utf-8");
   } catch (err) {
-    console.warn("[CyberNexus] Config injection failed:", err.message);
+    console.warn("[Echobird] Config injection failed:", err.message);
   }
 })();
 
@@ -148,7 +148,7 @@ function patchOpenClaw(restore = false) {
     return false;
   }
 
-  const backupPath = entryPath + '.cybernexus-backup';
+  const backupPath = entryPath + '.echobird-backup';
 
   if (restore) {
     if (fs.existsSync(backupPath)) {
@@ -203,10 +203,10 @@ function patchOpenClaw(restore = false) {
 
   console.log('Patch applied successfully! OpenClaw entry file:', entryPath);
   console.log('');
-  console.log('On each OpenClaw startup, model config will be read from ~/.cybernexus/openclaw.json');
+  console.log('On each OpenClaw startup, model config will be read from ~/.echobird/openclaw.json');
   console.log('and injected into ~/.openclaw/openclaw.json providers');
   console.log('');
-  console.log('Config file format (~/.cybernexus/openclaw.json):');
+  console.log('Config file format (~/.echobird/openclaw.json):');
   console.log(JSON.stringify({
     apiKey: 'sk-xxx',
     baseUrl: 'https://api.example.com/v1',
@@ -226,7 +226,7 @@ if (isRestore) {
   const success = patchOpenClaw(true);
   process.exit(success ? 0 : 1);
 } else {
-  console.log('Applying CyberNexus patch to OpenClaw...');
+  console.log('Applying Echobird patch to OpenClaw...');
   const success = patchOpenClaw(false);
   process.exit(success ? 0 : 1);
 }

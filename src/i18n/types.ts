@@ -2,6 +2,8 @@
 
 // 翻译 key 定义
 export type TKey =
+    // App
+    | 'app.name'
     // 导航
     | 'nav.modelNexus' | 'nav.skillBrowser' | 'nav.appManager'
     | 'nav.localServer' | 'nav.logsDebug'

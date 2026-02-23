@@ -1,31 +1,31 @@
 <p align="center">
-  <img src="../build/icon.png" alt="CyberNexus" width="120" />
+  <img src="../build/icon.png" alt="Echobird" width="120" />
 </p>
 
-<h1 align="center">CyberNexus</h1>
+<h1 align="center">Echobird</h1>
 
 <p align="center">
   The Nexus for <strong>Models</strong>, <strong>Agents</strong> & <strong>Vibe Coding</strong>.<br/>
-  <sub>CyberNexus 是一款桌面应用，为你的 AI 编程工具提供</sub>
+  <sub>Echobird 是一款桌面应用，为你的 AI 编程工具提供可视化、统一的模型管理界面。无需再手动翻配置文件 —— 点一下，就能切换。</sub>
 </p>
 
 <p align="center">
-  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
-    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/edison7009/Echobird/releases">
+    <img src="https://img.shields.io/github/v/release/edison7009/Echobird?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/edison7009/Echobird?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
-  <a href="../README.md">English</a> · **简体中文** · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a> · <a href="./README.es.md">Español</a> · <a href="./README.fr.md">Français</a> · <a href="./README.de.md">Deutsch</a> · <a href="./README.pt.md">Português</a> · <a href="./README.ru.md">Русский</a> · <a href="./README.ar.md">العربية</a>
+  <a href="../README.md">English</a> · **简体中文** · <a href="./README.zh-TW.md">繁體中文</a> · <a href="./README.ja.md">日本語</a> · <a href="./README.ko.md">한국어</a>
 </p>
 
 ---
 
-## ✨ CyberNexus 是什么？
+## ✨ Echobird 是什么？
 
-CyberNexus 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件 —— 点一下，就能切换。
+Echobird 是一款桌面应用，为你的 AI 编程工具提供**可视化、统一的模型管理界面**。无需再手动翻配置文件 —— 点一下，就能切换。
 
 ### 痛点
 
@@ -35,7 +35,7 @@ CyberNexus 是一款桌面应用，为你的 AI 编程工具提供**可视化、
 
 ### 解决方案
 
-CyberNexus 是你所有 AI 编程工具的**中央控制面板**：
+Echobird 是你所有 AI 编程工具的**中央控制面板**：
 
 - 🎯 **一键切换模型** — 可视化切换任何支持工具的 AI 模型
 - 🔀 **双协议支持** — OpenAI & Anthropic API 支持，随时随地切换模型
@@ -49,16 +49,16 @@ CyberNexus 是你所有 AI 编程工具的**中央控制面板**：
 ## 🖼️ 截图
 
 ### Model Nexus — 在一处管理所有 AI 模型
-![Model Nexus](1.png)
+![Model Nexus](./1.png)
 
 ### App Manager — 一键为所有编程工具切换模型
-![App Manager](2.png)
+![App Manager](./2.png)
 
 ### Local Server — 通过 llama.cpp 本地运行开源模型
-![Local Server](3.png)
+![Local Server](./3.png)
 
 ### Skill Browser — 发现和安装 AI 技能
-![Skill Browser](4.png)
+![Skill Browser](./4.png)
 
 ## 🚀 快速开始
 
@@ -68,15 +68,15 @@ CyberNexus 是你所有 AI 编程工具的**中央控制面板**：
 
 | 平台 | 下载 |
 |----------|----------|
-| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
-| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
-| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Windows  | [Echobird-Setup.exe](https://github.com/edison7009/Echobird/releases/latest) |
+| macOS    | [Echobird.dmg](https://github.com/edison7009/Echobird/releases/latest) |
+| Linux    | [Echobird.AppImage](https://github.com/edison7009/Echobird/releases/latest) |
 
 ### Linux 说明
 
 ```bash
-chmod +x CyberNexus-*.AppImage
-./CyberNexus-*.AppImage
+chmod +x Echobird-*.AppImage
+./Echobird-*.AppImage
 ```
 
 > 如果遇到 FUSE 错误： `sudo apt install libfuse2`
@@ -114,25 +114,13 @@ npm run build
 欢迎贡献！随时提交 Issue 或 Pull Request。
 
 We're especially looking for help with:
-- 🍎 **macOS 测试** — 我们还没有完全测试 macOS 构建
-- 🔧 **新工具集成** — 帮助我们支持更多 AI 编程工具
-- 🌐 **翻译改进** — 欢迎母语使用者！
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📬 Contact
-
-- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
+- 🍎 **macOS 测试**
+- 🔧 **新工具集成**
+- 🌐 **翻译改进**
 
 ## ⭐ 支持
 
-如果 CyberNexus 对你有帮助，请在 GitHub 上给个 ⭐ —— 让更多人发现这个项目！
+如果 Echobird 对你有帮助，请在 GitHub 上给个 ⭐ —— 让更多人发现这个项目！
 
 ## 📄 许可证
 
@@ -141,6 +129,6 @@ We're especially looking for help with:
 ---
 
 <p align="center">
-  由 CyberNexus 团队用 💚 打造<br/>
-  <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
+  由 Echobird 团队用 💚 打造<br/>
+  <sub>📧 <a href="mailto:hi@echobird.ai">hi@echobird.ai</a></sub>
 </p>

@@ -1,20 +1,20 @@
 <p align="center">
-  <img src="../build/icon.png" alt="CyberNexus" width="120" />
+  <img src="../build/icon.png" alt="Echobird" width="120" />
 </p>
 
-<h1 align="center">CyberNexus</h1>
+<h1 align="center">Echobird</h1>
 
 <p align="center">
   The Nexus for <strong>Models</strong>, <strong>Agents</strong> & <strong>Vibe Coding</strong>.<br/>
-  <sub>CyberNexus — это настольное приложение, предоставляющее</sub>
+  <sub>Echobird — это настольное приложение, предоставляющее</sub>
 </p>
 
 <p align="center">
-  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
-    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/edison7009/Echobird/releases">
+    <img src="https://img.shields.io/github/v/release/edison7009/Echobird?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/edison7009/Echobird?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 ---
 
-## ✨ Что такое CyberNexus?
+## ✨ Что такое Echobird?
 
-CyberNexus — это настольное приложение, предоставляющее **визуальный, унифицированный интерфейс** для управления ИИ-моделями во всех ваших инструментах разработки. Больше не нужно копаться в конфигурационных файлах — просто нажмите и переключите.
+Echobird — это настольное приложение, предоставляющее **визуальный, унифицированный интерфейс** для управления ИИ-моделями во всех ваших инструментах разработки. Больше не нужно копаться в конфигурационных файлах — просто нажмите и переключите.
 
 ### Проблема
 
@@ -35,7 +35,7 @@ CyberNexus — это настольное приложение, предост�
 
 ### Решение
 
-CyberNexus выступает **центральной панелью управления** для всех ваших ИИ-инструментов разработки:
+Echobird выступает **центральной панелью управления** для всех ваших ИИ-инструментов разработки:
 
 - 🎯 **Переключение Модели в Один Клик** — Визуально переключайте ИИ-модели для любого поддерживаемого инструмента
 - 🔀 **Двойной Протокол** — Поддержка OpenAI и Anthropic API, переключение моделей в любое время
@@ -68,15 +68,15 @@ CyberNexus выступает **центральной панелью управ
 
 | Платформа | Скачать |
 |----------|----------|
-| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
-| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
-| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Windows  | [Echobird-Setup.exe](https://github.com/edison7009/Echobird/releases/latest) |
+| macOS    | [Echobird.dmg](https://github.com/edison7009/Echobird/releases/latest) |
+| Linux    | [Echobird.AppImage](https://github.com/edison7009/Echobird/releases/latest) |
 
 ### Примечания для Linux
 
 ```bash
-chmod +x CyberNexus-*.AppImage
-./CyberNexus-*.AppImage
+chmod +x Echobird-*.AppImage
+./Echobird-*.AppImage
 ```
 
 > При ошибках FUSE: `sudo apt install libfuse2`
@@ -126,13 +126,13 @@ We're especially looking for help with:
 
 ## 📬 Contact
 
-- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
+- 📧 Email: [hi@echobird.ai](mailto:hi@echobird.ai)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/edison7009/Echobird/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/edison7009/Echobird/discussions)
 
 ## ⭐ Поддержка
 
-Если CyberNexus вам полезен, поставьте ⭐ на GitHub — это помогает другим найти проект!
+Если Echobird вам полезен, поставьте ⭐ на GitHub — это помогает другим найти проект!
 
 ## 📄 Лицензия
 
@@ -141,6 +141,6 @@ We're especially looking for help with:
 ---
 
 <p align="center">
-  Сделано с 💚 командой CyberNexus<br/>
-  <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
+  Сделано с 💚 командой Echobird<br/>
+  <sub>📧 <a href="mailto:hi@echobird.ai">hi@echobird.ai</a></sub>
 </p>

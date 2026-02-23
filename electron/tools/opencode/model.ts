@@ -31,7 +31,7 @@ function extractDomainName(url: string): string {
         }
         return hostname;
     } catch {
-        return 'CyberNexus';
+        return 'Echobird';
     }
 }
 
@@ -101,7 +101,7 @@ export async function applyConfig(
         config.provider = {};
         config.provider[providerName] = {
             npm: '@ai-sdk/openai-compatible',
-            name: `${providerName} (via CyberNexus)`,
+            name: `${providerName} (via Echobird)`,
             options: {
                 baseURL: baseUrl,
                 apiKey: modelInfo.apiKey || '',

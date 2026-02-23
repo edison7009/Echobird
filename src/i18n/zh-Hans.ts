@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const zhHans: Partial<Translations> = {
+    'app.name': '百灵鸟',
     'nav.modelNexus': '模型中心',
     'nav.skillBrowser': '技能浏览',
     'nav.appManager': '应用管理',

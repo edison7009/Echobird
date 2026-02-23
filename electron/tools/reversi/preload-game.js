@@ -17,7 +17,7 @@ try {
     contextBridge.exposeInMainWorld('gameConfig', {
         saveModelInfo: (modelData) => {
             try {
-                const configDir = path.join(os.homedir(), '.cybernexus');
+                const configDir = path.join(os.homedir(), '.echobird');
                 if (!fs.existsSync(configDir)) fs.mkdirSync(configDir, { recursive: true });
                 const configPath = path.join(configDir, 'reversi.json');
                 fs.writeFileSync(configPath, JSON.stringify(modelData, null, 2), 'utf-8');
@@ -28,7 +28,7 @@ try {
     });
 
     // 自动安装默认技能（首次运行）
-    const userSkillsDir = path.join(os.homedir(), '.cybernexus', 'reversi-skills');
+    const userSkillsDir = path.join(os.homedir(), '.echobird', 'reversi-skills');
     if (!fs.existsSync(userSkillsDir)) {
         const defaultSkillsDir = path.join(__dirname, 'default-skills');
         if (fs.existsSync(defaultSkillsDir)) {

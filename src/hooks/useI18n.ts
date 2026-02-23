@@ -1,6 +1,6 @@
 // 轻量级 i18n React Hook + Context（支持懒加载语言包）
 import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
-import { translate, loadLocale, TKey } from '../i18n';
+import { translate, loadLocale, detectLocale, TKey } from '../i18n';
 
 interface I18nContextValue {
     locale: string;
@@ -14,11 +14,11 @@ const I18nContext = createContext<I18nContextValue>({
     t: (key) => key,
 });
 
-const STORAGE_KEY = 'cybernexus-locale';
+const STORAGE_KEY = 'echobird-locale';
 
 export const I18nProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [locale, setLocaleState] = useState(() => {
-        try { return localStorage.getItem(STORAGE_KEY) || 'en'; } catch { return 'en'; }
+        try { return localStorage.getItem(STORAGE_KEY) || detectLocale(); } catch { return 'en'; }
     });
     // 语言包是否已加载
     const [ready, setReady] = useState(locale === 'en');

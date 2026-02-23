@@ -84,7 +84,7 @@ describe('Config read/write (claudecode data-driven mapping)', () => {
     let tmpDir: string;
 
     beforeEach(() => {
-        tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'CyberNexus-test-'));
+        tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'Echobird-test-'));
     });
 
     afterEach(() => {

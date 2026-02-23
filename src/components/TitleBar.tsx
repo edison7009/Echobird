@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Settings, Minus, X } from 'lucide-react';
 import { useI18n } from '../hooks/useI18n';
 
-const CLOSE_BEHAVIOR_KEY = 'cybernexus-close-behavior';
+const CLOSE_BEHAVIOR_KEY = 'echobird-close-behavior';
 
 interface TitleBarProps {
     onSettingsClick?: () => void;

@@ -1,20 +1,20 @@
 <p align="center">
-  <img src="../build/icon.png" alt="CyberNexus" width="120" />
+  <img src="../build/icon.png" alt="Echobird" width="120" />
 </p>
 
-<h1 align="center">CyberNexus</h1>
+<h1 align="center">Echobird</h1>
 
 <p align="center">
   The Nexus for <strong>Models</strong>, <strong>Agents</strong> & <strong>Vibe Coding</strong>.<br/>
-  <sub>CyberNexus é um aplicativo de desktop que fornece uma</sub>
+  <sub>Echobird é um aplicativo de desktop que fornece uma</sub>
 </p>
 
 <p align="center">
-  <a href="https://github.com/CyberNexus-Chat/CyberNexus/releases">
-    <img src="https://img.shields.io/github/v/release/CyberNexus-Chat/CyberNexus?style=flat-square&color=00FF9D" alt="Release" />
+  <a href="https://github.com/edison7009/Echobird/releases">
+    <img src="https://img.shields.io/github/v/release/edison7009/Echobird?style=flat-square&color=00FF9D" alt="Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/github/license/CyberNexus-Chat/CyberNexus?style=flat-square" alt="License" />
+  <img src="https://img.shields.io/github/license/edison7009/Echobird?style=flat-square" alt="License" />
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 
 ---
 
-## ✨ O que é CyberNexus?
+## ✨ O que é Echobird?
 
-CyberNexus é um aplicativo de desktop que fornece uma **interface visual e unificada** para gerenciar modelos de IA nas suas ferramentas de programação. Sem mais edição de arquivos de configuração — apenas clique e troque.
+Echobird é um aplicativo de desktop que fornece uma **interface visual e unificada** para gerenciar modelos de IA nas suas ferramentas de programação. Sem mais edição de arquivos de configuração — apenas clique e troque.
 
 ### O Problema
 
@@ -35,7 +35,7 @@ CyberNexus é um aplicativo de desktop que fornece uma **interface visual e unif
 
 ### A Solução
 
-CyberNexus atua como um **painel de controle central** para todas as suas ferramentas de programação com IA:
+Echobird atua como um **painel de controle central** para todas as suas ferramentas de programação com IA:
 
 - 🎯 **Troca de Modelo com Um Clique** — Troque visualmente modelos de IA para qualquer ferramenta compatível
 - 🔀 **Protocolo Duplo** — Suporte OpenAI e Anthropic API, troque modelos a qualquer momento
@@ -68,15 +68,15 @@ Obtenha a versão mais recente para sua plataforma:
 
 | Plataforma | Download |
 |----------|----------|
-| Windows  | [CyberNexus-Setup.exe](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
-| macOS    | [CyberNexus.dmg](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
-| Linux    | [CyberNexus.AppImage](https://github.com/CyberNexus-Chat/CyberNexus/releases/latest) |
+| Windows  | [Echobird-Setup.exe](https://github.com/edison7009/Echobird/releases/latest) |
+| macOS    | [Echobird.dmg](https://github.com/edison7009/Echobird/releases/latest) |
+| Linux    | [Echobird.AppImage](https://github.com/edison7009/Echobird/releases/latest) |
 
 ### Notas do Linux
 
 ```bash
-chmod +x CyberNexus-*.AppImage
-./CyberNexus-*.AppImage
+chmod +x Echobird-*.AppImage
+./Echobird-*.AppImage
 ```
 
 > Se encontrar erros de FUSE: `sudo apt install libfuse2`
@@ -126,13 +126,13 @@ We're especially looking for help with:
 
 ## 📬 Contact
 
-- 📧 Email: [hi@cybernexus.chat](mailto:hi@cybernexus.chat)
-- 🐛 Bug Reports: [GitHub Issues](https://github.com/CyberNexus-Chat/CyberNexus/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/CyberNexus-Chat/CyberNexus/discussions)
+- 📧 Email: [hi@echobird.ai](mailto:hi@echobird.ai)
+- 🐛 Bug Reports: [GitHub Issues](https://github.com/edison7009/Echobird/issues)
+- 💬 Discussions: [GitHub Discussions](https://github.com/edison7009/Echobird/discussions)
 
 ## ⭐ Apoio
 
-Se CyberNexus é útil para você, considere dar uma ⭐ no GitHub — ajuda outros a descobrirem o projeto!
+Se Echobird é útil para você, considere dar uma ⭐ no GitHub — ajuda outros a descobrirem o projeto!
 
 ## 📄 Licença
 
@@ -141,6 +141,6 @@ Se CyberNexus é útil para você, considere dar uma ⭐ no GitHub — ajuda out
 ---
 
 <p align="center">
-  Feito com 💚 pela equipe CyberNexus<br/>
-  <sub>📧 <a href="mailto:hi@cybernexus.chat">hi@cybernexus.chat</a></sub>
+  Feito com 💚 pela equipe Echobird<br/>
+  <sub>📧 <a href="mailto:hi@echobird.ai">hi@echobird.ai</a></sub>
 </p>

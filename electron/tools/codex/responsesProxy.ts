@@ -6,7 +6,7 @@
  * 再把响应伪装成 Responses API 格式返回给 Codex。
  * 
  * Codex 以为在跟 OpenAI 对话，第三方 API 以为收到了标准请求。
- * 两边都被"骗"了，只有 CyberNexus 知道真相。
+ * 两边都被"骗"了，只有 Echobird knows the truth。
  */
 
 import http from 'http';
@@ -456,7 +456,7 @@ export function startCodexProxy(baseUrl: string, apiKey: string): Promise<number
 
             // 其他路径直接返回 200（健康检查等）
             res.writeHead(200, { 'Content-Type': 'application/json' });
-            res.end(JSON.stringify({ status: 'ok', proxy: 'CyberNexus-codex-proxy' }));
+            res.end(JSON.stringify({ status: 'ok', proxy: 'Echobird-codex-proxy' }));
         });
 
         // 动态分配端口（端口 0 = 系统自动选）

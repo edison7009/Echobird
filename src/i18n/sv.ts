@@ -2,6 +2,7 @@
 import { Translations } from './types';
 
 const sv: Partial<Translations> = {
+    'app.name': 'Echobird',
     'nav.modelNexus': 'Modellcenter', 'nav.skillBrowser': 'Färdighetsbläddrare', 'nav.appManager': 'Apphanterare', 'nav.localServer': 'Lokal server', 'nav.logsDebug': 'Loggar & Felsökning',
     'page.modelNexus': 'MODELLCENTER', 'page.skillBrowser': 'FÄRDIGHETSBLÄDDRARE', 'page.appManager': 'APPHANTERARE', 'page.localServer': 'LOKAL SERVER', 'page.logsDebug': 'LOGGAR & FELSÖKNING',
     'settings.title': 'INSTÄLLNINGAR', 'settings.version': 'VERSION', 'settings.language': 'SPRÅK', 'settings.logsDebug': 'LOGGAR & FELSÖKNING', 'settings.updates': 'UPPDATERINGAR',

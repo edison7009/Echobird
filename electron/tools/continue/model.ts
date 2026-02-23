@@ -73,7 +73,7 @@ export async function applyConfig(
         // Create new config if none exists
         if (!config) {
             config = {
-                name: 'CyberNexus Config',
+                name: 'Echobird Config',
                 version: '1.0.0',
                 schema: 'v1',
                 models: []
@@ -114,13 +114,13 @@ export async function applyConfig(
             newModel.apiKey = modelInfo.apiKey;
         }
 
-        // Find existing CyberNexus-pushed model (name ends with domain tag in parentheses)
+        // Find existing Echobird-pushed model (name ends with domain tag in parentheses)
         const existingIndex = config.models.findIndex((m: any) =>
             m.name && /\([\w.-]+\)$/.test(m.name.trim())
         );
 
         if (existingIndex >= 0) {
-            // Replace existing CyberNexus model
+            // Replace existing Echobird model
             config.models[existingIndex] = newModel;
         } else {
             // Insert at top

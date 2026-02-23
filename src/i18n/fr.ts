@@ -2,7 +2,8 @@
 import { Translations } from './types';
 
 const fr: Partial<Translations> = {
-    // Navigation
+    // Navigation    'app.name': 'Echobird',
+
     'nav.modelNexus': 'Centre de modèles',
     'nav.skillBrowser': 'Explorateur de skills',
     'nav.appManager': 'Gestionnaire d\'apps',

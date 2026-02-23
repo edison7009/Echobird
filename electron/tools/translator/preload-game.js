@@ -14,7 +14,7 @@ contextBridge.exposeInMainWorld('gameWindow', {
 });
 
 // 配置文件读写
-const configPath = path.join(os.homedir(), '.cybernexus', 'translator.json');
+const configPath = path.join(os.homedir(), '.echobird', 'translator.json');
 contextBridge.exposeInMainWorld('gameConfig', {
     saveModelInfo: (info) => {
         try {

@@ -1,9 +1,9 @@
 /**
- * CyberNexus Roo Code Patch Script
+ * Echobird Roo Code Patch Script
  * Injects external config reading code into installed Roo Code extension's extension.js
  * 
  * Injects after initialize() fills stateCache/secretCache,
- * reads ~/.cybernexus/roocode.json and overrides API provider settings.
+ * reads ~/.echobird/roocode.json and overrides API provider settings.
  *
  * Usage: node patch-roocode.cjs [--restore]
  */
@@ -16,8 +16,8 @@ const os = require('os');
 const VSCODE_EXTENSIONS_DIR = path.join(os.homedir(), '.vscode', 'extensions');
 const ROOCODE_EXTENSION_PREFIX = 'rooveterinaryinc.roo-cline-';
 
-// CyberNexus patch marker
-const PATCH_MARKER = '/* [CyberNexus-RooCode-Patched] */';
+// Echobird patch marker
+const PATCH_MARKER = '/* [Echobird-RooCode-Patched] */';
 
 // Injection code — override stateCache/secretCache after initialize()
 // Roo Code uses: stateCache for globalState, secretCache for secrets
@@ -25,7 +25,7 @@ const INJECT_CODE = `
 ${PATCH_MARKER}
 (function(){try{
 var _wc_fs=require("fs"),_wc_path=require("path"),_wc_os=require("os");
-var _wc_cfg_path=_wc_path.join(_wc_os.homedir(),".cybernexus","roocode.json");
+var _wc_cfg_path=_wc_path.join(_wc_os.homedir(),".echobird","roocode.json");
 if(_wc_fs.existsSync(_wc_cfg_path)){
 var _wc_cfg=JSON.parse(_wc_fs.readFileSync(_wc_cfg_path,"utf-8"));
 if(_wc_cfg.apiKey&&_wc_cfg.modelId){
@@ -38,9 +38,9 @@ _ctx.globalState.update("apiProvider","openai");
 _ctx.globalState.update("openAiModelId",_wc_cfg.modelId);
 if(_wc_cfg.baseUrl)_ctx.globalState.update("openAiBaseUrl",_wc_cfg.baseUrl);
 _ctx.secrets.store("openAiApiKey",_wc_cfg.apiKey);
-console.log("[CyberNexus] RooCode loaded: model="+_wc_cfg.modelId);
+console.log("[Echobird] RooCode loaded: model="+_wc_cfg.modelId);
 }}
-}catch(_wc_err){console.warn("[CyberNexus] RooCode config error:",_wc_err.message);}}).call(this),
+}catch(_wc_err){console.warn("[Echobird] RooCode config error:",_wc_err.message);}}).call(this),
 `;
 
 /**
@@ -80,7 +80,7 @@ function patchRooCode(restore = false) {
     }
 
     // Backup original file
-    const backupPath = extensionJsPath + '.cybernexus-backup';
+    const backupPath = extensionJsPath + '.echobird-backup';
 
     if (restore) {
         if (fs.existsSync(backupPath)) {
@@ -155,9 +155,9 @@ function patchRooCode(restore = false) {
     console.log('Patch successful! Injection at:', targetIdx);
     console.log('Roo Code extension path:', extDir);
     console.log('');
-    console.log('Roo Code will read config from ~/.cybernexus/roocode.json on next VS Code start');
+    console.log('Roo Code will read config from ~/.echobird/roocode.json on next VS Code start');
     console.log('');
-    console.log('Config format (~/.cybernexus/roocode.json):');
+    console.log('Config format (~/.echobird/roocode.json):');
     console.log(JSON.stringify({
         apiKey: 'sk-xxx',
         baseUrl: 'https://api.example.com/v1',
@@ -177,7 +177,7 @@ if (isRestore) {
     const success = patchRooCode(true);
     process.exit(success ? 0 : 1);
 } else {
-    console.log('Patching Roo Code for CyberNexus...');
+    console.log('Patching Roo Code for Echobird...');
     const success = patchRooCode(false);
     process.exit(success ? 0 : 1);
 }
